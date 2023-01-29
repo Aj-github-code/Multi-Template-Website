@@ -34,6 +34,26 @@
         "web-vitals": "^3.1.0"
     },
     "dependencies": {
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
+        "@hookform/error-message": "^2.0.1",
+        "@mui/icons-material": "^5.11.0",
+        "@mui/material": "^5.11.6",
+        "@mui/styled-engine": "^5.11.0",
+        "@mui/styles": "^5.11.2",
+        "@mui/x-data-grid": "^5.17.21",
+        "draft-js": "^0.11.7",
+        "draftjs-to-html": "^0.9.1",
+        "jquery": "^3.6.3",
+        "jquery-ui-bundle": "^1.12.1-migrate",
+        "react-color": "^2.19.3",
+        "react-color-picker": "^4.0.2",
+        "react-draft-wysiwyg": "^1.15.0",
+        "react-geocode": "^0.2.3",
+        "react-hook-form": "^7.42.1",
+        "react-image-magnify": "^2.7.4",
+        "reactcss": "^1.2.3",
+        "sweetalert": "^2.1.2",
         "sweetalert2": "^11.6.16"
     }
 }
