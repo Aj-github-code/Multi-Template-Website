@@ -16,7 +16,7 @@ class Service extends Component {
                     <div className="container-fluid">
                         <div className="row">
                             {services.map((item ,key) => (
-                                <div className="col" key={key}>
+                                <div className="col-md-4" key={key}>
                                     <div className="card mb-3 mb3-jk">
                                         <div className="row g-0">
                                             <div className="col-md-4">

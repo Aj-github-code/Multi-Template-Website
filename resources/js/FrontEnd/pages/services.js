@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Features from '../components/feature/feature';
 import PageTitle from '../components/pageTitle/pageTitle';
 import Service from '../components/service/service';
-
+import Api from '../../api';
 class Services extends Component {
     constructor(props) {
         super(props);
+        this.apiCtrl = new Api;
         this.state = {
             services: [
                 {
@@ -36,13 +37,32 @@ class Services extends Component {
                     icon: './assets/images/03.jpg'
                 },
                 {
-                    title: 'Finance',
+                    title: 'Sales',
                     description: 'We have the best two wheeler loan interest rate and flexible repayment tenure options through TVS motor\'s Finance',
                     icon: './assets/images/01.jpg'
                 }
             ],
         }
     }
+    componentDidMount(){
+        this.apiCtrl.callAxios(`product/product-category-list`, {is_service: 1}).then((response)=>{
+            console.log('Services', response)
+            if(response.success == true){
+                const res = response.data;
+                let Services = [];
+                res.map((value, index)=>{
+          
+
+                        Services = [...Services, {title:value.category_name, description: value.description, icon: value.image_name_1}]
+                 
+                })
+            
+                this.setState({services: Services})
+            }
+        })
+
+    }
+
     render() {
         return (
             <div className='servicePage'>

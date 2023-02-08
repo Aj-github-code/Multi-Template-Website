@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './productDetails.css';
-import products from '../../local-json/products.json';
+import product from '../../local-json/products.json';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -9,13 +9,13 @@ import ProductCard from '../productCard/productCard';
 import ReactImageMagnify from 'react-image-magnify';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import BookNowButton from '../bookNow/bookNow';
 
 import Api from '../../../api';
+import BookNowButton from '../bookNow/bookNow';
 
 const ProductDetails = () => {
     const { category, slug } = useParams();
-    // const selectedData = products.filter(x => x.id == productID)[0];
+    const selectedData = product.filter(x => x.id == 1)[0];
     const apiCtrl = new Api;
     const [detail, setDetail] = useState({
         banner_image: 'https://dealer-website.primarykeytech.in/dynamic/api/public/upload/product/DSC_41101675841396.JPG',
@@ -25,34 +25,49 @@ const ProductDetails = () => {
     const [products, setProducts] = useState([])
 
     useEffect(()=>{
-        apiCtrl.callAxios(`product/product-service/${slug}`).then((res)=>{
+        apiCtrl.callAxios(`vehicle/get-vehicle-by-model/${slug}`).then((res)=>{
             if(res.success == true){
                 setDetail(res.data)
+
             }
         })
-
         
-            apiCtrl.callAxios(`product/product-service-list`, {is_service: 0, product_category: category}).then((response)=>{
-                if(response.success == true){
-                    const res = response.data;
-                    let Products = [];
-                    res.map((value, index)=>{
-                       
-    
-                            
-                            Products = [...Products, {
-                                id:value.id,
-                                title:value.product, 
-                                description: value.description, 
-                                productImage: value.banner_image, 
-                                price:value.base_price,
-                                category: category
-                            }];
-                    })
-                
-                    setProducts(Products)
-                }
-            })
+        apiCtrl.callAxios(`vehicle/list`, {vehicle_status: category}).then((response)=>{
+             if(response.success == true){
+                 const res = response.data;
+                 let Vehicles = [];
+                 res.map((value, index)=>{
+                    
+ 
+                         Vehicles = [...Vehicles, {
+                             id:value.id,
+                             title:value.vehicle_model, 
+                             description: value.vehicle_make, 
+                             productImage: value.images, 
+                             slug: value.vehicle_model,
+                             category: category,
+                         }];
+                     
+                 })
+             
+                 setProducts(Vehicles)
+             }
+         })
+        
+        // apiCtrl.callAxios(`product/product-service-list`, {is_service: 0, product_category: 'Accessories'}).then((response)=>{
+        //     if(response.success == true){
+        //         const res = response.data;
+        //         let Products = [];
+        //         res.map((value, index)=>{
+                    
+
+        //                 Products = [...Products, {title:value.product, description: value.description, productImage: value.banner_image, price:value.base_price}]
+                    
+        //         })
+            
+        //         setProducts(Products)
+        //     }
+        // })
    
     },[])
 
@@ -83,6 +98,18 @@ const ProductDetails = () => {
             }
         ]
     };
+    const textModifier = (text) => {
+        let  products =  text.replace(/_/g, " "); 
+    // //let products ="product"
+     
+    // var productType =   products
+    var productType =   products
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+    return productType;
+    }
 
     return (
         <div className="container mt-5 mb-5">
@@ -95,10 +122,10 @@ const ProductDetails = () => {
                                     smallImage: {
                                         alt: 'Wristwatch by Ted Baker London',
                                         isFluidWidth: true,
-                                        src: detail.banner_image
+                                        src: detail.images
                                     },
                                     largeImage: {
-                                        src: detail.banner_image,
+                                        src: detail.images,
                                         width: 1200,
                                         height: 1800
                                     }
@@ -116,10 +143,10 @@ const ProductDetails = () => {
                     <div className="col-md-6">
                         <div className="product p-4">
                             <div className="mb-3">
-                                {/* <span className="text-uppercase brand">{selectedData.brand}</span> */}
-                                <h5 className="text-uppercase productTitle">{detail.product}</h5>
+                                <span className="text-uppercase brand">{detail.vehicle_make}</span>
+                                <h5 className="text-uppercase productTitle">{detail.vehicle_model}</h5>
                                 <div className="price d-flex flex-row align-items-center">
-                                    <span className="act-price">₹ {parseInt(detail.base_price)} <small>onwards</small></span>
+                                    <span className="act-price">{detail.price ? `₹ ${parseInt(detail.price)}` : 'Contact For Pricing'}  <small></small></span>
                                     {/* <div className="ml-2">
                                         <small className="dis-price">$59</small>
                                         <span>40% OFF</span>
@@ -127,7 +154,7 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                             <div className="detail-section">
-                                {detail.description}
+                                {/* {(detail.fuel_type).toUpperCase()} */}
                             </div>
                             {/* <div className='detail-section'>
                                 <ul className='productDesc'>
@@ -137,35 +164,58 @@ const ProductDetails = () => {
                                 </ul>
                             </div> */}
                             <div className="cart mt-4 align-items-center">
-                                <button className="btn btn-secondary text-uppercase me-2 px-4">Brochure</button>
-                                <button className="btn btn-primary text-uppercase me-2 px-4">Add to cart</button>
-                                <BookNowButton name={'Enquiry'} image1={detail.banner_image} image2={detail.featured_image ? detail.featured_image: detail.banner_image} />
+                                <button className="btn btn-secondary text-uppercase me-2 px-4">Download Brochure</button>
+                                <BookNowButton name={'Book Now'} image1={detail.images} image2={detail.images} />
+                                {/* <button className="btn btn-primary text-uppercase me-2 px-4">Add to cart</button> */}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <div className='productDetailed mt-5'>
+            <div className='productDetailed mt-5'>
                 <Tabs >
+                    {detail.vehicle_status && (detail.vehicle_status === 'used') &&
+                     <Tab eventKey="usedVehicle" title="Used Vehicles">
+                     {detail.used_vehicle && Object.entries(detail.used_vehicle).map(([index, item]) => (
+                         <div className='detail-section'>
+                             <h4 className='detail-title'>{textModifier(index)}</h4>
+                             <ul className='productDesc'>
+                                 {item && Object.entries(item).map(([key, i]) => (
+                                     <li><label>{key}: </label><div className='value'>{textModifier(key)} : {i}</div></li>
+                                 ))}
+                             </ul>
+                         </div>
+                     ))}
+                 </Tab>
+                    }
                     <Tab eventKey="technical" title="Technical Specifications">
-                        {selectedData.technicalDescription && selectedData.technicalDescription.map(item => (
+                        {detail.specification && Object.entries(detail.specification).map(([index, item]) => (
                             <div className='detail-section'>
-                                <h4 className='detail-title'>{item.name}</h4>
+                                <h4 className='detail-title'>{textModifier(index)}</h4>
                                 <ul className='productDesc'>
-                                    {item.data && Object.keys(item.data).map((key, i) => (
-                                        <li><label>{key}: </label><div className='value'>{item.data[key]}</div></li>
+                                    {item && Object.entries(item).map(([key, i]) => (
+                                        // console.log("specification",key, i)
+                                        <li key={key}><label>{key}: </label><div className='value'>{textModifier(key)} : {i}</div></li>
                                     ))}
                                 </ul>
                             </div>
                         ))}
                     </Tab>
                     <Tab eventKey="features" title="Features & Options">
-                        {selectedData.features && selectedData.features.map(item => (
-                            <img src={item} className='img-fluid my-3' />
+                        {detail.features && Object.entries(detail.features).map(([index, item]) => (
+                            // <img src={item} className='img-fluid my-3' />
+                            <div className='detail-section'>
+                                <h4 className='detail-title'>{textModifier(index)}</h4>
+                                <ul className='productDesc'>
+                                    {item && Object.entries(item).map(([key, i]) => (
+                                        <li><label>{key}: </label><div className='value'>{textModifier(key)} : {i}</div></li>
+                                    ))}
+                                </ul>
+                            </div>
                         ))}
                     </Tab>
                 </Tabs>
-            </div> */}
+            </div>
 
             <div className='mt-5'>
                 <h3 className='sectionTitle mb-3'>Related Products</h3>

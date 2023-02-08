@@ -11,6 +11,8 @@ import Gallery from './pages/gallery';
 import Contact from './pages/contact';
 import ProductListing from './pages/productListing';
 import ProductDetails from './components/productDetails/productDetails';
+import VehicleListing from './pages/vehicleListing';
+import VehicleDetails from './components/productDetails/vehicleDetails';
 
 import Api from './services/api';
 
@@ -25,7 +27,7 @@ function FrontEnd() {
   // localStorage.clear();
   var StoredSetup = JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`))
   const [setup, setSetup] = React.useState(StoredSetup);
-  const [logos, setLogo] = React.useState();
+  const [logos, setLogo] = React.useState('logo-tvs.png');
 
   const response =  {
     "status": "success",
@@ -63,7 +65,7 @@ function FrontEnd() {
       console.table( localStorage.getItem(`${API_CONSTANTS.subdomain}`));
       
       apiCtrl.callAxios(API_CONSTANTS.setupList, []).then((response)=>{
-        
+        console.log('Response', response);
         var data = {};
         response.data.map((value, key)=>{
           data[value.module_name.toLowerCase()] = {
@@ -91,7 +93,7 @@ function FrontEnd() {
         localStorage.setItem(`${API_CONSTANTS.subdomain}`,JSON.stringify(storage) )
         setSetup(JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)));
         
-        console.log('Storage' , JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)))
+        // console.log('Storage' , JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)))
         
       })
     }
@@ -161,8 +163,12 @@ function FrontEnd() {
         <Route path='/service' element={<Services />} />
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/products' element={<ProductListing />} />
-        <Route exact path='/product/:productID' element={<ProductDetails />} />
+        <Route path='/product/:category' element={<ProductListing />} />
+        {/* <Route path='/products' element={<ProductListing />} /> */}
+        <Route path='/product/:category/:slug' element={<ProductDetails />} />
+        <Route path='/vehicle/:category' element={<VehicleListing />} />
+        {/* <Route path='/products' element={<ProductListing />} /> */}
+        <Route path='/vehicle/:category/:slug' element={<VehicleDetails />} />
       </Routes>
       <Footer />
     </Router>

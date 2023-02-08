@@ -30,6 +30,34 @@ export default class Api extends React.Component {
 //     }
 //   }
 
+    login(){
+      var data ={
+        email:'test@admin.com',
+        password:'user1'
+      }
+      return new Promise((resolve,reject)=>{
+        var config = {
+            method: 'post',
+            url: API_CONSTANTS+'login',
+            data: { email:'test@admin.com', password:'user1'},
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+        };
+          axios(config).then(function (response) {
+            // console.log(response);
+            if(response.data.access_token){
+              // let timeObject = new Date();
+              // let milliseconds= 3600 * 1000; // 10 seconds = 10000 milliseconds
+              // timeObject = new Date(timeObject.getTime() + milliseconds);
+              // localStorage.setItem('expire_token', timeObject);
+              localStorage.setItem('_token',response.data.access_token)
+            resolve(response.data.access_token);
+            } 
+          })
+    
+      })
+    }
   refreshToken(){
   
 
@@ -49,7 +77,9 @@ export default class Api extends React.Component {
                 // timeObject = new Date(timeObject.getTime() + milliseconds);
                 // localStorage.setItem('expire_token', timeObject);
                 localStorage.setItem('_token',response.data.access_token)
-              resolve(response.data.access_token);
+               resolve(response.data.access_token);
+              } else {
+                resolve( this.login());
               }
             })
       
@@ -59,22 +89,22 @@ export default class Api extends React.Component {
 
   getToken(){
     return new Promise((resolve,reject)=>{
-        if(localStorage.getItem('_token')){
-          // if(this.tokenValid()){
-            // console.log(localStorage.getItem('_token'))
-            resolve(localStorage.getItem('_token'))
-          // } else {
-          //   resolve(this.refreshToken())
+      resolve(this.login())
+        // if(this.refreshToken()){
+        //   // if(this.tokenValid()){
+        //     // console.log(localStorage.getItem('_token'))
+        //     resolve(localStorage.getItem('_token'))
+        //   // } else {
+        //     // resolve(this.refreshToken())
            
-          // }
-        } else {
-            resolve(false);
-        }       
+        //   // }
+        // } else {
+        // }       
     })
     
   }
 
-callAxios(endPoint, reqData, auth=true){
+  callAxios(endPoint, reqData, auth=true, type = 'application/json'){
 
     return new Promise((resolve, reject) => {
         Promise.all([this.getBaseUrl(),this.getToken()])
@@ -99,7 +129,7 @@ callAxios(endPoint, reqData, auth=true){
                 data[0] + endPoint,
                 { ...reqData},                    
                 {
-                  headers: { 'Content-Type': 'application/json',
+                  headers: { 'Content-Type':  type,
                   'Authorization': authtoken
                 }
               }
@@ -158,6 +188,7 @@ callAxios(endPoint, reqData, auth=true){
         });
     });
 
+    
 
     
   }
@@ -166,15 +197,15 @@ callAxios(endPoint, reqData, auth=true){
     return new Promise((resolve, reject) => {
       Promise.all([this.getBaseUrl(),this.getToken()])
         .then(data => {
-          console.log(data);
-          console.log('================================>');
-          console.log('URL: ' + data[0] + endPoint);
+          // console.log(data);
+          // console.log('================================>');
+          // console.log('URL: ' + data[0] + endPoint);
          // console.log('TOKEN: ' + data[1]);
           // const reqDataHeader = {
           //   ...reqData,
           // };
          //console.log('Request Body : ' + JSON.stringify(reqDataHeader));
-          console.log('================================>');
+          // console.log('================================>');
           const authtoken = auth ?  'Bearer '+data[1] : "";
           if (data[0] && data[0] != null) {
             axios
@@ -188,8 +219,8 @@ callAxios(endPoint, reqData, auth=true){
               )
               .then((response) => {
                  console.log('Request Respomse', response);
-                 if(response.data.success){
-                  resolve({success: true, data: response.data});
+                 if(response.data.status == "success") {
+                  resolve({success: true, data: response.data.data , message: response.data.message});
                  }else{
                   resolve({success: false, data: response.data});
                  }                   

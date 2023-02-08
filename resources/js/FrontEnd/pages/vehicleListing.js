@@ -8,38 +8,37 @@ import Slider from "react-slick";
 import Api from '../../api';
 
 import withRouter from '../services/withRouter';
-class ProductListing extends Component {
+class VehicleListing extends Component {
     constructor(props){
         super(props);
         this.apiCtrl = new Api;
         this.state = {
-            products: [],
-            category: this.props.params.category ? this.props.params.category : "Products",
+            vehicles: [],
+            category: this.props.params.category ? this.props.params.category : "Vehicle",
         }
         
     }
     componentDidMount(){
         
-        this.apiCtrl.callAxios(`product/product-service-list`, {is_service: 0, product_category: this.state.category}).then((response)=>{
+        this.apiCtrl.callAxios(`vehicle/list`, {vehicle_status: this.state.category}).then((response)=>{
             if(response.success == true){
                 const res = response.data;
-                let Products = [];
+                let Vehicles = [];
                 res.map((value, index)=>{
                    
 
-                        Products = [...Products, {
+                        Vehicles = [...Vehicles, {
                             id:value.id,
-                            title:value.product, 
-                            description: value.description, 
-                            productImage: value.banner_image, 
-                            price:value.base_price,
-                            slug: value.slug,
+                            title:value.vehicle_model, 
+                            description: value.vehicle_make, 
+                            productImage: value.images, 
+                            slug: value.vehicle_model,
                             category: this.state.category,
                         }];
                     
                 })
             
-                this.setState({products: Products})
+                this.setState({vehicles: Vehicles})
             }
         })
 
@@ -74,10 +73,11 @@ class ProductListing extends Component {
         };
         return (
             <div className='productListing'>
-                <PageTitle data={`${this.state.category}`} />
+                <PageTitle data={(`${this.state.category} Bike`).toUpperCase()} />
                 <div className='container'>
                     <div className='row'>
-                        {this.state.products && this.state.products.map(item => (
+            
+                        {this.state.vehicles && this.state.vehicles.map(item => (
                             <div className='col-md-3' key={item.id}>
                                 <ProductCard data={item} />
                             </div>
@@ -85,10 +85,10 @@ class ProductListing extends Component {
                     </div>
                 </div>
                 <div className='container'>
-                    <h3 className='sectionTitle mb-3'>Related Products</h3>
+                    <h3 className='sectionTitle mb-3'>Related Vehicles</h3>
                     <div className='row'>
                         <Slider {...settings}>
-                            {this.state.products && this.state.products.map(item => (
+                            {this.state.vehicles && this.state.vehicles.map(item => (
                                 <div className='relatedSlides' key={item.id}>
                                     <ProductCard data={item} />
                                 </div>
@@ -96,10 +96,11 @@ class ProductListing extends Component {
                         </Slider>
                     </div>
                 </div>
+             
             </div>
         );
     }
 };
 
 
-export default withRouter(ProductListing);
+export default withRouter(VehicleListing);

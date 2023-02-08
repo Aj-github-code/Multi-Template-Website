@@ -3,13 +3,7 @@
  * includes React and other helpers. It's a great starting point while
  * building robust, powerful web applications using React + Laravel.
  */
-window.$ = window.jQuery = require('jquery');
-require('jquery-ui-bundle');
-require('../assets/js/admin/admin.js');
- require('../css/admin/admin.css');
- 
- require('../css/admin/font-awesome.min.css');
- require('../assets/js/admin/jquery.easing.min.js');
+
 require('./bootstrap');
 
 /**

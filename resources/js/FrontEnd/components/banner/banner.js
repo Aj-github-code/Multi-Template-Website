@@ -12,8 +12,8 @@ class Banner extends Component {
                     <Carousel.Item key={item.id}>
                         <img
                             className="d-block w-100"
-                            src={item.image}
-                            alt={item.title1}
+                            src={item.image ? item.image : item.url}
+                            alt={item.title1 ? item.title1 : item.title}
                         />
                     </Carousel.Item>
                 ))}

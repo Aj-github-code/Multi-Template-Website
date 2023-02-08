@@ -6,6 +6,8 @@ import Features from '../components/feature/feature';
 import InfoText from '../components/infoText/infoText';
 import Service from '../components/service/service';
 import Testimonials from '../components/testimonial/testimonial';
+import Products from './products';
+
 
 class Home extends Component {
     constructor(props) {
@@ -63,7 +65,7 @@ class Home extends Component {
                     icon: './assets/images/03.jpg'
                 },
                 {
-                    title: 'Finance',
+                    title: 'Sales',
                     description: 'We have the best two wheeler loan interest rate and flexible repayment tenure options through TVS motor\'s Finance',
                     icon: './assets/images/01.jpg'
                 }
@@ -93,10 +95,31 @@ class Home extends Component {
     }
 
     componentDidMount(){
-        this.apiCtrl.callAxios('slider/sliderlist','',false).then((response)=>{
+        this.apiCtrl.callAxios('slider/list','',false).then((response)=>{
             
             if(response.success == true){
                 this.setState({bannerData: response.data});
+            }
+        })
+        this.apiCtrl.callAxios('testimonial/list','').then((response)=>{
+            
+            if(response.success == true){
+                this.setState({testimonials: response.data});
+            }
+        })
+        this.apiCtrl.callAxios(`product/product-category-list`, {is_service: 1}).then((response)=>{
+            // console.log('Services', response)
+            if(response.success == true){
+                const res = response.data;
+                let Services = [];
+                res.map((value, index)=>{
+                    if(index < 3){
+
+                        Services = [...Services, {title:value.category_name, description: value.description, icon: value.image_name_1}]
+                    }
+                })
+            
+                this.setState({services: Services})
             }
         })
     }
@@ -109,6 +132,8 @@ class Home extends Component {
                 <Service data={this.state.services} />
                 <Features data={this.state.features} />
                 <InfoText data={this.state.infoText} />
+                <Products />
+                
                 <Testimonials data={this.state.testimonials} />
             </div>
         );

@@ -30,6 +30,14 @@
         color: #fff;
         text-decoration: underline;
     }
+    a.dropdown-item {
+        color: var(--bs-primary);
+    }
+    a.dropdown-item:hover,
+    a.dropdown-item:focus {
+        background-color: var(--bs-primary);
+        text-decoration: underline;
+    }
 }
 
 

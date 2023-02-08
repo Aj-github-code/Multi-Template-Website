@@ -17,9 +17,9 @@ class Testimonials extends Component {
                             {data.map(item => (
                                 <Carousel.Item key={item.id}>
                                     <div className="testimonial4_slide">
-                                        <img src="https://i.ibb.co/8x9xK4H/team.jpg" className="img-circle img-responsive" />
-                                        <p>{item.testimonial}</p>
-                                        <h4>{item.client}</h4>
+                                        <img src={item.image ? item.image : "https://i.ibb.co/8x9xK4H/team.jpg"} className="img-circle img-responsive" />
+                                        <p>{item.description ? item.description : item.testimonial}</p>
+                                        <h4>{item.title ? item.title : item.client}</h4>
                                     </div>
                                 </Carousel.Item>
                             ))}

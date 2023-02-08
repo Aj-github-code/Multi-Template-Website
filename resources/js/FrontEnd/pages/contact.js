@@ -1,13 +1,176 @@
 import React, { Component } from 'react';
+import Api from '../../api';
+import Swal from 'sweetalert2';
+import { red } from '@mui/material/colors';
 
 class Contact extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.apiCtrl = new Api;
 
+        this.state = {
+            name: null,
+            email: null,
+            errors: {},
+            validation:{
+                name:{required:true, type:'alpha'},
+                email:{required:true,min:6, type:'email'}, 
+      
+            },
         }
     }
+    
     render() {
+
+        const validation = (fieldName, fieldValue) => {
+            
+            let error={}
+            let isValid = true;
+            let isMax = 1000;
+            if(typeof this.state.validation[fieldName] !== "undefined"){
+                Object.entries(this.state.validation[fieldName]).map(([key,value])=>{
+             
+                    let temp =  fieldName.replace(/_/g, " "); 
+                    var name = temp
+                    .toLowerCase()
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+              
+                    if(key === 'required'){
+                        if((fieldValue.length < 0) || (fieldValue === '') || (fieldValue === null)){
+                            error[fieldName] = `${name} Field is required`
+                            isValid = false;
+                        } 
+                    } else if(key === 'min'){
+                        if(fieldValue.length < value){
+                            error[fieldName] = `${name} must be more than ${value} characters`
+                            isValid = false;
+                        }
+                    } else if(key === 'max'){
+                        if(fieldValue.length > value){
+                            error[fieldName] = `${name} must be less than ${value} characters`
+                            isMax = value;
+                            isValid = false;
+                        }
+                    } else if(key === 'type'){
+                        if(value === 'alpha'){
+                            if(!fieldValue.match(/^[A-Za-z\s]*$/)){
+                                error[fieldName] = `${name} must be String characters`
+                                isValid = false;
+                            }
+                        } else if(value === 'AlphaNumeric'){
+                            if(!fieldValue.match(/^[A-Za-z0-9,-.\s]*$/)){
+                                error[fieldName] = `${name} must be String Alpha Numeric`
+                                isValid = false;
+                            }
+                        } else if(value === 'Numeric'){
+                            if(!fieldValue.match(/^[0-9]*$/)){
+                                error[fieldName] = `${name} must be String Numeric`
+                                isValid = false;
+                            }
+                        } else if(value === 'email'){
+                            let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+                            if(!fieldValue.match(reg) ){
+                                error[fieldName] = `${name} must be in Email format`
+                                isValid = false;
+                            }
+                        } 
+                           
+                    }
+                    if(isValid == true) {
+                        
+                        error[fieldName] = '';
+                    }
+                })
+                this.setState(old=>({...old,errors:{ ...old.errors, ...error}})) 
+            }
+            if(isMax >= fieldValue.length){
+                this.setState((old) => ({...old, [fieldName]: fieldValue }))
+                
+            }
+        }
+        const handleChange = (e) => {
+
+            validation(e.target.name,e.target.value)
+
+        }
+
+        const handleSubmit = (e) =>{
+            e.preventDefault();
+ 
+            // Object.entries(this.state).map(([index, value])=>{
+            //     if(value == null || (typeof value === 'undefined')){
+            //         errors = {...errors,  [index]:'error'}
+            //     }
+            // })
+            // this.setState({errors:errors})
+            // console.log(this.state)
+            // console.log(errors);
+            let errors = {};
+            let isValid = this.state.isValid;
+            Object.entries(this.state.validation).map(([key,value])=>{
+    
+                
+                if((typeof this.state[key] === 'undefined') || (this.state[key] === null) ) {
+                    let temp =  key.replace(/_/g, " "); 
+                    var name = temp
+                    .toLowerCase()
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+    
+                    if(value.required === true){
+                        errors[key] = `${name} Field is Required`;
+                        isValid = false;
+                    }
+                } else {
+                    errors[key] = '';
+                    isValid = true;
+                }
+                this.setState(old=>({
+                    ...old,
+                    errors:errors
+                })) 
+            })
+    
+            var count = 0;
+            Object.entries(errors).map(([key, value])=>{
+                if(value !== ''){
+                    count += 1;
+                }
+            })
+            
+            if(count>0){
+                return false;
+            }
+                var data = {
+                    enquiry_type: 'contact-us',
+                    title: this.state.name,
+                    email: this.state.email,
+                    description: this.state.description
+                }
+                this.apiCtrl.callAxios('enquiry/create-update', data).then((res)=>{
+                    if(res.success == true){
+                        Swal.fire({
+                            title: 'Contact Us',
+                            text: 'Request Submitted',
+                            icon: 'success',
+                            showConfirmButton: false
+                        })
+                    } else {
+                        Swal.fire({
+                            title: 'Contact Us',
+                            text: res.message,
+                            icon: 'error',
+                            showConfirmButton: false
+                        })
+                    }
+                })
+            
+           
+        }
+        
         return (
             <section id="contact">
                 <div class="contact-box">
@@ -29,20 +192,20 @@ class Contact extends Component {
                         </div>
                     </div>
                     <div class="contact-form-wrapper">
-                        <form>
+                        <form onSubmit={handleSubmit}  >
                             <div class="form-item">
-                                <input type="text" name="sender" required />
-                                <label>Name:</label>
+                                <input type="text" name="name" onChange={(e)=>{handleChange(e)}}  />
+                                <label>Name: <span style={{color: 'red',}} >{this.state.errors.name }</span></label>
                             </div>
                             <div class="form-item">
-                                <input type="email" name="email" required />
-                                <label>Email:</label>
+                                <input type="email" name="email" onChange={(e)=>{handleChange(e)}}  />
+                                <label>Email: <span style={{color: 'red',}} >{this.state.errors.email}</span></label>
                             </div>
                             <div class="form-item">
-                                <textarea class="" name="message" required></textarea>
+                                <textarea class="" name="description" onChange={(e)=>{handleChange(e)}} ></textarea>
                                 <label>Message:</label>
                             </div>
-                            <button class="submit-btn">Send</button>
+                            <button class="submit-btn"  type={'submit'}  >Send</button>
                         </form>
                     </div>
                 </div>
