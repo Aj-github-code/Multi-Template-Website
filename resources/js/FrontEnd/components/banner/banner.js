@@ -9,7 +9,7 @@ class Banner extends Component {
         return (
             <Carousel>
                 {slideData.map(item => (
-                    <Carousel.Item key={item.id}>
+                    <Carousel.Item key={item.id+item.title}>
                         <img
                             className="d-block w-100"
                             src={item.image ? item.image : item.url}

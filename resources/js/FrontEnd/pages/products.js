@@ -4,6 +4,8 @@ import Api from '../../api'
 import Slider from "react-slick";
 import ProductCard from '../components/productCard/productCard';
 
+import { Link } from 'react-router-dom';
+
 class Products extends Component {
 
     constructor(props){
@@ -11,13 +13,14 @@ class Products extends Component {
         this.apiCtrl = new Api;
         this.state = {
             products: [],
+            category:'accessories',
         }
         
     }
 
     componentDidMount(){
         
-        this.apiCtrl.callAxios(`product/product-service-list`, {is_service: 0}).then((response)=>{
+        this.apiCtrl.callAxios(`product/product-service-list`, {is_service: 0,  product_category: this.state.category}).then((response)=>{
             if(response.success == true){
                 const res = response.data;
                 let Products = [];
@@ -71,7 +74,16 @@ class Products extends Component {
                         {this.state.products && this.state.products.map(item => (
                             
                             <div className='relatedSlides' key={item.title}>
-                                <ProductCard data={item} />
+                               <Link to={item.slug ? 'product/'+this.state.category + '/'+ item.slug : '#' } className="card productCard" >
+                                    <img src={item.productImage} alt="Denim Jeans" />
+                                    <div className="card-body">
+                                        <h3>{item.title}</h3>
+                                        <p className="description">{item.description}</p>
+                                        
+                                        <p className="price">{item.price ? `₹ ${item.price}` : 'Contact For Pricing'} </p>
+                                    </div>
+                            
+                                </Link>
                             </div>
                         ))}
                     </Slider>

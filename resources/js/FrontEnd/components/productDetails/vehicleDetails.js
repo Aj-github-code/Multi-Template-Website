@@ -12,6 +12,7 @@ import Tabs from 'react-bootstrap/Tabs';
 
 import Api from '../../../api';
 import BookNowButton from '../bookNow/bookNow';
+import textModifier from '../../services/textModifier';
 
 const ProductDetails = () => {
     const { category, slug } = useParams();
@@ -98,18 +99,7 @@ const ProductDetails = () => {
             }
         ]
     };
-    const textModifier = (text) => {
-        let  products =  text.replace(/_/g, " "); 
-    // //let products ="product"
-     
-    // var productType =   products
-    var productType =   products
-    .toLowerCase()
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-    return productType;
-    }
+
 
     return (
         <div className="container mt-5 mb-5">
@@ -120,7 +110,7 @@ const ProductDetails = () => {
                             <div className="text-center pb-3">
                                 <ReactImageMagnify {...{
                                     smallImage: {
-                                        alt: 'Wristwatch by Ted Baker London',
+                                        alt: detail.vehicle_model,
                                         isFluidWidth: true,
                                         src: detail.images
                                     },
@@ -165,7 +155,7 @@ const ProductDetails = () => {
                             </div> */}
                             <div className="cart mt-4 align-items-center">
                                 <button className="btn btn-secondary text-uppercase me-2 px-4">Download Brochure</button>
-                                <BookNowButton name={'Book Now'} image1={detail.images} image2={detail.images} />
+                                <BookNowButton type={'vehicle'} header={'Book Now'} image1={detail.images} image2={detail.images} />
                                 {/* <button className="btn btn-primary text-uppercase me-2 px-4">Add to cart</button> */}
                             </div>
                         </div>

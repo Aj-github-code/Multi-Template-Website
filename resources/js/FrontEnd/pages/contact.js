@@ -15,6 +15,7 @@ class Contact extends Component {
             validation:{
                 name:{required:true, type:'alpha'},
                 email:{required:true,min:6, type:'email'}, 
+                phone:{required:true,min:10,max:10 ,type:'Numeric'},
       
             },
         }
@@ -146,9 +147,10 @@ class Contact extends Component {
             }
                 var data = {
                     enquiry_type: 'contact-us',
-                    title: this.state.name,
+                    name: this.state.name,
+                    phone: this.state.phone,
                     email: this.state.email,
-                    description: this.state.description
+                    remark: this.state.description
                 }
                 this.apiCtrl.callAxios('enquiry/create-update', data).then((res)=>{
                     if(res.success == true){
@@ -158,6 +160,13 @@ class Contact extends Component {
                             icon: 'success',
                             showConfirmButton: false
                         })
+                        var data = {
+                            name: '',
+                            phone: '',
+                            email: '',
+                            remark: '',
+                        }
+                       setTimeout(()=>{window.location.reload()}, 1500);
                     } else {
                         Swal.fire({
                             title: 'Contact Us',
@@ -196,6 +205,10 @@ class Contact extends Component {
                             <div class="form-item">
                                 <input type="text" name="name" onChange={(e)=>{handleChange(e)}}  />
                                 <label>Name: <span style={{color: 'red',}} >{this.state.errors.name }</span></label>
+                            </div>
+                            <div class="form-item">
+                                <input type="number" name="phone" onChange={(e)=>{handleChange(e)}}  />
+                                <label>Phone: <span style={{color: 'red',}} >{this.state.errors.phone }</span></label>
                             </div>
                             <div class="form-item">
                                 <input type="email" name="email" onChange={(e)=>{handleChange(e)}}  />

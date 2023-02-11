@@ -18,22 +18,22 @@ class Home extends Component {
                 {
                     title: 'Banner 1',
                     url: './assets/images/banner-1.jpg',
-                    id: 1
+                    id: 101
                 },
                 {
                     title: 'Banner 2',
                     url: './assets/images/banner-2.jpg',
-                    id: 2
+                    id: 201
                 },
                 {
                     title: 'Banner 3',
                     url: './assets/images/banner-3.jpg',
-                    id: 3
+                    id: 301
                 },
                 {
                     title: 'Banner 4',
                     url: './assets/images/banner-4.jpg',
-                    id: 4
+                    id: 401
                 }
             ],
             services: [

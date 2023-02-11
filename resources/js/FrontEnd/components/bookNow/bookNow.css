@@ -1,15 +1,15 @@
-img{
+.modal-img{
     width: 100%;
-    height: 44% !important;
+    height: 25% !important;
 
 }
-.heading{
+.modal-heading{
    
     text-align: center;
     padding: 1%;
     color: #183883!important ;
     font-weight: 600;
 }
-.button:hover{
+/* .modal-button:hover{
     color: #FFA500;
-}
+} */

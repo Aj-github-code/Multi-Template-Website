@@ -7,8 +7,10 @@ class ProductCard extends Component {
     render() {
         if (!this.props.data) return null;
         let data = this.props.data;
+
+  
         return (
-            <Link to={data.slug ?  data.slug : '#' } className="card productCard" >
+            <Link to={data.slug ? data.slug : '#' } className="card productCard" >
                 <img src={data.productImage} alt="Denim Jeans" />
                 <div className="card-body">
                     <h3>{data.title}</h3>

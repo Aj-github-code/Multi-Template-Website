@@ -93,7 +93,7 @@ const ProductDetails = () => {
                             <div className="text-center pb-3">
                                 <ReactImageMagnify {...{
                                     smallImage: {
-                                        alt: 'Wristwatch by Ted Baker London',
+                                        alt: detail.product,
                                         isFluidWidth: true,
                                         src: detail.banner_image
                                     },
@@ -139,7 +139,7 @@ const ProductDetails = () => {
                             <div className="cart mt-4 align-items-center">
                                 <button className="btn btn-secondary text-uppercase me-2 px-4">Brochure</button>
                                 <button className="btn btn-primary text-uppercase me-2 px-4">Add to cart</button>
-                                <BookNowButton name={'Enquiry'} image1={detail.banner_image} image2={detail.featured_image ? detail.featured_image: detail.banner_image} />
+                                <BookNowButton type={'product'} header={'Enquiry'} image1={detail.banner_image} image2={detail.featured_image ? detail.featured_image: detail.banner_image} />
                             </div>
                         </div>
                     </div>

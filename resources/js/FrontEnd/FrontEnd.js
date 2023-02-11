@@ -151,7 +151,7 @@ function FrontEnd() {
      
     
 
-  },[setup])
+  },[])
 
   return (
     <Router>

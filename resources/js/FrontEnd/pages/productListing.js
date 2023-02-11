@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import Api from '../../api';
 
 import withRouter from '../services/withRouter';
+import textModifier from '../services/textModifier';
 class ProductListing extends Component {
     constructor(props){
         super(props);
@@ -74,7 +75,7 @@ class ProductListing extends Component {
         };
         return (
             <div className='productListing'>
-                <PageTitle data={`${this.state.category}`} />
+                <PageTitle data={textModifier(`${this.state.category}`)} />
                 <div className='container'>
                     <div className='row'>
                         {this.state.products && this.state.products.map(item => (
