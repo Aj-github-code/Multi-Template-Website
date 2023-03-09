@@ -1,46 +1,62 @@
 import React, { Component } from 'react';
 import AboutInfo from '../components/aboutInfo/aboutInfo';
-import Api from '../../api';
+import Api from '../services/api';
 class AboutUs extends Component {
     constructor(props) {
         super(props);
         this.apiCtrl = new Api;
-        this.state = {};
+        this.state = {
+            aboutUs: [],
+        };
     }
     componentDidMount(){
-            this.apiCtrl.callAxiosGet(`company/view/${'tvs-dealer'}`).then((response)=>{
-            if(response.success == true){
-                const res = response.data;
-                const data = [
-                    {
-                        image: res.about_company_image,
-                        title: 'About',
-                        description: res.about_company,
-                        isReverse: true
-                    },   
-                    {
-                        image: res.company_mission_image,
-                        description: res.company_mission,
-                        isReverse: false
-                    },
-                    {
-                        image:  res.company_vision_image,
+        // if((typeof  this.props.aboutUs !== 'undefined')){
+        //     if(Object.keys(this.props.aboutUs).length > 0){
+        //         return false;
+        //     }
+        // }
+        // this.apiCtrl.callAxiosGet(`/company/view/${'tvs-dealer'}`).then((response)=>{
+        //     if(response.success == true){
+        //         const res = response.data;
+        //         const data = [
+        //             {
+        //                 image: res.about_company_image,
+        //                 title: 'About',
+        //                 description: res.about_company,
+        //                 isReverse: true
+        //             },   
+        //             {
+        //                 image: res.company_mission_image,
+        //                 description: res.company_mission,
+        //                 isReverse: false
+        //             },
+        //             {
+        //                 image:  res.company_vision_image,
     
-                        description: res.company_vision,
-                        isReverse: true
-                    }
-                   ];
-               this.setState(data)
-                // this.setState(...response.data);
-            }
-        })
+        //                 description: res.company_vision,
+        //                 isReverse: true
+        //             }
+        //            ];
+        //            this.setState(data)
+        //            // this.setState(...response.data);
+        //         }
+        //     })
+            
+        }
 
-    }
-    render() {
+        componentDidUpdate(prevProps, prevState){
+            if(prevProps.aboutUs !== this.props.aboutUs){
+                this.setState((old)=>({...old, aboutUs:this.props.aboutUs}))
+                this.props.loader(false)
+            }
+        }
+        render() {
+            // console.log('About props', this.state,this.props)
+
         return (
             <div className='aboutPage'>
                 {
-                    Object.entries(this.state).map(([index, item])=>{
+                    this.state.aboutUs.map(( item, index)=>{
 
                        return <AboutInfo data={item} />
                     })

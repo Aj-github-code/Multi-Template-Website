@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Api from '../../api';
+import Api from '../services/api';
 import Banner from '../components/banner/banner';
 import BookNow from '../components/bookNowCTA/booknow';
 import Features from '../components/feature/feature';
@@ -7,7 +7,7 @@ import InfoText from '../components/infoText/infoText';
 import Service from '../components/service/service';
 import Testimonials from '../components/testimonial/testimonial';
 import Products from './products';
-
+import Loader from '../components/loader/loader';
 
 class Home extends Component {
     constructor(props) {
@@ -95,19 +95,21 @@ class Home extends Component {
     }
 
     componentDidMount(){
-        this.apiCtrl.callAxios('slider/list','',false).then((response)=>{
+        this.apiCtrl.callAxios('/slider/list','',false).then((response)=>{
             
             if(response.success == true){
                 this.setState({bannerData: response.data});
             }
+            this.props.loader(false)
+
         })
-        this.apiCtrl.callAxios('testimonial/list','').then((response)=>{
+        this.apiCtrl.callAxios('/testimonial/list','').then((response)=>{
             
             if(response.success == true){
                 this.setState({testimonials: response.data});
             }
         })
-        this.apiCtrl.callAxios(`product/product-category-list`, {is_service: 1}).then((response)=>{
+        this.apiCtrl.callAxios(`/product/product-category-list`, {is_service: 1}).then((response)=>{
             // console.log('Services', response)
             if(response.success == true){
                 const res = response.data;
@@ -118,7 +120,7 @@ class Home extends Component {
                         Services = [...Services, {title:value.category_name, description: value.description, icon: value.image_name_1}]
                     }
                 })
-            
+        
                 this.setState({services: Services})
             }
         })
@@ -126,7 +128,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div className='homeWrapper'>
+            <div className='homeWrapper' >
                 <Banner data={this.state.bannerData} />
                 <BookNow />
                 <Service data={this.state.services} />

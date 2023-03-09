@@ -3,7 +3,7 @@ import './aboutInfo.css';
 
 class AboutInfo extends Component {
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         if (!this.props.data) return null;
         const data = this.props.data;
         return (

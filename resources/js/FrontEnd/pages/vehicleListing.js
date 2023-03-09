@@ -5,7 +5,7 @@ import products from '../local-json/products';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Api from '../../api';
+import Api from '../services/api';
 
 import withRouter from '../services/withRouter';
 import textModifier from '../services/textModifier';
@@ -16,13 +16,14 @@ class VehicleListing extends Component {
         this.apiCtrl = new Api;
         this.state = {
             vehicles: [],
-            category: this.props.params.category ? this.props.params.category : "Vehicle",
+            category: this.props.params.category ? this.props.params.category : "used",
+            type: this.props.params.type ? this.props.params.type : "new",
         }
         
     }
     componentDidMount(){
         
-        this.apiCtrl.callAxios(`vehicle/list`, {vehicle_status: this.state.category}).then((response)=>{
+        this.apiCtrl.callAxios(`/vehicle/list`, {vehicle_status: this.state.category, vehile_type: this.state.type}).then((response)=>{
             if(response.success == true){
                 const res = response.data;
                 let Vehicles = [];
@@ -36,10 +37,11 @@ class VehicleListing extends Component {
                             productImage: value.images, 
                             slug: value.vehicle_model,
                             category: this.state.category,
+                            type: this.state.type,
                         }];
                     
                 })
-            
+                this.props.loader(false)
                 this.setState({vehicles: Vehicles})
             }
         })
@@ -75,7 +77,7 @@ class VehicleListing extends Component {
         };
         return (
             <div className='productListing'>
-                <PageTitle data={textModifier(`${this.state.category} Bike`)} />
+                <PageTitle data={textModifier(`${this.state.category} ${this.state.type}`)} />
                 <div className='container'>
                     <div className='row'>
             

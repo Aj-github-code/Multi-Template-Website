@@ -11,6 +11,9 @@
     },
     "devDependencies": {
         "@babel/preset-react": "^7.13.13",
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
+        "@mui/styled-engine": "^5.11.8",
         "@popperjs/core": "^2.10.2",
         "axios": "^0.21",
         "bootstrap": "^5.2.3",
@@ -34,6 +37,14 @@
         "web-vitals": "^3.1.0"
     },
     "dependencies": {
+        "@babel/helper-module-imports": "^7.18.6",
+        "@fortawesome/fontawesome-svg-core": "^6.3.0",
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "@mui/material": "^5.11.8",
+        "fs": "^0.0.1-security",
+        "module": "^1.2.5",
+        "os": "^0.1.2",
+        "path": "^0.12.7",
         "react-image-magnify": "^2.7.4",
         "sweetalert": "^2.1.2",
         "sweetalert2": "^11.6.16"

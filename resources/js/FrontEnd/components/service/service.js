@@ -5,7 +5,7 @@ class Service extends Component {
     render() {
         if (!this.props.data) return null;
         const services = this.props.data;
-        console.log(services);
+        // console.log(services);
         return (
             <section className="section-3">
                 <div className="sec-3hdiv-jk">
@@ -13,13 +13,13 @@ class Service extends Component {
                     <p className="sec-3jk-p">Your one stop for all your Two wheelers needs</p>
                 </div>
                 <div className="">
-                    <div className="container-fluid">
+                    <div className="container-fluid" style={{width:'90%'}}>
                         <div className="row">
                             {services.map((item ,key) => (
                                 <div className="col-lg-4" key={key}>
                                     <div className="card mb-3 mb3-jk">
                                         <div className="row g-0">
-                                            <div className="col-md-4">
+                                            <div className="col-md-4 colmd4">
                                                 <img src={item.icon} className="img-fluid rounded-start card-img-jk" alt="..." />
                                             </div>
                                             <div className="col-md-8">

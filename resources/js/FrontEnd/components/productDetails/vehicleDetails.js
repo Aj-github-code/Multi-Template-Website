@@ -10,30 +10,32 @@ import ReactImageMagnify from 'react-image-magnify';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import Api from '../../../api';
+import Api from '../../services/api';
 import BookNowButton from '../bookNow/bookNow';
 import textModifier from '../../services/textModifier';
+import { API_CONSTANTS } from '../../assets/config/constants';
 
-const ProductDetails = () => {
-    const { category, slug } = useParams();
+const ProductDetails = (props) => {
+    const { category,type, slug } = useParams();
     const selectedData = product.filter(x => x.id == 1)[0];
     const apiCtrl = new Api;
     const [detail, setDetail] = useState({
-        banner_image: 'https://dealer-website.primarykeytech.in/dynamic/api/public/upload/product/DSC_41101675841396.JPG',
+        banner_image:  `${API_CONSTANTS.URL}/upload/product/DSC_41101675841396.JPG`,
         base_price: '0',
         product: 'Product Name',
     });
     const [products, setProducts] = useState([])
 
     useEffect(()=>{
-        apiCtrl.callAxios(`vehicle/get-vehicle-by-model/${slug}`).then((res)=>{
+        apiCtrl.callAxios(`/vehicle/get-vehicle-by-model/${slug}`).then((res)=>{
             if(res.success == true){
                 setDetail(res.data)
-
+            
             }
+            props.loader(false)
         })
         
-        apiCtrl.callAxios(`vehicle/list`, {vehicle_status: category}).then((response)=>{
+        apiCtrl.callAxios(`/vehicle/list`, {vehicle_status: category}).then((response)=>{
              if(response.success == true){
                  const res = response.data;
                  let Vehicles = [];
@@ -55,7 +57,7 @@ const ProductDetails = () => {
              }
          })
         
-        // apiCtrl.callAxios(`product/product-service-list`, {is_service: 0, product_category: 'Accessories'}).then((response)=>{
+        // apiCtrl.callAxios(`/product/product-service-list`, {is_service: 0, product_category: 'Accessories'}).then((response)=>{
         //     if(response.success == true){
         //         const res = response.data;
         //         let Products = [];
@@ -74,7 +76,7 @@ const ProductDetails = () => {
 
     let settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -103,8 +105,8 @@ const ProductDetails = () => {
 
     return (
         <div className="container mt-5 mb-5">
-            <div className="row d-flex justify-content-center">
-                <div className="row">
+            <div className="row d-flex justify-content-center" style={{marginTop: '80px'}}>
+                <div className="row">   
                     <div className="col-md-6">
                         <div className="images pr-3">
                             <div className="text-center pb-3">
@@ -154,7 +156,7 @@ const ProductDetails = () => {
                                 </ul>
                             </div> */}
                             <div className="cart mt-4 align-items-center">
-                                <button className="btn btn-secondary text-uppercase me-2 px-4">Download Brochure</button>
+                                {/* <button className="btn btn-secondary text-uppercase me-2 px-4">Download Brochure</button> */}
                                 <BookNowButton type={'vehicle'} header={'Book Now'} image1={detail.images} image2={detail.images} />
                                 {/* <button className="btn btn-primary text-uppercase me-2 px-4">Add to cart</button> */}
                             </div>
@@ -179,30 +181,40 @@ const ProductDetails = () => {
                  </Tab>
                     }
                     <Tab eventKey="technical" title="Technical Specifications">
+                    <div className="row">
                         {detail.specification && Object.entries(detail.specification).map(([index, item]) => (
+                               <div className='col-md-4'>
                             <div className='detail-section'>
                                 <h4 className='detail-title'>{textModifier(index)}</h4>
                                 <ul className='productDesc'>
                                     {item && Object.entries(item).map(([key, i]) => (
                                         // console.log("specification",key, i)
-                                        <li key={key}><label>{key}: </label><div className='value'>{textModifier(key)} : {i}</div></li>
+                                        <li key={key}><label>{key}: </label><div className=''><b>{textModifier(key)} : </b>{i}</div></li>
                                     ))}
                                 </ul>
                             </div>
+                            </div>
                         ))}
+                           </div>
                     </Tab>
                     <Tab eventKey="features" title="Features & Options">
-                        {detail.features && Object.entries(detail.features).map(([index, item]) => (
-                            // <img src={item} className='img-fluid my-3' />
-                            <div className='detail-section'>
-                                <h4 className='detail-title'>{textModifier(index)}</h4>
-                                <ul className='productDesc'>
-                                    {item && Object.entries(item).map(([key, i]) => (
-                                        <li><label>{key}: </label><div className='value'>{textModifier(key)} : {i}</div></li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
+                       
+
+                            {detail.features && Object.entries(detail.features).map(([index, item]) => (
+                                // <img src={item} className='img-fluid my-3' />
+                             
+
+                                    <div className='detail-section'>
+                                        <h4 className='detail-title'>{textModifier(index)}</h4>
+                                        <ul className='productDesc'>
+                                            {item && Object.entries(item).map(([key, i]) => (
+                                                <li><label>{key}: </label><div className='value'>{textModifier(key)} : {i}</div></li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                          
+                            ))}
+                     
                     </Tab>
                 </Tabs>
             </div>

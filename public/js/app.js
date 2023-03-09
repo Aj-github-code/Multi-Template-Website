@@ -12814,8 +12814,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../App.css */ "./resources/js/App.css");
 /* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
 /* harmony import */ var _components_header_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/header/header */ "./resources/js/FrontEnd/components/header/header.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _pages_home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/home */ "./resources/js/FrontEnd/pages/home.js");
 /* harmony import */ var _pages_aboutUs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/aboutUs */ "./resources/js/FrontEnd/pages/aboutUs.js");
 /* harmony import */ var _components_footer_footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/footer/footer */ "./resources/js/FrontEnd/components/footer/footer.js");
@@ -12826,12 +12826,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_productDetails_productDetails__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/productDetails/productDetails */ "./resources/js/FrontEnd/components/productDetails/productDetails.js");
 /* harmony import */ var _pages_vehicleListing__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/vehicleListing */ "./resources/js/FrontEnd/pages/vehicleListing.js");
 /* harmony import */ var _components_productDetails_vehicleDetails__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/productDetails/vehicleDetails */ "./resources/js/FrontEnd/components/productDetails/vehicleDetails.js");
-/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/api */ "./resources/js/FrontEnd/services/api.js");
-/* harmony import */ var _assets_config_constants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./assets/config/constants */ "./resources/js/FrontEnd/assets/config/constants.js");
-/* harmony import */ var _assets_tools_Toast__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./assets/tools/Toast */ "./resources/js/FrontEnd/assets/tools/Toast.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_floatingIcons_floatingIcons__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/floatingIcons/floatingIcons */ "./resources/js/FrontEnd/components/floatingIcons/floatingIcons.js");
+/* harmony import */ var _components_loader_loader__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/loader/loader */ "./resources/js/FrontEnd/components/loader/loader.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/api */ "./resources/js/FrontEnd/services/api.js");
+/* harmony import */ var _assets_config_constants__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./assets/config/constants */ "./resources/js/FrontEnd/assets/config/constants.js");
+/* harmony import */ var _assets_tools_Toast__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./assets/tools/Toast */ "./resources/js/FrontEnd/assets/tools/Toast.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -12862,12 +12864,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+// import Api from '../api';
+
+
+
 
 
 
 function FrontEnd() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState2 = _slicedToArray(_useState, 2),
+    loading = _useState2[0],
+    setLoading = _useState2[1];
   // localStorage.clear();
-  var StoredSetup = JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_15__.API_CONSTANTS.subdomain)));
+  var StoredSetup = JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain)));
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState(StoredSetup),
     _React$useState2 = _slicedToArray(_React$useState, 2),
     setup = _React$useState2[0],
@@ -12876,6 +12886,18 @@ function FrontEnd() {
     _React$useState4 = _slicedToArray(_React$useState3, 2),
     logos = _React$useState4[0],
     setLogo = _React$useState4[1];
+  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0___default().useState([]),
+    _React$useState6 = _slicedToArray(_React$useState5, 2),
+    aboutUs = _React$useState6[0],
+    setAboutUs = _React$useState6[1];
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_0___default().useState({}),
+    _React$useState8 = _slicedToArray(_React$useState7, 2),
+    footer = _React$useState8[0],
+    setFooter = _React$useState8[1];
+  var _React$useState9 = react__WEBPACK_IMPORTED_MODULE_0___default().useState([]),
+    _React$useState10 = _slicedToArray(_React$useState9, 2),
+    vehicles = _React$useState10[0],
+    setVehicles = _React$useState10[1];
   var response = {
     "status": "success",
     "data": [{
@@ -12900,10 +12922,11 @@ function FrontEnd() {
       "is_active": "1"
     }]
   };
-  var apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_14__["default"]();
+  var apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_16__["default"]();
   var getSiteSetup = function getSiteSetup() {
-    console.table(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_15__.API_CONSTANTS.subdomain)));
-    apiCtrl.callAxios(_assets_config_constants__WEBPACK_IMPORTED_MODULE_15__.API_CONSTANTS.setupList, []).then(function (response) {
+    // console.table('Setup response', localStorage.getItem(`${API_CONSTANTS.subdomain}`));
+
+    apiCtrl.callAxios(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.setupList, []).then(function (response) {
       console.log('Response', response);
       var data = {};
       response.data.map(function (value, key) {
@@ -12917,25 +12940,21 @@ function FrontEnd() {
       // Toast({text:response.message+'!', type:'success'})
 
       var storage = {};
-      storage = JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_15__.API_CONSTANTS.subdomain)));
+      storage = JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain)));
       storage = _objectSpread(_objectSpread({}, storage), {}, {
         modules: data
       });
-      localStorage.setItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_15__.API_CONSTANTS.subdomain), JSON.stringify({
-        storage: storage
-      }));
-      localStorage.setItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_15__.API_CONSTANTS.subdomain), JSON.stringify(storage));
-      setSetup(JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_15__.API_CONSTANTS.subdomain))));
+      localStorage.setItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain), JSON.stringify(_objectSpread({}, storage)));
+      setLogo(typeof data.website.config.site_settings.logo !== 'undefined' ? data.website.config.site_settings.logo : 'logo-tvs.png');
+      // localStorage.setItem(`${API_CONSTANTS.subdomain}`,JSON.stringify(storage) )
+      setSetup(JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain))));
 
-      // console.log('Storage' , JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)))
+      // console.log('Storage ---' , JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)))
     });
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log('Setup', setup);
     if (setup !== null) {
-      setLogo(setup.logo);
-      console.log('Setup', setup.modules);
       if (typeof setup.modules !== 'undefined') {
         if (setup.modules.website !== null && setup.modules.website !== '') {
           var _setup$modules$websit = setup.modules.website.config.site_settings,
@@ -12944,60 +12963,151 @@ function FrontEnd() {
             logo = _setup$modules$websit.logo,
             subtitle = _setup$modules$websit.subtitle;
           var storage = {};
-          storage = JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_15__.API_CONSTANTS.subdomain)));
+          setLogo(logo);
+          storage = JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain)));
           storage = _objectSpread(_objectSpread({}, storage), {}, {
             title: title,
             subtitle: subtitle,
             logo: logo
           });
-          localStorage.setItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_15__.API_CONSTANTS.subdomain), JSON.stringify(storage));
+          localStorage.setItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain), JSON.stringify(storage));
           document.documentElement.style.setProperty('--bs-primary', "".concat(color.primary));
           document.documentElement.style.setProperty('--primaryBg', "".concat(color.backgound));
           document.documentElement.style.setProperty('--primaryDark', "".concat(color.dark));
         } else {
-          getSiteSetup();
+
+          // getSiteSetup();
         }
       } else {
-        getSiteSetup();
+
+        // getSiteSetup();
       }
-    } else {
-      getSiteSetup();
     }
+    // else {
+
+    // }
+    getSiteSetup();
+    apiCtrl.callAxiosGet("/company/view/".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain)).then(function (response) {
+      // console.log('About US Response', response)
+      if (response.success == true) {
+        var res = response.data;
+        var data = [{
+          image: res.about_company_image,
+          title: 'About',
+          description: res.about_company,
+          isReverse: true
+        }, {
+          title: 'Mission',
+          image: res.company_mission_image,
+          description: res.company_mission,
+          isReverse: false
+        }, {
+          title: 'Vision',
+          image: res.company_vision_image,
+          description: res.company_vision,
+          isReverse: true
+        }];
+        setAboutUs(data);
+        var footerData = {
+          image: res.logo,
+          description: res.about_company
+        };
+        setFooter(_objectSpread({}, footerData));
+        //  setLogo(res.logo)
+        //  console.log('Abut us Res',data)
+
+        // this.setState(...response.data);
+      }
+    });
+
+    // console.log('Final Setup', setup)
+
+    getVehiclesMenu();
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.BrowserRouter, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_components_header_header__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      logo: logos
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Routes, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+  var getVehiclesMenu = function getVehiclesMenu() {
+    apiCtrl.callAxiosGet("/vehicle/get-vehicle-make-model-type").then(function (response) {
+      if (response.success == true) {
+        var res = response.data;
+        setVehicles(res);
+      }
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.BrowserRouter, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_components_loader_loader__WEBPACK_IMPORTED_MODULE_15__["default"], {
+      loading: loading
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_components_header_header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      logo: logos,
+      vehicles: vehicles
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_components_floatingIcons_floatingIcons__WEBPACK_IMPORTED_MODULE_14__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
         path: "/",
         exact: true,
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_home__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_home__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          loader: function loader(state) {
+            setLoading(state);
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
         path: "/about",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_aboutUs__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_aboutUs__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          loader: function loader(state) {
+            setLoading(state);
+          },
+          aboutUs: aboutUs
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
         path: "/service",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_services__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_services__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          loader: function loader(state) {
+            setLoading(state);
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
         path: "/gallery",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_gallery__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_gallery__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          loader: function loader(state) {
+            setLoading(state);
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
         path: "/contact",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_contact__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_contact__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          loader: function loader(state) {
+            setLoading(state);
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
         path: "/product/:category",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_productListing__WEBPACK_IMPORTED_MODULE_10__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_productListing__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          loader: function loader(state) {
+            setLoading(state);
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
         path: "/product/:category/:slug",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_components_productDetails_productDetails__WEBPACK_IMPORTED_MODULE_11__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-        path: "/vehicle/:category",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_vehicleListing__WEBPACK_IMPORTED_MODULE_12__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-        path: "/vehicle/:category/:slug",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_components_productDetails_vehicleDetails__WEBPACK_IMPORTED_MODULE_13__["default"], {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_components_productDetails_productDetails__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          loader: function loader(state) {
+            setLoading(state);
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
+        path: "/vehicle/:category/:type",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_vehicleListing__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          loader: function loader(state) {
+            setLoading(state);
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
+        path: "/vehicle/:category/:type/:slug",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_components_productDetails_vehicleDetails__WEBPACK_IMPORTED_MODULE_13__["default"], {
+          loader: function loader(state) {
+            setLoading(state);
+          }
+        })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_components_footer_footer__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_components_footer_footer__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      aboutUs: footer
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FrontEnd);
@@ -13021,22 +13131,31 @@ __webpack_require__.r(__webpack_exports__);
 var host = window.location.host;
 var protocol = window.location.protocol;
 var parts = host.split(".");
-var subdomain = "";
+var subdomain = "dealer-website";
+var domain = 'primarykeytech';
 // If we get more than 3 parts, then we have a subdomain
 // INFO: This could be 4, if you have a co.uk TLD or something like that.
 if (parts.length >= 3) {
-  // subdomain = parts[0];
-  subdomain = 'dealer-website';
+  if (parts[0] === 'www') {
+    subdomain = parts[1];
+    domain = parts[2];
+  } else {
+    subdomain = parts[0];
+    domain = parts[1];
+  }
+
+  // subdomain = 'dealer-website';
   // Remove the subdomain from the parts list
   // parts.splice(0, 1);
   // Set the location to the new url
   // window.location = protocol + "//" + parts.join(".") + "/" + subdomain;
-} else {
-  subdomain = 'dealer-website';
 }
+
+// BASE_URL: `http://127.0.0.1:8003/api`, //'https://primarykeytech.in/glocal/api',
 var API_CONSTANTS = {
-  BASE_URL: "https://".concat(subdomain + ".", "primarykeytech.in/dynamic/api/api"),
+  BASE_URL: "https://".concat(subdomain, ".").concat(domain, ".in/dynamic/api/api"),
   //'https://primarykeytech.in/glocal/api',
+  URL: "https://".concat(subdomain, ".").concat(domain, ".in/dynamic/api"),
   login: "/login",
   //used
   refresh: "/refresh",
@@ -13125,7 +13244,7 @@ var AboutInfo = /*#__PURE__*/function (_Component) {
   _createClass(AboutInfo, [{
     key: "render",
     value: function render() {
-      console.log(this.props);
+      // console.log(this.props)
       if (!this.props.data) return null;
       var data = this.props.data;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -13197,16 +13316,16 @@ var Banner = /*#__PURE__*/function (_Component) {
     value: function render() {
       if (!this.props.data) return null;
       var slideData = this.props.data;
-      console.log(slideData);
+      // console.log(slideData);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_bootstrap_Carousel__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        children: slideData.map(function (item) {
+        children: slideData.map(function (item, key) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_bootstrap_Carousel__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-              className: "d-block w-100",
+              className: "d-block w-100 h-auto",
               src: item.image ? item.image : item.url,
               alt: item.title1 ? item.title1 : item.title
             })
-          }, item.id + item.title);
+          }, item.id + key + item.title);
         })
       });
     }
@@ -13314,7 +13433,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
 /* harmony import */ var _bookNow_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bookNow.css */ "./resources/js/FrontEnd/components/bookNow/bookNow.css");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../api */ "./resources/js/api.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/api */ "./resources/js/FrontEnd/services/api.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -13344,7 +13463,7 @@ var BookNow = function BookNow(_ref) {
     image2 = _ref.image2,
     header = _ref.header,
     type = _ref.type;
-  var apiCtrl = new _api__WEBPACK_IMPORTED_MODULE_2__["default"]();
+  var apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_2__["default"]();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       enquiry_type: type
     }),
@@ -13521,7 +13640,7 @@ var BookNow = function BookNow(_ref) {
     //     email: state.email,
     //     description: state.description
     // }
-    apiCtrl.callAxios('enquiry/create-update', state).then(function (res) {
+    apiCtrl.callAxios('/enquiry/create-update', state).then(function (res) {
       if (res.success == true) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_3___default().fire({
           title: 'Contact Us',
@@ -13561,10 +13680,7 @@ var BookNow = function BookNow(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "row",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                className: "col-md-6",
-                style: {
-                  height: "400px"
-                },
+                className: "col-md-6 enquiry-img",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                   className: "modal-img",
                   src: image1
@@ -13574,9 +13690,6 @@ var BookNow = function BookNow(_ref) {
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "col-md-6",
-                style: {
-                  height: "400px"
-                },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   className: "col-md-12 mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
@@ -13704,7 +13817,7 @@ var BookNow = function BookNow(_ref) {
             "class": "modal-footer float-right",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
               "data-bs-dismiss": "modal",
-              className: "close modal-button",
+              className: "close modal-button mb-3",
               "data-dismiss": "modal",
               "aria-label": "Close",
               style: {
@@ -13842,6 +13955,62 @@ var Features = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/FrontEnd/components/floatingIcons/floatingIcons.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/FrontEnd/components/floatingIcons/floatingIcons.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _floatingIcons_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./floatingIcons.css */ "./resources/js/FrontEnd/components/floatingIcons/floatingIcons.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var FloatingIcons = function FloatingIcons() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    "class": "fixed-social",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+      href: "https://www.facebook.com/sharer/sharer.php?u=" + window.location.href,
+      className: "fixed-facebook",
+      target: "_blank",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fa fa-brands fa-meta"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        children: "Meta  "
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+      href: "https://web.whatsapp.com/send?text=" + window.location.href,
+      className: "fixed-whatsapp",
+      target: "_blank",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fa fa-brands fa-whatsapp"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        children: "WhatsApp"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+      href: "https://www.linkedin.com/sharing/share-offsite/?url=" + window.location.href,
+      className: "fixed-linkedin",
+      target: "_blank",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fa fa-brands fa-linkedin"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        children: "Linkedin"
+      })]
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FloatingIcons);
+
+/***/ }),
+
 /***/ "./resources/js/FrontEnd/components/footer/footer.js":
 /*!***********************************************************!*\
   !*** ./resources/js/FrontEnd/components/footer/footer.js ***!
@@ -13855,8 +14024,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Nav.js");
 /* harmony import */ var _footer_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footer.css */ "./resources/js/FrontEnd/components/footer/footer.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/api */ "./resources/js/FrontEnd/services/api.js");
+/* harmony import */ var _services_textModifier__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/textModifier */ "./resources/js/FrontEnd/services/textModifier.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -13874,25 +14046,172 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
+
+
 var Footer = /*#__PURE__*/function (_Component) {
   _inherits(Footer, _Component);
   var _super = _createSuper(Footer);
-  function Footer() {
+  function Footer(props) {
+    var _this;
     _classCallCheck(this, Footer);
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_2__["default"]();
+    _this.state = {
+      showMore: false,
+      aboutUs: _this.props.aboutUs,
+      vehicles: [{
+        vehicle_status: 'new',
+        types: [{
+          vehicle_type: 'Bike'
+        }, {
+          vehicle_type: 'Car'
+        }]
+      }, {
+        vehicle_status: 'used',
+        types: [{
+          vehicle_type: 'Bike'
+        }, {
+          vehicle_type: 'Scooter'
+        }]
+      }]
+    };
+    return _this;
   }
   _createClass(Footer, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevProps.vehicles !== this.props.vehicles) {
+        if (this.props.vehicles !== [] && this.props.vehicles !== {}) {
+          this.setState({
+            vehicles: this.props.vehicles
+          });
+        }
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("footer", {
+      var _this2 = this;
+      // return (
+      //     <footer className="footer">
+      //         <div className="footer-jk">
+      //             <p className="footer-para">© TVS All Rights Reserved - 2022</p>
+      //         </div>
+      //     </footer>
+      // );
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("footer", {
         className: "footer",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "container py-4",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "col-md-4 align-footer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                src: this.props.aboutUs.image ? this.props.aboutUs.image : "../../assets/images/logo-tvs.png",
+                className: "mb-3"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "footer-desc",
+                children: typeof this.props.aboutUs.description !== 'undefined' && (this.state.showMore ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+                  children: [this.props.aboutUs.description, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                    onClick: function onClick(e) {
+                      return _this2.setState({
+                        showMore: false
+                      });
+                    },
+                    style: {
+                      borderRadius: '12px',
+                      marginLeft: '10px'
+                    },
+                    children: "Show Less"
+                  })]
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+                  children: [this.props.aboutUs.description.substr(0, 200) + '...', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                    onClick: function onClick(e) {
+                      return _this2.setState({
+                        showMore: true
+                      });
+                    },
+                    style: {
+                      borderRadius: '12px',
+                      marginLeft: '10px'
+                    },
+                    children: "Show More"
+                  })]
+                }))
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "col-md-3 align-footer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+                className: "mb-4 mt-3",
+                children: "Quick Links"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+                className: "footer-links",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+                    href: "/about",
+                    children: "About"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+                    href: "/service",
+                    children: "Service"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+                    href: "/contact",
+                    children: "Contact Us"
+                  })
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "col-md-3 align-footer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+                className: "mb-4 mt-3",
+                children: "Products"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+                className: "footer-links",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+                    href: "/product/Accessories",
+                    children: "Accessories"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+                    href: "/product/Oil & Lubricants",
+                    children: "Oil & Lubricants"
+                  })
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "col-md-2 align-footer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+                className: "mb-4 mt-2",
+                children: "Vehicle"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
+                className: "footer-links",
+                children: this.state.vehicles.map(function (value, index) {
+                  return value.types.map(function (val, ind) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+                        href: "/vehicle/".concat(value.vehicle_status, "/").concat(val.vehicle_type),
+                        children: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_3__["default"])("".concat(value.vehicle_status, " ").concat(val.vehicle_type))
+                      }, index)
+                    });
+                  });
+                })
+              })]
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "footer-jk",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
             className: "footer-para",
             children: "\xA9 TVS All Rights Reserved - 2022"
           })
-        })
+        })]
       });
     }
   }]);
@@ -13915,13 +14234,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Navbar.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Nav.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/NavDropdown.js");
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Navbar.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Nav.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/NavDropdown.js");
 /* harmony import */ var _header_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header.css */ "./resources/js/FrontEnd/components/header/header.css");
 /* harmony import */ var _assets_images_logo_tvs_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/images/logo-tvs.png */ "./resources/js/FrontEnd/assets/images/logo-tvs.png");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/api */ "./resources/js/FrontEnd/services/api.js");
+/* harmony import */ var _assets_config_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/config/constants */ "./resources/js/FrontEnd/assets/config/constants.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -13942,70 +14263,126 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var Header = /*#__PURE__*/function (_Component) {
   _inherits(Header, _Component);
   var _super = _createSuper(Header);
-  function Header() {
+  function Header(props) {
+    var _this;
     _classCallCheck(this, Header);
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_3__["default"]();
+    _this.state = {
+      vehicles: [{
+        vehicle_status: 'new',
+        types: [{
+          vehicle_type: 'Bike'
+        }, {
+          vehicle_type: 'Car'
+        }]
+      }, {
+        vehicle_status: 'used',
+        types: [{
+          vehicle_type: 'Bike'
+        }, {
+          vehicle_type: 'Scooter'
+        }]
+      }]
+    };
+    return _this;
   }
   _createClass(Header, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevProps.vehicles !== this.props.vehicles) {
+        if (this.props.vehicles !== [] && this.props.vehicles !== {}) {
+          this.setState({
+            vehicles: this.props.vehicles
+          });
+        }
+      }
+    }
+
+    // getVehiclesMenu(){
+    //     this.apiCtrl.callAxiosGet(`/vehicle/get-vehicle-make-model-type`).then((response)=>{
+    //         if(response.success == true){
+    //             const res = response.data;
+
+    //             this.setState({vehicles: res})
+    //         }
+    //     })
+    // }
+
+    // componentDidMount(){
+    //     this.getVehiclesMenu();
+    // }
+  }, {
     key: "render",
     value: function render() {
-      var Url = "https://dealer-website.primarykeytech.in/dynamic/api/";
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        bg: "white",
-        expand: "lg",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Brand, {
-            href: "/",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-              src: this.props.logo !== '' ? Url + 'public/upload/setup/' + this.props.logo : _assets_images_logo_tvs_png__WEBPACK_IMPORTED_MODULE_2__["default"],
-              className: "logo img-fluid",
-              alt: "TVS Bike"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Toggle, {
-            "aria-controls": "basic-navbar-nav"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Collapse, {
-            id: "basic-navbar-nav",
-            className: "justify-content-end",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"], {
-              className: "nav-menu",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Link, {
-                href: "/",
-                children: "Home"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Link, {
-                href: "/about",
-                children: "About"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Link, {
-                href: "/service",
-                children: "Service"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"], {
-                title: "Product",
-                id: "basic-nav-dropdown",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
-                  href: "/product/Accessories",
-                  children: "Accessories"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
-                  href: "/product/Oil & Lubricants",
-                  children: "Oil & Lubricants"
+      var Url = _assets_config_constants__WEBPACK_IMPORTED_MODULE_4__.API_CONSTANTS.URL;
+      console.log('vehicles', this.props.vehicles, this.state.vehicles);
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("header", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          bg: "white",
+          expand: "lg",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Brand, {
+              href: "/",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                src: this.props.logo !== '' ? Url + '/public/upload/setup/' + this.props.logo : _assets_images_logo_tvs_png__WEBPACK_IMPORTED_MODULE_2__["default"],
+                className: "logo img-fluid",
+                alt: "TVS Bike"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Toggle, {
+              "aria-controls": "basic-navbar-nav"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Collapse, {
+              id: "basic-navbar-nav",
+              className: "justify-content-end",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                className: "nav-menu",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"].Link, {
+                  href: "/",
+                  children: "Home"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"].Link, {
+                  href: "/about",
+                  children: "About"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"].Link, {
+                  href: "/service",
+                  children: "Service"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                  title: "Product",
+                  id: "basic-nav-dropdown",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Item, {
+                    href: "/product/Accessories",
+                    children: "Accessories"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Item, {
+                    href: "/product/Oil & Lubricants",
+                    children: "Oil & Lubricants"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                  title: "Vehicles",
+                  id: "basic-nav-dropdown",
+                  children: this.state.vehicles.map(function (value, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                      title: "".concat(value.vehicle_status.toUpperCase()),
+                      className: "text-primary submenu",
+                      id: "basic-nav-dropdown",
+                      children: value.types.map(function (val, ind) {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Item, {
+                          href: "/vehicle/".concat(value.vehicle_status, "/").concat(val.vehicle_type),
+                          children: val.vehicle_type.toUpperCase()
+                        });
+                      })
+                    });
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"].Link, {
+                  href: "/contact",
+                  children: "Contact Us"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"], {
-                title: "Vehicles",
-                id: "basic-nav-dropdown",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
-                  href: "/vehicle/new",
-                  children: "New Bike"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
-                  href: "/vehicle/used",
-                  children: "Used Bike"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Link, {
-                href: "/contact",
-                children: "Contact Us"
-              })]
-            })
-          })]
+              })
+            })]
+          })
         })
       });
     }
@@ -14078,6 +14455,47 @@ var InfoText = /*#__PURE__*/function (_Component) {
   return InfoText;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InfoText);
+
+/***/ }),
+
+/***/ "./resources/js/FrontEnd/components/loader/loader.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/FrontEnd/components/loader/loader.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _assets_images_loader_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/images/loader.svg */ "./resources/js/FrontEnd/assets/images/loader.svg");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function Loader(_ref) {
+  var loading = _ref.loading;
+  if (loading != true) {
+    return false;
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+      src: _assets_images_loader_svg__WEBPACK_IMPORTED_MODULE_1__["default"],
+      style: {
+        width: "100%",
+        height: "100%",
+        position: 'fixed',
+        marginTop: '-80px',
+        zIndex: '999999 '
+      }
+    })
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Loader);
 
 /***/ }),
 
@@ -14186,11 +14604,16 @@ var ProductCard = /*#__PURE__*/function (_Component) {
       if (!this.props.data) return null;
       var data = this.props.data;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-        to: data.slug ? data.slug : '#',
+        to: data.slug ? "".concat(data.slug) : '#',
         className: "card productCard",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
           src: data.productImage,
-          alt: "Denim Jeans"
+          alt: "Denim Jeans",
+          className: "img-fluid",
+          style: {
+            width: "100%",
+            height: '150px'
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "card-body",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
@@ -14225,219 +14648,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var _productDetails_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./productDetails.css */ "./resources/js/FrontEnd/components/productDetails/productDetails.css");
-/* harmony import */ var _local_json_products_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../local-json/products.json */ "./resources/js/FrontEnd/local-json/products.json");
-/* harmony import */ var slick_carousel_slick_slick_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
-/* harmony import */ var slick_carousel_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
-/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
-/* harmony import */ var _productCard_productCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../productCard/productCard */ "./resources/js/FrontEnd/components/productCard/productCard.js");
-/* harmony import */ var react_image_magnify__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-image-magnify */ "./node_modules/react-image-magnify/dist/es/ReactImageMagnify.js");
-/* harmony import */ var _bookNow_bookNow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../bookNow/bookNow */ "./resources/js/FrontEnd/components/bookNow/bookNow.js");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../api */ "./resources/js/api.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var ProductDetails = function ProductDetails() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.useParams)(),
-    category = _useParams.category,
-    slug = _useParams.slug;
-  // const selectedData = products.filter(x => x.id == productID)[0];
-  var apiCtrl = new _api__WEBPACK_IMPORTED_MODULE_9__["default"]();
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      banner_image: 'https://dealer-website.primarykeytech.in/dynamic/api/public/upload/product/DSC_41101675841396.JPG',
-      base_price: '0',
-      product: 'Product Name'
-    }),
-    _useState2 = _slicedToArray(_useState, 2),
-    detail = _useState2[0],
-    setDetail = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState4 = _slicedToArray(_useState3, 2),
-    products = _useState4[0],
-    setProducts = _useState4[1];
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    apiCtrl.callAxios("product/product-service/".concat(slug)).then(function (res) {
-      if (res.success == true) {
-        setDetail(res.data);
-      }
-    });
-    apiCtrl.callAxios("product/product-service-list", {
-      is_service: 0,
-      product_category: category
-    }).then(function (response) {
-      if (response.success == true) {
-        var res = response.data;
-        var Products = [];
-        res.map(function (value, index) {
-          Products = [].concat(_toConsumableArray(Products), [{
-            id: value.id,
-            title: value.product,
-            description: value.description,
-            productImage: value.banner_image,
-            price: value.base_price,
-            category: category
-          }]);
-        });
-        setProducts(Products);
-      }
-    });
-  }, []);
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [{
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3
-      }
-    }, {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2
-      }
-    }, {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1
-      }
-    }]
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-    className: "container mt-5 mb-5",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "row d-flex justify-content-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "row",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "col-md-6",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-            className: "images pr-3",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "text-center pb-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_image_magnify__WEBPACK_IMPORTED_MODULE_7__["default"], {
-                smallImage: {
-                  alt: detail.product,
-                  isFluidWidth: true,
-                  src: detail.banner_image
-                },
-                largeImage: {
-                  src: detail.banner_image,
-                  width: 1200,
-                  height: 1800
-                }
-              })
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "col-md-6",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "product p-4",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h5", {
-                className: "text-uppercase productTitle",
-                children: detail.product
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "price d-flex flex-row align-items-center",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                  className: "act-price",
-                  children: ["\u20B9 ", parseInt(detail.base_price), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
-                    children: "onwards"
-                  })]
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "detail-section",
-              children: detail.description
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "cart mt-4 align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-                className: "btn btn-secondary text-uppercase me-2 px-4",
-                children: "Brochure"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-                className: "btn btn-primary text-uppercase me-2 px-4",
-                children: "Add to cart"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_bookNow_bookNow__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                type: 'product',
-                header: 'Enquiry',
-                image1: detail.banner_image,
-                image2: detail.featured_image ? detail.featured_image : detail.banner_image
-              })]
-            })]
-          })
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      className: "mt-5",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
-        className: "sectionTitle mb-3",
-        children: "Related Products"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "row",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_slick__WEBPACK_IMPORTED_MODULE_5__["default"], _objectSpread(_objectSpread({}, settings), {}, {
-          children: products && products.map(function (item) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "relatedSlides",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_productCard_productCard__WEBPACK_IMPORTED_MODULE_6__["default"], {
-                data: item
-              })
-            }, item.id);
-          })
-        }))
-      })]
-    })]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductDetails);
-
-/***/ }),
-
-/***/ "./resources/js/FrontEnd/components/productDetails/vehicleDetails.js":
-/*!***************************************************************************!*\
-  !*** ./resources/js/FrontEnd/components/productDetails/vehicleDetails.js ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _productDetails_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./productDetails.css */ "./resources/js/FrontEnd/components/productDetails/productDetails.css");
 /* harmony import */ var _local_json_products_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../local-json/products.json */ "./resources/js/FrontEnd/local-json/products.json");
@@ -14446,11 +14656,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
 /* harmony import */ var _productCard_productCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../productCard/productCard */ "./resources/js/FrontEnd/components/productCard/productCard.js");
 /* harmony import */ var react_image_magnify__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-image-magnify */ "./node_modules/react-image-magnify/dist/es/ReactImageMagnify.js");
-/* harmony import */ var react_bootstrap_Tab__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-bootstrap/Tab */ "./node_modules/react-bootstrap/esm/Tab.js");
-/* harmony import */ var react_bootstrap_Tabs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-bootstrap/Tabs */ "./node_modules/react-bootstrap/esm/Tabs.js");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../api */ "./resources/js/api.js");
-/* harmony import */ var _bookNow_bookNow__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../bookNow/bookNow */ "./resources/js/FrontEnd/components/bookNow/bookNow.js");
-/* harmony import */ var _services_textModifier__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/textModifier */ "./resources/js/FrontEnd/services/textModifier.js");
+/* harmony import */ var _bookNow_bookNow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../bookNow/bookNow */ "./resources/js/FrontEnd/components/bookNow/bookNow.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/api */ "./resources/js/FrontEnd/services/api.js");
+/* harmony import */ var _assets_config_constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../assets/config/constants */ "./resources/js/FrontEnd/assets/config/constants.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -14484,16 +14692,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var ProductDetails = function ProductDetails() {
+var ProductDetails = function ProductDetails(props) {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_12__.useParams)(),
     category = _useParams.category,
     slug = _useParams.slug;
-  var selectedData = _local_json_products_json__WEBPACK_IMPORTED_MODULE_2__.filter(function (x) {
-    return x.id == 1;
-  })[0];
-  var apiCtrl = new _api__WEBPACK_IMPORTED_MODULE_8__["default"]();
+  // const selectedData = products.filter(x => x.id == productID)[0];
+  var apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_9__["default"]();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      banner_image: 'https://dealer-website.primarykeytech.in/dynamic/api/public/upload/product/DSC_41101675841396.JPG',
+      banner_image: "".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_10__.API_CONSTANTS.URL, "/upload/product/DSC_41101675841396.JPG"),
       base_price: '0',
       product: 'Product Name'
     }),
@@ -14505,48 +14711,36 @@ var ProductDetails = function ProductDetails() {
     products = _useState4[0],
     setProducts = _useState4[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    apiCtrl.callAxios("vehicle/get-vehicle-by-model/".concat(slug)).then(function (res) {
+    apiCtrl.callAxios("/product/product-service/".concat(slug)).then(function (res) {
       if (res.success == true) {
         setDetail(res.data);
       }
+      props.loader(false);
     });
-    apiCtrl.callAxios("vehicle/list", {
-      vehicle_status: category
+    apiCtrl.callAxios("/product/product-service-list", {
+      is_service: 0,
+      product_category: category
     }).then(function (response) {
       if (response.success == true) {
         var res = response.data;
-        var Vehicles = [];
+        var Products = [];
         res.map(function (value, index) {
-          Vehicles = [].concat(_toConsumableArray(Vehicles), [{
+          Products = [].concat(_toConsumableArray(Products), [{
             id: value.id,
-            title: value.vehicle_model,
-            description: value.vehicle_make,
-            productImage: value.images,
-            slug: value.vehicle_model,
+            title: value.product,
+            description: value.description,
+            productImage: value.banner_image,
+            price: value.base_price,
             category: category
           }]);
         });
-        setProducts(Vehicles);
+        setProducts(Products);
       }
     });
-
-    // apiCtrl.callAxios(`product/product-service-list`, {is_service: 0, product_category: 'Accessories'}).then((response)=>{
-    //     if(response.success == true){
-    //         const res = response.data;
-    //         let Products = [];
-    //         res.map((value, index)=>{
-
-    //                 Products = [...Products, {title:value.product, description: value.description, productImage: value.banner_image, price:value.base_price}]
-
-    //         })
-
-    //         setProducts(Products)
-    //     }
-    // })
   }, []);
   var settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -14571,6 +14765,9 @@ var ProductDetails = function ProductDetails() {
     className: "container mt-5 mb-5",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "row d-flex justify-content-center",
+      style: {
+        marginTop: '80px'
+      },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "row",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
@@ -14581,12 +14778,12 @@ var ProductDetails = function ProductDetails() {
               className: "text-center pb-3",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_image_magnify__WEBPACK_IMPORTED_MODULE_7__["default"], {
                 smallImage: {
-                  alt: detail.vehicle_model,
+                  alt: detail.product,
                   isFluidWidth: true,
-                  src: detail.images
+                  src: detail.banner_image
                 },
                 largeImage: {
-                  src: detail.images,
+                  src: detail.banner_image,
                   width: 1200,
                   height: 1800
                 }
@@ -14599,136 +14796,30 @@ var ProductDetails = function ProductDetails() {
             className: "product p-4",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-                className: "text-uppercase brand",
-                children: detail.vehicle_make
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h5", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h5", {
                 className: "text-uppercase productTitle",
-                children: detail.vehicle_model
+                children: detail.product
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                 className: "price d-flex flex-row align-items-center",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
                   className: "act-price",
-                  children: [detail.price ? "\u20B9 ".concat(parseInt(detail.price)) : 'Contact For Pricing', "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("small", {})]
+                  children: ["\u20B9 ", parseInt(detail.base_price), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("small", {
+                    children: "onwards"
+                  })]
                 })
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-              className: "detail-section"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+              className: "detail-section",
+              children: detail.description
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
               className: "cart mt-4 align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
-                className: "btn btn-secondary text-uppercase me-2 px-4",
-                children: "Download Brochure"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_bookNow_bookNow__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                type: 'vehicle',
-                header: 'Book Now',
-                image1: detail.images,
-                image2: detail.images
-              })]
-            })]
-          })
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-      className: "productDetailed mt-5",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_bootstrap_Tabs__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        children: [detail.vehicle_status && detail.vehicle_status === 'used' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_bootstrap_Tab__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          eventKey: "usedVehicle",
-          title: "Used Vehicles",
-          children: detail.used_vehicle && Object.entries(detail.used_vehicle).map(function (_ref) {
-            var _ref2 = _slicedToArray(_ref, 2),
-              index = _ref2[0],
-              item = _ref2[1];
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-              className: "detail-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h4", {
-                className: "detail-title",
-                children: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(index)
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("ul", {
-                className: "productDesc",
-                children: item && Object.entries(item).map(function (_ref3) {
-                  var _ref4 = _slicedToArray(_ref3, 2),
-                    key = _ref4[0],
-                    i = _ref4[1];
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("li", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("label", {
-                      children: [key, ": "]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                      className: "value",
-                      children: [(0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(key), " : ", i]
-                    })]
-                  });
-                })
-              })]
-            });
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_bootstrap_Tab__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          eventKey: "technical",
-          title: "Technical Specifications",
-          children: detail.specification && Object.entries(detail.specification).map(function (_ref5) {
-            var _ref6 = _slicedToArray(_ref5, 2),
-              index = _ref6[0],
-              item = _ref6[1];
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-              className: "detail-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h4", {
-                className: "detail-title",
-                children: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(index)
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("ul", {
-                className: "productDesc",
-                children: item && Object.entries(item).map(function (_ref7) {
-                  var _ref8 = _slicedToArray(_ref7, 2),
-                    key = _ref8[0],
-                    i = _ref8[1];
-                  return (
-                    /*#__PURE__*/
-                    // console.log("specification",key, i)
-                    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("li", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("label", {
-                        children: [key, ": "]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                        className: "value",
-                        children: [(0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(key), " : ", i]
-                      })]
-                    }, key)
-                  );
-                })
-              })]
-            });
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_bootstrap_Tab__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          eventKey: "features",
-          title: "Features & Options",
-          children: detail.features && Object.entries(detail.features).map(function (_ref9) {
-            var _ref10 = _slicedToArray(_ref9, 2),
-              index = _ref10[0],
-              item = _ref10[1];
-            return (
-              /*#__PURE__*/
-              // <img src={item} className='img-fluid my-3' />
-              (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                className: "detail-section",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h4", {
-                  className: "detail-title",
-                  children: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(index)
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("ul", {
-                  className: "productDesc",
-                  children: item && Object.entries(item).map(function (_ref11) {
-                    var _ref12 = _slicedToArray(_ref11, 2),
-                      key = _ref12[0],
-                      i = _ref12[1];
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("li", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("label", {
-                        children: [key, ": "]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                        className: "value",
-                        children: [(0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(key), " : ", i]
-                      })]
-                    });
-                  })
-                })]
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_bookNow_bookNow__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                type: 'product',
+                header: 'Enquiry',
+                image1: detail.banner_image,
+                image2: detail.featured_image ? detail.featured_image : detail.banner_image
               })
-            );
+            })]
           })
         })]
       })
@@ -14744,6 +14835,350 @@ var ProductDetails = function ProductDetails() {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
               className: "relatedSlides",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_productCard_productCard__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                data: item
+              })
+            }, item.id);
+          })
+        }))
+      })]
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductDetails);
+
+/***/ }),
+
+/***/ "./resources/js/FrontEnd/components/productDetails/vehicleDetails.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/FrontEnd/components/productDetails/vehicleDetails.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _productDetails_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./productDetails.css */ "./resources/js/FrontEnd/components/productDetails/productDetails.css");
+/* harmony import */ var _local_json_products_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../local-json/products.json */ "./resources/js/FrontEnd/local-json/products.json");
+/* harmony import */ var slick_carousel_slick_slick_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
+/* harmony import */ var slick_carousel_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
+/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
+/* harmony import */ var _productCard_productCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../productCard/productCard */ "./resources/js/FrontEnd/components/productCard/productCard.js");
+/* harmony import */ var react_image_magnify__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-image-magnify */ "./node_modules/react-image-magnify/dist/es/ReactImageMagnify.js");
+/* harmony import */ var react_bootstrap_Tab__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-bootstrap/Tab */ "./node_modules/react-bootstrap/esm/Tab.js");
+/* harmony import */ var react_bootstrap_Tabs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-bootstrap/Tabs */ "./node_modules/react-bootstrap/esm/Tabs.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/api */ "./resources/js/FrontEnd/services/api.js");
+/* harmony import */ var _bookNow_bookNow__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../bookNow/bookNow */ "./resources/js/FrontEnd/components/bookNow/bookNow.js");
+/* harmony import */ var _services_textModifier__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/textModifier */ "./resources/js/FrontEnd/services/textModifier.js");
+/* harmony import */ var _assets_config_constants__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../assets/config/constants */ "./resources/js/FrontEnd/assets/config/constants.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ProductDetails = function ProductDetails(props) {
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_13__.useParams)(),
+    category = _useParams.category,
+    type = _useParams.type,
+    slug = _useParams.slug;
+  var selectedData = _local_json_products_json__WEBPACK_IMPORTED_MODULE_2__.filter(function (x) {
+    return x.id == 1;
+  })[0];
+  var apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_8__["default"]();
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      banner_image: "".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_11__.API_CONSTANTS.URL, "/upload/product/DSC_41101675841396.JPG"),
+      base_price: '0',
+      product: 'Product Name'
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    detail = _useState2[0],
+    setDetail = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState4 = _slicedToArray(_useState3, 2),
+    products = _useState4[0],
+    setProducts = _useState4[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    apiCtrl.callAxios("/vehicle/get-vehicle-by-model/".concat(slug)).then(function (res) {
+      if (res.success == true) {
+        setDetail(res.data);
+      }
+      props.loader(false);
+    });
+    apiCtrl.callAxios("/vehicle/list", {
+      vehicle_status: category
+    }).then(function (response) {
+      if (response.success == true) {
+        var res = response.data;
+        var Vehicles = [];
+        res.map(function (value, index) {
+          Vehicles = [].concat(_toConsumableArray(Vehicles), [{
+            id: value.id,
+            title: value.vehicle_model,
+            description: value.vehicle_make,
+            productImage: value.images,
+            slug: value.vehicle_model,
+            category: category
+          }]);
+        });
+        setProducts(Vehicles);
+      }
+    });
+
+    // apiCtrl.callAxios(`/product/product-service-list`, {is_service: 0, product_category: 'Accessories'}).then((response)=>{
+    //     if(response.success == true){
+    //         const res = response.data;
+    //         let Products = [];
+    //         res.map((value, index)=>{
+
+    //                 Products = [...Products, {title:value.product, description: value.description, productImage: value.banner_image, price:value.base_price}]
+
+    //         })
+
+    //         setProducts(Products)
+    //     }
+    // })
+  }, []);
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [{
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3
+      }
+    }, {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2
+      }
+    }, {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1
+      }
+    }]
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+    className: "container mt-5 mb-5",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      className: "row d-flex justify-content-center",
+      style: {
+        marginTop: '80px'
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        className: "row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "col-md-6",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "images pr-3",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "text-center pb-3",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_image_magnify__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                smallImage: {
+                  alt: detail.vehicle_model,
+                  isFluidWidth: true,
+                  src: detail.images
+                },
+                largeImage: {
+                  src: detail.images,
+                  width: 1200,
+                  height: 1800
+                }
+              })
+            })
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "col-md-6",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "product p-4",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "mb-3",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                className: "text-uppercase brand",
+                children: detail.vehicle_make
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h5", {
+                className: "text-uppercase productTitle",
+                children: detail.vehicle_model
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "price d-flex flex-row align-items-center",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                  className: "act-price",
+                  children: [detail.price ? "\u20B9 ".concat(parseInt(detail.price)) : 'Contact For Pricing', "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("small", {})]
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "detail-section"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "cart mt-4 align-items-center",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_bookNow_bookNow__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                type: 'vehicle',
+                header: 'Book Now',
+                image1: detail.images,
+                image2: detail.images
+              })
+            })]
+          })
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      className: "productDetailed mt-5",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_bootstrap_Tabs__WEBPACK_IMPORTED_MODULE_14__["default"], {
+        children: [detail.vehicle_status && detail.vehicle_status === 'used' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_bootstrap_Tab__WEBPACK_IMPORTED_MODULE_15__["default"], {
+          eventKey: "usedVehicle",
+          title: "Used Vehicles",
+          children: detail.used_vehicle && Object.entries(detail.used_vehicle).map(function (_ref) {
+            var _ref2 = _slicedToArray(_ref, 2),
+              index = _ref2[0],
+              item = _ref2[1];
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "detail-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
+                className: "detail-title",
+                children: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(index)
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("ul", {
+                className: "productDesc",
+                children: item && Object.entries(item).map(function (_ref3) {
+                  var _ref4 = _slicedToArray(_ref3, 2),
+                    key = _ref4[0],
+                    i = _ref4[1];
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("li", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("label", {
+                      children: [key, ": "]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                      className: "value",
+                      children: [(0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(key), " : ", i]
+                    })]
+                  });
+                })
+              })]
+            });
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_bootstrap_Tab__WEBPACK_IMPORTED_MODULE_15__["default"], {
+          eventKey: "technical",
+          title: "Technical Specifications",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "row",
+            children: detail.specification && Object.entries(detail.specification).map(function (_ref5) {
+              var _ref6 = _slicedToArray(_ref5, 2),
+                index = _ref6[0],
+                item = _ref6[1];
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "col-md-4",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                  className: "detail-section",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
+                    className: "detail-title",
+                    children: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(index)
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("ul", {
+                    className: "productDesc",
+                    children: item && Object.entries(item).map(function (_ref7) {
+                      var _ref8 = _slicedToArray(_ref7, 2),
+                        key = _ref8[0],
+                        i = _ref8[1];
+                      return (
+                        /*#__PURE__*/
+                        // console.log("specification",key, i)
+                        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("li", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("label", {
+                            children: [key, ": "]
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                            className: "",
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("b", {
+                              children: [(0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(key), " : "]
+                            }), i]
+                          })]
+                        }, key)
+                      );
+                    })
+                  })]
+                })
+              });
+            })
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_bootstrap_Tab__WEBPACK_IMPORTED_MODULE_15__["default"], {
+          eventKey: "features",
+          title: "Features & Options",
+          children: detail.features && Object.entries(detail.features).map(function (_ref9) {
+            var _ref10 = _slicedToArray(_ref9, 2),
+              index = _ref10[0],
+              item = _ref10[1];
+            return (
+              /*#__PURE__*/
+              // <img src={item} className='img-fluid my-3' />
+              (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "detail-section",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
+                  className: "detail-title",
+                  children: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(index)
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("ul", {
+                  className: "productDesc",
+                  children: item && Object.entries(item).map(function (_ref11) {
+                    var _ref12 = _slicedToArray(_ref11, 2),
+                      key = _ref12[0],
+                      i = _ref12[1];
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("li", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("label", {
+                        children: [key, ": "]
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                        className: "value",
+                        children: [(0,_services_textModifier__WEBPACK_IMPORTED_MODULE_10__["default"])(key), " : ", i]
+                      })]
+                    });
+                  })
+                })]
+              })
+            );
+          })
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      className: "mt-5",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
+        className: "sectionTitle mb-3",
+        children: "Related Products"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        className: "row",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_slick__WEBPACK_IMPORTED_MODULE_5__["default"], _objectSpread(_objectSpread({}, settings), {}, {
+          children: products && products.map(function (item) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "relatedSlides",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_productCard_productCard__WEBPACK_IMPORTED_MODULE_6__["default"], {
                 data: item
               })
             }, item.id);
@@ -14801,7 +15236,7 @@ var Service = /*#__PURE__*/function (_Component) {
     value: function render() {
       if (!this.props.data) return null;
       var services = this.props.data;
-      console.log(services);
+      // console.log(services);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
         className: "section-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -14819,6 +15254,9 @@ var Service = /*#__PURE__*/function (_Component) {
           className: "",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "container-fluid",
+            style: {
+              width: '90%'
+            },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "row",
               children: services.map(function (item, key) {
@@ -14829,7 +15267,7 @@ var Service = /*#__PURE__*/function (_Component) {
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                       className: "row g-0",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                        className: "col-md-4",
+                        className: "col-md-4 colmd4",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                           src: item.icon,
                           className: "img-fluid rounded-start card-img-jk",
@@ -14961,15 +15399,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_aboutInfo_aboutInfo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/aboutInfo/aboutInfo */ "./resources/js/FrontEnd/components/aboutInfo/aboutInfo.js");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api */ "./resources/js/api.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/api */ "./resources/js/FrontEnd/services/api.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -14993,45 +15428,68 @@ var AboutUs = /*#__PURE__*/function (_Component) {
     var _this;
     _classCallCheck(this, AboutUs);
     _this = _super.call(this, props);
-    _this.apiCtrl = new _api__WEBPACK_IMPORTED_MODULE_2__["default"]();
-    _this.state = {};
+    _this.apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_2__["default"]();
+    _this.state = {
+      aboutUs: []
+    };
     return _this;
   }
   _createClass(AboutUs, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      // if((typeof  this.props.aboutUs !== 'undefined')){
+      //     if(Object.keys(this.props.aboutUs).length > 0){
+      //         return false;
+      //     }
+      // }
+      // this.apiCtrl.callAxiosGet(`/company/view/${'tvs-dealer'}`).then((response)=>{
+      //     if(response.success == true){
+      //         const res = response.data;
+      //         const data = [
+      //             {
+      //                 image: res.about_company_image,
+      //                 title: 'About',
+      //                 description: res.about_company,
+      //                 isReverse: true
+      //             },   
+      //             {
+      //                 image: res.company_mission_image,
+      //                 description: res.company_mission,
+      //                 isReverse: false
+      //             },
+      //             {
+      //                 image:  res.company_vision_image,
+
+      //                 description: res.company_vision,
+      //                 isReverse: true
+      //             }
+      //            ];
+      //            this.setState(data)
+      //            // this.setState(...response.data);
+      //         }
+      //     })
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
       var _this2 = this;
-      this.apiCtrl.callAxiosGet("company/view/".concat('tvs-dealer')).then(function (response) {
-        if (response.success == true) {
-          var res = response.data;
-          var data = [{
-            image: res.about_company_image,
-            title: 'About',
-            description: res.about_company,
-            isReverse: true
-          }, {
-            image: res.company_mission_image,
-            description: res.company_mission,
-            isReverse: false
-          }, {
-            image: res.company_vision_image,
-            description: res.company_vision,
-            isReverse: true
-          }];
-          _this2.setState(data);
-          // this.setState(...response.data);
-        }
-      });
+      if (prevProps.aboutUs !== this.props.aboutUs) {
+        this.setState(function (old) {
+          return _objectSpread(_objectSpread({}, old), {}, {
+            aboutUs: _this2.props.aboutUs
+          });
+        });
+        this.props.loader(false);
+      }
     }
   }, {
     key: "render",
     value: function render() {
+      // console.log('About props', this.state,this.props)
+
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "aboutPage",
-        children: Object.entries(this.state).map(function (_ref) {
-          var _ref2 = _slicedToArray(_ref, 2),
-            index = _ref2[0],
-            item = _ref2[1];
+        children: this.state.aboutUs.map(function (item, index) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_aboutInfo_aboutInfo__WEBPACK_IMPORTED_MODULE_1__["default"], {
             data: item
           });
@@ -15076,7 +15534,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./resources/js/api.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/api */ "./resources/js/FrontEnd/services/api.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -15115,7 +15573,7 @@ var Contact = /*#__PURE__*/function (_Component) {
     var _this;
     _classCallCheck(this, Contact);
     _this = _super.call(this, props);
-    _this.apiCtrl = new _api__WEBPACK_IMPORTED_MODULE_1__["default"]();
+    _this.apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_1__["default"]();
     _this.state = {
       name: null,
       email: null,
@@ -15138,6 +15596,7 @@ var Contact = /*#__PURE__*/function (_Component) {
         }
       }
     };
+    _this.props.loader(false);
     return _this;
   }
   _createClass(Contact, [{
@@ -15271,7 +15730,7 @@ var Contact = /*#__PURE__*/function (_Component) {
           email: _this2.state.email,
           remark: _this2.state.description
         };
-        _this2.apiCtrl.callAxios('enquiry/create-update', data).then(function (res) {
+        _this2.apiCtrl.callAxios('/enquiry/create-update', data).then(function (res) {
           if (res.success == true) {
             sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
               title: 'Contact Us',
@@ -15467,6 +15926,7 @@ var Gallery = /*#__PURE__*/function (_Component) {
   _createClass(Gallery, [{
     key: "render",
     value: function render() {
+      this.props.loader(false);
       var images = [{
         src: "./assets/images/04.jpg",
         desc: 'Person wearing shoes',
@@ -15529,7 +15989,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./resources/js/api.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/api */ "./resources/js/FrontEnd/services/api.js");
 /* harmony import */ var _components_banner_banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/banner/banner */ "./resources/js/FrontEnd/components/banner/banner.js");
 /* harmony import */ var _components_bookNowCTA_booknow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/bookNowCTA/booknow */ "./resources/js/FrontEnd/components/bookNowCTA/booknow.js");
 /* harmony import */ var _components_feature_feature__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/feature/feature */ "./resources/js/FrontEnd/components/feature/feature.js");
@@ -15537,7 +15997,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_service_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/service/service */ "./resources/js/FrontEnd/components/service/service.js");
 /* harmony import */ var _components_testimonial_testimonial__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/testimonial/testimonial */ "./resources/js/FrontEnd/components/testimonial/testimonial.js");
 /* harmony import */ var _products__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./products */ "./resources/js/FrontEnd/pages/products.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_loader_loader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/loader/loader */ "./resources/js/FrontEnd/components/loader/loader.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -15568,6 +16029,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Home = /*#__PURE__*/function (_Component) {
   _inherits(Home, _Component);
   var _super = _createSuper(Home);
@@ -15575,7 +16037,7 @@ var Home = /*#__PURE__*/function (_Component) {
     var _this;
     _classCallCheck(this, Home);
     _this = _super.call(this, props);
-    _this.apiCtrl = new _api__WEBPACK_IMPORTED_MODULE_1__["default"]();
+    _this.apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_1__["default"]();
     _this.state = {
       bannerData: [{
         title: 'Banner 1',
@@ -15644,21 +16106,22 @@ var Home = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
-      this.apiCtrl.callAxios('slider/list', '', false).then(function (response) {
+      this.apiCtrl.callAxios('/slider/list', '', false).then(function (response) {
         if (response.success == true) {
           _this2.setState({
             bannerData: response.data
           });
         }
+        _this2.props.loader(false);
       });
-      this.apiCtrl.callAxios('testimonial/list', '').then(function (response) {
+      this.apiCtrl.callAxios('/testimonial/list', '').then(function (response) {
         if (response.success == true) {
           _this2.setState({
             testimonials: response.data
           });
         }
       });
-      this.apiCtrl.callAxios("product/product-category-list", {
+      this.apiCtrl.callAxios("/product/product-category-list", {
         is_service: 1
       }).then(function (response) {
         // console.log('Services', response)
@@ -15683,17 +16146,17 @@ var Home = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "homeWrapper",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_banner_banner__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_banner_banner__WEBPACK_IMPORTED_MODULE_2__["default"], {
           data: this.state.bannerData
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_bookNowCTA_booknow__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_service_service__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_bookNowCTA_booknow__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_service_service__WEBPACK_IMPORTED_MODULE_6__["default"], {
           data: this.state.services
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_feature_feature__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_feature_feature__WEBPACK_IMPORTED_MODULE_4__["default"], {
           data: this.state.features
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_infoText_infoText__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_infoText_infoText__WEBPACK_IMPORTED_MODULE_5__["default"], {
           data: this.state.infoText
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_products__WEBPACK_IMPORTED_MODULE_8__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_testimonial_testimonial__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_products__WEBPACK_IMPORTED_MODULE_8__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_testimonial_testimonial__WEBPACK_IMPORTED_MODULE_7__["default"], {
           data: this.state.testimonials
         })]
       });
@@ -15725,7 +16188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var slick_carousel_slick_slick_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
 /* harmony import */ var slick_carousel_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
 /* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../api */ "./resources/js/api.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/api */ "./resources/js/FrontEnd/services/api.js");
 /* harmony import */ var _services_withRouter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/withRouter */ "./resources/js/FrontEnd/services/withRouter.js");
 /* harmony import */ var _services_textModifier__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/textModifier */ "./resources/js/FrontEnd/services/textModifier.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -15763,6 +16226,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var ProductListing = /*#__PURE__*/function (_Component) {
   _inherits(ProductListing, _Component);
   var _super = _createSuper(ProductListing);
@@ -15770,9 +16234,10 @@ var ProductListing = /*#__PURE__*/function (_Component) {
     var _this;
     _classCallCheck(this, ProductListing);
     _this = _super.call(this, props);
-    _this.apiCtrl = new _api__WEBPACK_IMPORTED_MODULE_7__["default"]();
+    _this.apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_7__["default"]();
     _this.state = {
       products: [],
+      categories: [],
       category: _this.props.params.category ? _this.props.params.category : "Products"
     };
     return _this;
@@ -15781,7 +16246,7 @@ var ProductListing = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
-      this.apiCtrl.callAxios("product/product-service-list", {
+      this.apiCtrl.callAxios("/product/product-service-list", {
         is_service: 0,
         product_category: this.state.category
       }).then(function (response) {
@@ -15799,8 +16264,32 @@ var ProductListing = /*#__PURE__*/function (_Component) {
               category: _this2.state.category
             }]);
           });
+          _this2.props.loader(false);
           _this2.setState({
             products: Products
+          });
+        }
+      });
+      this.apiCtrl.callAxios("/product/product-category-list", {
+        is_service: 0,
+        ignore_category: this.state.category
+      }).then(function (response) {
+        if (response.success == true) {
+          var res2 = response.data;
+          var categorie = [];
+          res2.map(function (value, index) {
+            categorie = [].concat(_toConsumableArray(categorie), [{
+              id: value.id,
+              title: value.category_name,
+              description: value.description,
+              productImage: value.image_name_1,
+              // price:value.base_price,
+              slug: value.slug,
+              category: value.category_name
+            }]);
+          });
+          _this2.setState({
+            categories: categorie
           });
         }
       });
@@ -15810,7 +16299,7 @@ var ProductListing = /*#__PURE__*/function (_Component) {
     value: function render() {
       var settings = {
         dots: true,
-        infinite: true,
+        infinite: this.state.products.length > 4 ? true : false,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -15852,15 +16341,36 @@ var ProductListing = /*#__PURE__*/function (_Component) {
           className: "container",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
             className: "sectionTitle mb-3",
-            children: "Related Products"
+            children: "Related Categories"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             className: "row",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_slick__WEBPACK_IMPORTED_MODULE_6__["default"], _objectSpread(_objectSpread({}, settings), {}, {
-              children: this.state.products && this.state.products.map(function (item) {
+              children: this.state.categories && this.state.categories.map(function (item) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                   className: "relatedSlides",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_productCard_productCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                    data: item
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("a", {
+                    href: item.slug ? item.slug : '#',
+                    className: "card productCard",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+                      src: item.productImage,
+                      alt: "Denim Jeans",
+                      className: "img-fluid",
+                      style: {
+                        width: "100%",
+                        height: "150px"
+                      }
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                      className: "card-body",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
+                        children: item.title
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+                        className: "description",
+                        children: item.description
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
+                        className: "price",
+                        children: [item.price ? "\u20B9 ".concat(item.price) : 'Contact For Pricing', " "]
+                      })]
+                    })]
                   })
                 }, item.id);
               })
@@ -15890,7 +16400,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./resources/js/api.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/api */ "./resources/js/FrontEnd/services/api.js");
 /* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
 /* harmony import */ var _components_productCard_productCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/productCard/productCard */ "./resources/js/FrontEnd/components/productCard/productCard.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
@@ -15931,7 +16441,7 @@ var Products = /*#__PURE__*/function (_Component) {
     var _this;
     _classCallCheck(this, Products);
     _this = _super.call(this, props);
-    _this.apiCtrl = new _api__WEBPACK_IMPORTED_MODULE_1__["default"]();
+    _this.apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_1__["default"]();
     _this.state = {
       products: [],
       category: 'accessories'
@@ -15942,7 +16452,7 @@ var Products = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
-      this.apiCtrl.callAxios("product/product-service-list", {
+      this.apiCtrl.callAxios("/product/product-service-list", {
         is_service: 0,
         product_category: this.state.category
       }).then(function (response) {
@@ -15971,7 +16481,7 @@ var Products = /*#__PURE__*/function (_Component) {
       var _this3 = this;
       var settings = {
         dots: true,
-        infinite: true,
+        infinite: this.state.products.length > 4 ? true : false,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -15996,6 +16506,9 @@ var Products = /*#__PURE__*/function (_Component) {
         className: "section-5",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "container-fluid",
+          style: {
+            width: '90%'
+          },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "row",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_slick__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread(_objectSpread({}, settings), {}, {
@@ -16051,7 +16564,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_feature_feature__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/feature/feature */ "./resources/js/FrontEnd/components/feature/feature.js");
 /* harmony import */ var _components_pageTitle_pageTitle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/pageTitle/pageTitle */ "./resources/js/FrontEnd/components/pageTitle/pageTitle.js");
 /* harmony import */ var _components_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/service/service */ "./resources/js/FrontEnd/components/service/service.js");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../api */ "./resources/js/api.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/api */ "./resources/js/FrontEnd/services/api.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -16086,7 +16599,7 @@ var Services = /*#__PURE__*/function (_Component) {
     var _this;
     _classCallCheck(this, Services);
     _this = _super.call(this, props);
-    _this.apiCtrl = new _api__WEBPACK_IMPORTED_MODULE_4__["default"]();
+    _this.apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_4__["default"]();
     _this.state = {
       services: [{
         title: 'Sales',
@@ -16121,7 +16634,7 @@ var Services = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
-      this.apiCtrl.callAxios("product/product-category-list", {
+      this.apiCtrl.callAxios("/product/product-category-list", {
         is_service: 1
       }).then(function (response) {
         console.log('Services', response);
@@ -16135,6 +16648,7 @@ var Services = /*#__PURE__*/function (_Component) {
               icon: value.image_name_1
             }]);
           });
+          _this2.props.loader(false);
           _this2.setState({
             services: _Services
           });
@@ -16182,7 +16696,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var slick_carousel_slick_slick_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
 /* harmony import */ var slick_carousel_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
 /* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../api */ "./resources/js/api.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/api */ "./resources/js/FrontEnd/services/api.js");
 /* harmony import */ var _services_withRouter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/withRouter */ "./resources/js/FrontEnd/services/withRouter.js");
 /* harmony import */ var _services_textModifier__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/textModifier */ "./resources/js/FrontEnd/services/textModifier.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -16227,10 +16741,11 @@ var VehicleListing = /*#__PURE__*/function (_Component) {
     var _this;
     _classCallCheck(this, VehicleListing);
     _this = _super.call(this, props);
-    _this.apiCtrl = new _api__WEBPACK_IMPORTED_MODULE_7__["default"]();
+    _this.apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_7__["default"]();
     _this.state = {
       vehicles: [],
-      category: _this.props.params.category ? _this.props.params.category : "Vehicle"
+      category: _this.props.params.category ? _this.props.params.category : "used",
+      type: _this.props.params.type ? _this.props.params.type : "new"
     };
     return _this;
   }
@@ -16238,8 +16753,9 @@ var VehicleListing = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
-      this.apiCtrl.callAxios("vehicle/list", {
-        vehicle_status: this.state.category
+      this.apiCtrl.callAxios("/vehicle/list", {
+        vehicle_status: this.state.category,
+        vehile_type: this.state.type
       }).then(function (response) {
         if (response.success == true) {
           var res = response.data;
@@ -16251,9 +16767,11 @@ var VehicleListing = /*#__PURE__*/function (_Component) {
               description: value.vehicle_make,
               productImage: value.images,
               slug: value.vehicle_model,
-              category: _this2.state.category
+              category: _this2.state.category,
+              type: _this2.state.type
             }]);
           });
+          _this2.props.loader(false);
           _this2.setState({
             vehicles: Vehicles
           });
@@ -16289,7 +16807,7 @@ var VehicleListing = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "productListing",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_pageTitle_pageTitle__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          data: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_9__["default"])("".concat(this.state.category, " Bike"))
+          data: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_9__["default"])("".concat(this.state.category, " ").concat(this.state.type))
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "container",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -16385,7 +16903,8 @@ var Api = /*#__PURE__*/function (_React$Component) {
   _createClass(Api, [{
     key: "getBaseUrl",
     value: function getBaseUrl() {
-      return _assets_config_constants__WEBPACK_IMPORTED_MODULE_3__.API_CONSTANTS.BASE_URL;
+      var url = _assets_config_constants__WEBPACK_IMPORTED_MODULE_3__.API_CONSTANTS.BASE_URL;
+      return url;
     }
 
     //  tokenValid() {
@@ -16404,7 +16923,6 @@ var Api = /*#__PURE__*/function (_React$Component) {
     key: "login",
     value: function login() {
       var _this = this;
-      console.log('Login');
       return new Promise(function (resolve, reject) {
         var config = {
           method: 'post',
@@ -16607,16 +17125,46 @@ var Api = /*#__PURE__*/function (_React$Component) {
                 'Authorization': authtoken
               }
             }).then(function (response) {
-              console.log('Request Respomse', response);
-              if (response.data.success) {
+              //  console.log('Request Respomse', response);
+              //  if(response.data.success){
+              //   resolve({success: true, data: response.data});
+              //  }else{
+              //   resolve({success: false, data: response.data});
+              //  }    
+              if (response.data.status == "success") {
                 resolve({
                   success: true,
-                  data: response.data
+                  data: response.data.data,
+                  message: response.data.message
                 });
+              } else if (response.data.status == "error" || response.data.status == false) {
+                var $str = response.data.data;
+                if (typeof response.data.errorcode !== 'undefined' && response.data.errorcode === 409) {
+                  var msg = Object.entries(response.data.message);
+                  console.log("message=", msg);
+                  $str = '';
+                  msg.map(function (msg, key) {
+                    console.log("api controller ".msg);
+                    $str += msg[1] + "<br>";
+                  });
+                  sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+                    title: "Following Error Detected",
+                    html: $str,
+                    icon: "error",
+                    showConfirmButton: false
+                  });
+                } else {
+                  resolve({
+                    success: false,
+                    message: response.data.message,
+                    data: $str
+                  });
+                }
               } else {
+                // Alert.alert(''+response.data.message);
                 resolve({
                   success: false,
-                  data: response.data
+                  data: response.data.message
                 });
               }
             })["catch"](function (err) {
@@ -16748,7 +17296,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var textModifier = function textModifier(text) {
-  var products = text.replace(/_/g, " ");
+  var products = text.replace(/_/g, " ").replace(/-/g, " ");
   // //let products ="product"
 
   // var productType =   products
@@ -16854,401 +17402,6 @@ root.render(
 
 /***/ }),
 
-/***/ "./resources/js/api.js":
-/*!*****************************!*\
-  !*** ./resources/js/api.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Api)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-var axiosRequestConfig = {
-  headers: {
-    'Content-Type': 'application/json'
-  }
-};
-var API_CONSTANTS = "https://dealer-website.primarykeytech.in/dynamic/api/api/";
-var Api = /*#__PURE__*/function (_React$Component) {
-  _inherits(Api, _React$Component);
-  var _super = _createSuper(Api);
-  function Api(props) {
-    _classCallCheck(this, Api);
-    return _super.call(this, props);
-  }
-  _createClass(Api, [{
-    key: "getBaseUrl",
-    value: function getBaseUrl() {
-      return API_CONSTANTS;
-    }
-
-    //  tokenValid() {
-    //     const currentDate = new Date();
-    //     const expiryDate =   localStorage.getItem('expire_token');;
-
-    //     console.log('currentDate',currentDate)
-    //     console.log('expiryDate',expiryDate)
-    //     if(timeObject.getTime() < expiryDate){
-    //       return false;
-    //     } else {
-    //       return true;
-    //     }
-    //   }
-  }, {
-    key: "login",
-    value: function login() {
-      var data = {
-        email: 'test@admin.com',
-        password: 'user1'
-      };
-      return new Promise(function (resolve, reject) {
-        var config = {
-          method: 'post',
-          url: API_CONSTANTS + 'login',
-          data: {
-            email: 'test@admin.com',
-            password: 'user1'
-          },
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        };
-        axios__WEBPACK_IMPORTED_MODULE_2___default()(config).then(function (response) {
-          // console.log(response);
-          if (response.data.access_token) {
-            // let timeObject = new Date();
-            // let milliseconds= 3600 * 1000; // 10 seconds = 10000 milliseconds
-            // timeObject = new Date(timeObject.getTime() + milliseconds);
-            // localStorage.setItem('expire_token', timeObject);
-            localStorage.setItem('_token', response.data.access_token);
-            resolve(response.data.access_token);
-          }
-        });
-      });
-    }
-  }, {
-    key: "refreshToken",
-    value: function refreshToken() {
-      return new Promise(function (resolve, reject) {
-        var config = {
-          method: 'post',
-          url: API_CONSTANTS + 'refresh',
-          headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('_token')
-          }
-        };
-        axios__WEBPACK_IMPORTED_MODULE_2___default()(config).then(function (response) {
-          // console.log(response);
-          if (response.data.access_token) {
-            // let timeObject = new Date();
-            // let milliseconds= 3600 * 1000; // 10 seconds = 10000 milliseconds
-            // timeObject = new Date(timeObject.getTime() + milliseconds);
-            // localStorage.setItem('expire_token', timeObject);
-            localStorage.setItem('_token', response.data.access_token);
-            resolve(response.data.access_token);
-          } else {
-            resolve(this.login());
-          }
-        });
-      });
-    }
-  }, {
-    key: "getToken",
-    value: function getToken() {
-      var _this = this;
-      return new Promise(function (resolve, reject) {
-        resolve(_this.login());
-        // if(this.refreshToken()){
-        //   // if(this.tokenValid()){
-        //     // console.log(localStorage.getItem('_token'))
-        //     resolve(localStorage.getItem('_token'))
-        //   // } else {
-        //     // resolve(this.refreshToken())
-
-        //   // }
-        // } else {
-        // }       
-      });
-    }
-  }, {
-    key: "callAxios",
-    value: function callAxios(endPoint, reqData) {
-      var _this2 = this;
-      var auth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-      var type = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'application/json';
-      return new Promise(function (resolve, reject) {
-        Promise.all([_this2.getBaseUrl(), _this2.getToken()]).then(function (data) {
-          console.log(reqData);
-
-          // console.log('================================>');
-          // console.log('URL: ' + data[0] + endPoint);
-          //  console.log('TOKEN: ' + data[1]);
-          var reqDataHeader = _objectSpread({}, reqData);
-          // console.log('Request Body : ' + JSON.stringify(reqDataHeader));
-          // console.log('================================>');
-          var authtoken = auth ? 'Bearer ' + data[1] : "";
-          if (data[0] != null) {
-            // console.log( { headers: { 'Content-Type': 'application/json',
-            // 'Authorization': authtoken}})
-            axios__WEBPACK_IMPORTED_MODULE_2___default().post(data[0] + endPoint, _objectSpread({}, reqData), {
-              headers: {
-                'Content-Type': type,
-                'Authorization': authtoken
-              }
-            }).then(function (response) {
-              //  console.log('Request Respomse', response);
-              if (response.data.access_token) {
-                // let timeObject = new Date();
-                // let milliseconds= 3600 * 1000; // 10 seconds = 10000 milliseconds
-                // timeObject = new Date(timeObject.getTime() + milliseconds);
-                // localStorage.setItem('expire_token', timeObject);
-                resolve({
-                  success: true,
-                  access_token: response.data.access_token,
-                  data: response.data.data,
-                  message: response.data.message
-                });
-              } else if (response.data.aaData) {
-                resolve({
-                  success: true,
-                  data: response.data
-                });
-              } else if (response.data.status == "success") {
-                resolve({
-                  success: true,
-                  data: response.data.data,
-                  message: response.data.message
-                });
-              } else if (response.data.status == "error" || response.data.status == false) {
-                var $str = response.data.data;
-                if (typeof response.data.errorcode !== 'undefined' && response.data.errorcode === 409) {
-                  var msg = Object.entries(response.data.message);
-                  console.log("message=", msg);
-                  $str = '';
-                  msg.map(function (msg, key) {
-                    console.log("api controller ".msg);
-                    $str += msg[1] + "<br>";
-                  });
-                  sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
-                    title: "Following Error Detected",
-                    html: $str,
-                    icon: "error",
-                    showConfirmButton: false
-                  });
-                } else {
-                  resolve({
-                    success: false,
-                    message: response.data.message,
-                    data: $str
-                  });
-                }
-              } else {
-                // Alert.alert(''+response.data.message);
-                resolve({
-                  success: false,
-                  data: response.data.message
-                });
-              }
-            })["catch"](function (err) {
-              // Swal.close();
-              //resolve({success: false, data: err.message});
-              resolve({
-                success: false,
-                data: 'Some Error occured!'
-              });
-            });
-          } else {
-            resolve({
-              success: false,
-              data: 'Some Error occured!'
-            });
-          }
-        })["catch"](function (err) {
-          console.log(err);
-        });
-      });
-    }
-  }, {
-    key: "callAxiosGet",
-    value: function callAxiosGet(endPoint) {
-      var _this3 = this;
-      var auth = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-      return new Promise(function (resolve, reject) {
-        Promise.all([_this3.getBaseUrl(), _this3.getToken()]).then(function (data) {
-          // console.log(data);
-          // console.log('================================>');
-          // console.log('URL: ' + data[0] + endPoint);
-          // console.log('TOKEN: ' + data[1]);
-          // const reqDataHeader = {
-          //   ...reqData,
-          // };
-          //console.log('Request Body : ' + JSON.stringify(reqDataHeader));
-          // console.log('================================>');
-          var authtoken = auth ? 'Bearer ' + data[1] : "";
-          if (data[0] && data[0] != null) {
-            axios__WEBPACK_IMPORTED_MODULE_2___default().get(data[0] + endPoint, {
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': authtoken
-              }
-            }).then(function (response) {
-              console.log('Request Respomse', response);
-              if (response.data.status == "success") {
-                resolve({
-                  success: true,
-                  data: response.data.data,
-                  message: response.data.message
-                });
-              } else {
-                resolve({
-                  success: false,
-                  data: response.data
-                });
-              }
-            })["catch"](function (err) {
-              //resolve({success: false, data: err.message});
-              resolve({
-                success: false,
-                data: 'Some Error occured!'
-              });
-            });
-          } else {
-            resolve({
-              success: false,
-              data: 'Some Error occured!'
-            });
-          }
-        })["catch"](function (err) {
-          console.log(err);
-          console.log(err);
-        });
-      });
-    }
-  }, {
-    key: "callAxiosWithoutSession",
-    value: function callAxiosWithoutSession(endPoint, reqData) {
-      var _this4 = this;
-      console.log(endPoint, ' ', reqData);
-      return new Promise(function (resolve, reject) {
-        Promise.all([_this4.getBaseUrl()]).then(function (data) {
-          console.log(data);
-          console.log('================================>');
-          console.log('URL: ' + data[0] + endPoint);
-          var reqDataHeader = _objectSpread({}, reqData);
-          console.log('Request Body : ' + JSON.stringify(reqDataHeader));
-          console.log('================================>');
-          if (data[0] && data[0] != null) {
-            axios__WEBPACK_IMPORTED_MODULE_2___default().post(data[0] + endPoint, _objectSpread({}, reqData), axiosRequestConfig).then(function (response) {
-              console.log('Request Respomse', response);
-              if (response.data.success) {
-                resolve({
-                  success: true,
-                  data: response.data
-                });
-              } else {
-                resolve({
-                  success: false,
-                  data: response.data
-                });
-              }
-            })["catch"](function (err) {
-              // console.log('Request Respomse', err);
-              // resolve({success: false, data: err.message});
-              resolve({
-                success: false,
-                data: 'Some Error occured!'
-              });
-            });
-          } else {
-            resolve({
-              success: false,
-              data: 'Some Error occured!'
-            });
-          }
-        })["catch"](function (err) {
-          console.log(err);
-          console.log(err);
-        });
-      });
-    }
-  }, {
-    key: "callAxiosGetWithoutSession",
-    value: function callAxiosGetWithoutSession(endPoint) {
-      var _this5 = this;
-      console.log(endPoint);
-      return new Promise(function (resolve, reject) {
-        Promise.all([_this5.getBaseUrl()]).then(function (data) {
-          console.log(data);
-          console.log('================================>');
-          console.log('URL: ' + data[0] + endPoint);
-          if (data[0] && data[0] != null) {
-            axios__WEBPACK_IMPORTED_MODULE_2___default().get(data[0] + endPoint).then(function (response) {
-              console.log('Request Respomse', response);
-              if (response.data.success) {
-                resolve({
-                  success: true,
-                  data: response.data
-                });
-              } else {
-                resolve({
-                  success: false,
-                  data: response.data
-                });
-              }
-            })["catch"](function (err) {
-              console.log('Request Respomse', err);
-              // resolve({success: false, data: err.message});
-              resolve({
-                success: false,
-                data: 'Some Error occured!'
-              });
-            });
-          } else {
-            resolve({
-              success: false,
-              data: 'Some Error occured!'
-            });
-          }
-        })["catch"](function (err) {
-          console.log(err);
-          console.log(err);
-        });
-      });
-    }
-  }]);
-  return Api;
-}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
-
-
-/***/ }),
-
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -17261,6 +17414,7 @@ var Api = /*#__PURE__*/function (_React$Component) {
  * building robust, powerful web applications using React + Laravel.
  */
 
+__webpack_require__(/*! ../css/admin/font-awesome.min.css */ "./resources/css/admin/font-awesome.min.css");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 /**
@@ -22883,6 +23037,57 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/* Slider */\n.slick-slider\n{\n    po
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/admin/font-awesome.min.css":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/admin/font-awesome.min.css ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fonts_fa_brands_400_woff2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fonts/fa-brands-400.woff2 */ "./resources/fonts/fa-brands-400.woff2");
+/* harmony import */ var _fonts_fa_brands_400_ttf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../fonts/fa-brands-400.ttf */ "./resources/fonts/fa-brands-400.ttf");
+/* harmony import */ var _fonts_fa_regular_400_woff2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../fonts/fa-regular-400.woff2 */ "./resources/fonts/fa-regular-400.woff2");
+/* harmony import */ var _fonts_fa_regular_400_ttf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../fonts/fa-regular-400.ttf */ "./resources/fonts/fa-regular-400.ttf");
+/* harmony import */ var _fonts_fa_solid_900_woff2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../fonts/fa-solid-900.woff2 */ "./resources/fonts/fa-solid-900.woff2");
+/* harmony import */ var _fonts_fa_solid_900_ttf__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../fonts/fa-solid-900.ttf */ "./resources/fonts/fa-solid-900.ttf");
+/* harmony import */ var _fonts_fa_v4compatibility_woff2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../fonts/fa-v4compatibility.woff2 */ "./resources/fonts/fa-v4compatibility.woff2");
+/* harmony import */ var _fonts_fa_v4compatibility_ttf__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../fonts/fa-v4compatibility.ttf */ "./resources/fonts/fa-v4compatibility.ttf");
+// Imports
+
+
+
+
+
+
+
+
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fa_brands_400_woff2__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fa_brands_400_ttf__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fa_regular_400_woff2__WEBPACK_IMPORTED_MODULE_4__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fa_regular_400_ttf__WEBPACK_IMPORTED_MODULE_5__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fa_solid_900_woff2__WEBPACK_IMPORTED_MODULE_6__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fa_solid_900_ttf__WEBPACK_IMPORTED_MODULE_7__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fa_v4compatibility_woff2__WEBPACK_IMPORTED_MODULE_8__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fa_v4compatibility_ttf__WEBPACK_IMPORTED_MODULE_9__["default"]);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/*!\r\n * Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com\r\n * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)\r\n * Copyright 2023 Fonticons, Inc.\r\n */\r\n .fa{font-family:var(--fa-style-family,\"Font Awesome 6 Free\");font-weight:var(--fa-style,900)}.fa,.fa-brands,.fa-classic,.fa-regular,.fa-sharp,.fa-solid,.fab,.far,.fas{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:var(--fa-display,inline-block);font-style:normal;font-variant:normal;line-height:1;text-rendering:auto}.fa-classic,.fa-regular,.fa-solid,.far,.fas{font-family:\"Font Awesome 6 Free\"}.fa-brands,.fab{font-family:\"Font Awesome 6 Brands\"}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:.625em;line-height:.1em;vertical-align:.225em}.fa-xs{font-size:.75em;line-height:.08333em;vertical-align:.125em}.fa-sm{font-size:.875em;line-height:.07143em;vertical-align:.05357em}.fa-lg{font-size:1.25em;line-height:.05em;vertical-align:-.075em}.fa-xl{font-size:1.5em;line-height:.04167em;vertical-align:-.125em}.fa-2xl{font-size:2em;line-height:.03125em;vertical-align:-.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(var(--fa-li-width, 2em)*-1);position:absolute;text-align:center;width:var(--fa-li-width,2em);line-height:inherit}.fa-border{border-radius:var(--fa-border-radius,.1em);border:var(--fa-border-width,.08em) var(--fa-border-style,solid) var(--fa-border-color,#eee);padding:var(--fa-border-padding,.2em .25em .15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin,.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin,.3em)}.fa-beat{animation-name:fa-beat;animation-delay:var(--fa-animation-delay,0s);animation-direction:var(--fa-animation-direction,normal);animation-duration:var(--fa-animation-duration,1s);animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-bounce{animation-name:fa-bounce;animation-delay:var(--fa-animation-delay,0s);animation-direction:var(--fa-animation-direction,normal);animation-duration:var(--fa-animation-duration,1s);animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1))}.fa-fade{animation-name:fa-fade;animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-beat-fade,.fa-fade{animation-delay:var(--fa-animation-delay,0s);animation-direction:var(--fa-animation-direction,normal);animation-duration:var(--fa-animation-duration,1s)}.fa-beat-fade{animation-name:fa-beat-fade;animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-flip{animation-name:fa-flip;animation-delay:var(--fa-animation-delay,0s);animation-direction:var(--fa-animation-direction,normal);animation-duration:var(--fa-animation-duration,1s);animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-shake{animation-name:fa-shake;animation-duration:var(--fa-animation-duration,1s);animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-timing-function:var(--fa-animation-timing,linear)}.fa-shake,.fa-spin{animation-delay:var(--fa-animation-delay,0s);animation-direction:var(--fa-animation-direction,normal)}.fa-spin{animation-name:fa-spin;animation-duration:var(--fa-animation-duration,2s);animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{animation-name:fa-spin;animation-direction:var(--fa-animation-direction,normal);animation-duration:var(--fa-animation-duration,1s);animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-timing-function:var(--fa-animation-timing,steps(8))}@media (prefers-reduced-motion:reduce){.fa-beat,.fa-beat-fade,.fa-bounce,.fa-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{animation-delay:-1ms;animation-duration:1ms;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@keyframes fa-beat{0%,90%{transform:scale(1)}45%{transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-bounce{0%{transform:scale(1) translateY(0)}10%{transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{transform:scale(1) translateY(0)}to{transform:scale(1) translateY(0)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);transform:scale(1)}50%{opacity:1;transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-flip{50%{transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-shake{0%{transform:rotate(-15deg)}4%{transform:rotate(15deg)}8%,24%{transform:rotate(-18deg)}12%,28%{transform:rotate(18deg)}16%{transform:rotate(-22deg)}20%{transform:rotate(22deg)}32%{transform:rotate(-12deg)}36%{transform:rotate(12deg)}40%,to{transform:rotate(0deg)}}@keyframes fa-spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}.fa-rotate-90{transform:rotate(90deg)}.fa-rotate-180{transform:rotate(180deg)}.fa-rotate-270{transform:rotate(270deg)}.fa-flip-horizontal{transform:scaleX(-1)}.fa-flip-vertical{transform:scaleY(-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{transform:scale(-1)}.fa-rotate-by{transform:rotate(var(--fa-rotate-angle,none))}.fa-stack{display:inline-block;height:2em;line-height:2em;position:relative;vertical-align:middle;width:2.5em}.fa-stack-1x,.fa-stack-2x{left:0;position:absolute;text-align:center;width:100%;z-index:var(--fa-stack-z-index,auto)}.fa-stack-1x{line-height:inherit}.fa-stack-2x{font-size:2em}.fa-inverse{color:var(--fa-inverse,#fff)}\r\n\r\n .fa-0:before{content:\"\\30\"}.fa-1:before{content:\"\\31\"}.fa-2:before{content:\"\\32\"}.fa-3:before{content:\"\\33\"}.fa-4:before{content:\"\\34\"}.fa-5:before{content:\"\\35\"}.fa-6:before{content:\"\\36\"}.fa-7:before{content:\"\\37\"}.fa-8:before{content:\"\\38\"}.fa-9:before{content:\"\\39\"}.fa-fill-drip:before{content:\"\\f576\"}.fa-arrows-to-circle:before{content:\"\\e4bd\"}.fa-chevron-circle-right:before,.fa-circle-chevron-right:before{content:\"\\f138\"}.fa-at:before{content:\"\\40\"}.fa-trash-alt:before,.fa-trash-can:before{content:\"\\f2ed\"}.fa-text-height:before{content:\"\\f034\"}.fa-user-times:before,.fa-user-xmark:before{content:\"\\f235\"}.fa-stethoscope:before{content:\"\\f0f1\"}.fa-comment-alt:before,.fa-message:before{content:\"\\f27a\"}.fa-info:before{content:\"\\f129\"}.fa-compress-alt:before,.fa-down-left-and-up-right-to-center:before{content:\"\\f422\"}.fa-explosion:before{content:\"\\e4e9\"}.fa-file-alt:before,.fa-file-lines:before,.fa-file-text:before{content:\"\\f15c\"}.fa-wave-square:before{content:\"\\f83e\"}.fa-ring:before{content:\"\\f70b\"}.fa-building-un:before{content:\"\\e4d9\"}.fa-dice-three:before{content:\"\\f527\"}.fa-calendar-alt:before,.fa-calendar-days:before{content:\"\\f073\"}.fa-anchor-circle-check:before{content:\"\\e4aa\"}.fa-building-circle-arrow-right:before{content:\"\\e4d1\"}.fa-volleyball-ball:before,.fa-volleyball:before{content:\"\\f45f\"}.fa-arrows-up-to-line:before{content:\"\\e4c2\"}.fa-sort-desc:before,.fa-sort-down:before{content:\"\\f0dd\"}.fa-circle-minus:before,.fa-minus-circle:before{content:\"\\f056\"}.fa-door-open:before{content:\"\\f52b\"}.fa-right-from-bracket:before,.fa-sign-out-alt:before{content:\"\\f2f5\"}.fa-atom:before{content:\"\\f5d2\"}.fa-soap:before{content:\"\\e06e\"}.fa-heart-music-camera-bolt:before,.fa-icons:before{content:\"\\f86d\"}.fa-microphone-alt-slash:before,.fa-microphone-lines-slash:before{content:\"\\f539\"}.fa-bridge-circle-check:before{content:\"\\e4c9\"}.fa-pump-medical:before{content:\"\\e06a\"}.fa-fingerprint:before{content:\"\\f577\"}.fa-hand-point-right:before{content:\"\\f0a4\"}.fa-magnifying-glass-location:before,.fa-search-location:before{content:\"\\f689\"}.fa-forward-step:before,.fa-step-forward:before{content:\"\\f051\"}.fa-face-smile-beam:before,.fa-smile-beam:before{content:\"\\f5b8\"}.fa-flag-checkered:before{content:\"\\f11e\"}.fa-football-ball:before,.fa-football:before{content:\"\\f44e\"}.fa-school-circle-exclamation:before{content:\"\\e56c\"}.fa-crop:before{content:\"\\f125\"}.fa-angle-double-down:before,.fa-angles-down:before{content:\"\\f103\"}.fa-users-rectangle:before{content:\"\\e594\"}.fa-people-roof:before{content:\"\\e537\"}.fa-people-line:before{content:\"\\e534\"}.fa-beer-mug-empty:before,.fa-beer:before{content:\"\\f0fc\"}.fa-diagram-predecessor:before{content:\"\\e477\"}.fa-arrow-up-long:before,.fa-long-arrow-up:before{content:\"\\f176\"}.fa-burn:before,.fa-fire-flame-simple:before{content:\"\\f46a\"}.fa-male:before,.fa-person:before{content:\"\\f183\"}.fa-laptop:before{content:\"\\f109\"}.fa-file-csv:before{content:\"\\f6dd\"}.fa-menorah:before{content:\"\\f676\"}.fa-truck-plane:before{content:\"\\e58f\"}.fa-record-vinyl:before{content:\"\\f8d9\"}.fa-face-grin-stars:before,.fa-grin-stars:before{content:\"\\f587\"}.fa-bong:before{content:\"\\f55c\"}.fa-pastafarianism:before,.fa-spaghetti-monster-flying:before{content:\"\\f67b\"}.fa-arrow-down-up-across-line:before{content:\"\\e4af\"}.fa-spoon:before,.fa-utensil-spoon:before{content:\"\\f2e5\"}.fa-jar-wheat:before{content:\"\\e517\"}.fa-envelopes-bulk:before,.fa-mail-bulk:before{content:\"\\f674\"}.fa-file-circle-exclamation:before{content:\"\\e4eb\"}.fa-circle-h:before,.fa-hospital-symbol:before{content:\"\\f47e\"}.fa-pager:before{content:\"\\f815\"}.fa-address-book:before,.fa-contact-book:before{content:\"\\f2b9\"}.fa-strikethrough:before{content:\"\\f0cc\"}.fa-k:before{content:\"\\4b\"}.fa-landmark-flag:before{content:\"\\e51c\"}.fa-pencil-alt:before,.fa-pencil:before{content:\"\\f303\"}.fa-backward:before{content:\"\\f04a\"}.fa-caret-right:before{content:\"\\f0da\"}.fa-comments:before{content:\"\\f086\"}.fa-file-clipboard:before,.fa-paste:before{content:\"\\f0ea\"}.fa-code-pull-request:before{content:\"\\e13c\"}.fa-clipboard-list:before{content:\"\\f46d\"}.fa-truck-loading:before,.fa-truck-ramp-box:before{content:\"\\f4de\"}.fa-user-check:before{content:\"\\f4fc\"}.fa-vial-virus:before{content:\"\\e597\"}.fa-sheet-plastic:before{content:\"\\e571\"}.fa-blog:before{content:\"\\f781\"}.fa-user-ninja:before{content:\"\\f504\"}.fa-person-arrow-up-from-line:before{content:\"\\e539\"}.fa-scroll-torah:before,.fa-torah:before{content:\"\\f6a0\"}.fa-broom-ball:before,.fa-quidditch-broom-ball:before,.fa-quidditch:before{content:\"\\f458\"}.fa-toggle-off:before{content:\"\\f204\"}.fa-archive:before,.fa-box-archive:before{content:\"\\f187\"}.fa-person-drowning:before{content:\"\\e545\"}.fa-arrow-down-9-1:before,.fa-sort-numeric-desc:before,.fa-sort-numeric-down-alt:before{content:\"\\f886\"}.fa-face-grin-tongue-squint:before,.fa-grin-tongue-squint:before{content:\"\\f58a\"}.fa-spray-can:before{content:\"\\f5bd\"}.fa-truck-monster:before{content:\"\\f63b\"}.fa-w:before{content:\"\\57\"}.fa-earth-africa:before,.fa-globe-africa:before{content:\"\\f57c\"}.fa-rainbow:before{content:\"\\f75b\"}.fa-circle-notch:before{content:\"\\f1ce\"}.fa-tablet-alt:before,.fa-tablet-screen-button:before{content:\"\\f3fa\"}.fa-paw:before{content:\"\\f1b0\"}.fa-cloud:before{content:\"\\f0c2\"}.fa-trowel-bricks:before{content:\"\\e58a\"}.fa-face-flushed:before,.fa-flushed:before{content:\"\\f579\"}.fa-hospital-user:before{content:\"\\f80d\"}.fa-tent-arrow-left-right:before{content:\"\\e57f\"}.fa-gavel:before,.fa-legal:before{content:\"\\f0e3\"}.fa-binoculars:before{content:\"\\f1e5\"}.fa-microphone-slash:before{content:\"\\f131\"}.fa-box-tissue:before{content:\"\\e05b\"}.fa-motorcycle:before{content:\"\\f21c\"}.fa-bell-concierge:before,.fa-concierge-bell:before{content:\"\\f562\"}.fa-pen-ruler:before,.fa-pencil-ruler:before{content:\"\\f5ae\"}.fa-people-arrows-left-right:before,.fa-people-arrows:before{content:\"\\e068\"}.fa-mars-and-venus-burst:before{content:\"\\e523\"}.fa-caret-square-right:before,.fa-square-caret-right:before{content:\"\\f152\"}.fa-cut:before,.fa-scissors:before{content:\"\\f0c4\"}.fa-sun-plant-wilt:before{content:\"\\e57a\"}.fa-toilets-portable:before{content:\"\\e584\"}.fa-hockey-puck:before{content:\"\\f453\"}.fa-table:before{content:\"\\f0ce\"}.fa-magnifying-glass-arrow-right:before{content:\"\\e521\"}.fa-digital-tachograph:before,.fa-tachograph-digital:before{content:\"\\f566\"}.fa-users-slash:before{content:\"\\e073\"}.fa-clover:before{content:\"\\e139\"}.fa-mail-reply:before,.fa-reply:before{content:\"\\f3e5\"}.fa-star-and-crescent:before{content:\"\\f699\"}.fa-house-fire:before{content:\"\\e50c\"}.fa-minus-square:before,.fa-square-minus:before{content:\"\\f146\"}.fa-helicopter:before{content:\"\\f533\"}.fa-compass:before{content:\"\\f14e\"}.fa-caret-square-down:before,.fa-square-caret-down:before{content:\"\\f150\"}.fa-file-circle-question:before{content:\"\\e4ef\"}.fa-laptop-code:before{content:\"\\f5fc\"}.fa-swatchbook:before{content:\"\\f5c3\"}.fa-prescription-bottle:before{content:\"\\f485\"}.fa-bars:before,.fa-navicon:before{content:\"\\f0c9\"}.fa-people-group:before{content:\"\\e533\"}.fa-hourglass-3:before,.fa-hourglass-end:before{content:\"\\f253\"}.fa-heart-broken:before,.fa-heart-crack:before{content:\"\\f7a9\"}.fa-external-link-square-alt:before,.fa-square-up-right:before{content:\"\\f360\"}.fa-face-kiss-beam:before,.fa-kiss-beam:before{content:\"\\f597\"}.fa-film:before{content:\"\\f008\"}.fa-ruler-horizontal:before{content:\"\\f547\"}.fa-people-robbery:before{content:\"\\e536\"}.fa-lightbulb:before{content:\"\\f0eb\"}.fa-caret-left:before{content:\"\\f0d9\"}.fa-circle-exclamation:before,.fa-exclamation-circle:before{content:\"\\f06a\"}.fa-school-circle-xmark:before{content:\"\\e56d\"}.fa-arrow-right-from-bracket:before,.fa-sign-out:before{content:\"\\f08b\"}.fa-chevron-circle-down:before,.fa-circle-chevron-down:before{content:\"\\f13a\"}.fa-unlock-alt:before,.fa-unlock-keyhole:before{content:\"\\f13e\"}.fa-cloud-showers-heavy:before{content:\"\\f740\"}.fa-headphones-alt:before,.fa-headphones-simple:before{content:\"\\f58f\"}.fa-sitemap:before{content:\"\\f0e8\"}.fa-circle-dollar-to-slot:before,.fa-donate:before{content:\"\\f4b9\"}.fa-memory:before{content:\"\\f538\"}.fa-road-spikes:before{content:\"\\e568\"}.fa-fire-burner:before{content:\"\\e4f1\"}.fa-flag:before{content:\"\\f024\"}.fa-hanukiah:before{content:\"\\f6e6\"}.fa-feather:before{content:\"\\f52d\"}.fa-volume-down:before,.fa-volume-low:before{content:\"\\f027\"}.fa-comment-slash:before{content:\"\\f4b3\"}.fa-cloud-sun-rain:before{content:\"\\f743\"}.fa-compress:before{content:\"\\f066\"}.fa-wheat-alt:before,.fa-wheat-awn:before{content:\"\\e2cd\"}.fa-ankh:before{content:\"\\f644\"}.fa-hands-holding-child:before{content:\"\\e4fa\"}.fa-asterisk:before{content:\"\\2a\"}.fa-check-square:before,.fa-square-check:before{content:\"\\f14a\"}.fa-peseta-sign:before{content:\"\\e221\"}.fa-header:before,.fa-heading:before{content:\"\\f1dc\"}.fa-ghost:before{content:\"\\f6e2\"}.fa-list-squares:before,.fa-list:before{content:\"\\f03a\"}.fa-phone-square-alt:before,.fa-square-phone-flip:before{content:\"\\f87b\"}.fa-cart-plus:before{content:\"\\f217\"}.fa-gamepad:before{content:\"\\f11b\"}.fa-circle-dot:before,.fa-dot-circle:before{content:\"\\f192\"}.fa-dizzy:before,.fa-face-dizzy:before{content:\"\\f567\"}.fa-egg:before{content:\"\\f7fb\"}.fa-house-medical-circle-xmark:before{content:\"\\e513\"}.fa-campground:before{content:\"\\f6bb\"}.fa-folder-plus:before{content:\"\\f65e\"}.fa-futbol-ball:before,.fa-futbol:before,.fa-soccer-ball:before{content:\"\\f1e3\"}.fa-paint-brush:before,.fa-paintbrush:before{content:\"\\f1fc\"}.fa-lock:before{content:\"\\f023\"}.fa-gas-pump:before{content:\"\\f52f\"}.fa-hot-tub-person:before,.fa-hot-tub:before{content:\"\\f593\"}.fa-map-location:before,.fa-map-marked:before{content:\"\\f59f\"}.fa-house-flood-water:before{content:\"\\e50e\"}.fa-tree:before{content:\"\\f1bb\"}.fa-bridge-lock:before{content:\"\\e4cc\"}.fa-sack-dollar:before{content:\"\\f81d\"}.fa-edit:before,.fa-pen-to-square:before{content:\"\\f044\"}.fa-car-side:before{content:\"\\f5e4\"}.fa-share-alt:before,.fa-share-nodes:before{content:\"\\f1e0\"}.fa-heart-circle-minus:before{content:\"\\e4ff\"}.fa-hourglass-2:before,.fa-hourglass-half:before{content:\"\\f252\"}.fa-microscope:before{content:\"\\f610\"}.fa-sink:before{content:\"\\e06d\"}.fa-bag-shopping:before,.fa-shopping-bag:before{content:\"\\f290\"}.fa-arrow-down-z-a:before,.fa-sort-alpha-desc:before,.fa-sort-alpha-down-alt:before{content:\"\\f881\"}.fa-mitten:before{content:\"\\f7b5\"}.fa-person-rays:before{content:\"\\e54d\"}.fa-users:before{content:\"\\f0c0\"}.fa-eye-slash:before{content:\"\\f070\"}.fa-flask-vial:before{content:\"\\e4f3\"}.fa-hand-paper:before,.fa-hand:before{content:\"\\f256\"}.fa-om:before{content:\"\\f679\"}.fa-worm:before{content:\"\\e599\"}.fa-house-circle-xmark:before{content:\"\\e50b\"}.fa-plug:before{content:\"\\f1e6\"}.fa-chevron-up:before{content:\"\\f077\"}.fa-hand-spock:before{content:\"\\f259\"}.fa-stopwatch:before{content:\"\\f2f2\"}.fa-face-kiss:before,.fa-kiss:before{content:\"\\f596\"}.fa-bridge-circle-xmark:before{content:\"\\e4cb\"}.fa-face-grin-tongue:before,.fa-grin-tongue:before{content:\"\\f589\"}.fa-chess-bishop:before{content:\"\\f43a\"}.fa-face-grin-wink:before,.fa-grin-wink:before{content:\"\\f58c\"}.fa-deaf:before,.fa-deafness:before,.fa-ear-deaf:before,.fa-hard-of-hearing:before{content:\"\\f2a4\"}.fa-road-circle-check:before{content:\"\\e564\"}.fa-dice-five:before{content:\"\\f523\"}.fa-rss-square:before,.fa-square-rss:before{content:\"\\f143\"}.fa-land-mine-on:before{content:\"\\e51b\"}.fa-i-cursor:before{content:\"\\f246\"}.fa-stamp:before{content:\"\\f5bf\"}.fa-stairs:before{content:\"\\e289\"}.fa-i:before{content:\"\\49\"}.fa-hryvnia-sign:before,.fa-hryvnia:before{content:\"\\f6f2\"}.fa-pills:before{content:\"\\f484\"}.fa-face-grin-wide:before,.fa-grin-alt:before{content:\"\\f581\"}.fa-tooth:before{content:\"\\f5c9\"}.fa-v:before{content:\"\\56\"}.fa-bangladeshi-taka-sign:before{content:\"\\e2e6\"}.fa-bicycle:before{content:\"\\f206\"}.fa-rod-asclepius:before,.fa-rod-snake:before,.fa-staff-aesculapius:before,.fa-staff-snake:before{content:\"\\e579\"}.fa-head-side-cough-slash:before{content:\"\\e062\"}.fa-ambulance:before,.fa-truck-medical:before{content:\"\\f0f9\"}.fa-wheat-awn-circle-exclamation:before{content:\"\\e598\"}.fa-snowman:before{content:\"\\f7d0\"}.fa-mortar-pestle:before{content:\"\\f5a7\"}.fa-road-barrier:before{content:\"\\e562\"}.fa-school:before{content:\"\\f549\"}.fa-igloo:before{content:\"\\f7ae\"}.fa-joint:before{content:\"\\f595\"}.fa-angle-right:before{content:\"\\f105\"}.fa-horse:before{content:\"\\f6f0\"}.fa-q:before{content:\"\\51\"}.fa-g:before{content:\"\\47\"}.fa-notes-medical:before{content:\"\\f481\"}.fa-temperature-2:before,.fa-temperature-half:before,.fa-thermometer-2:before,.fa-thermometer-half:before{content:\"\\f2c9\"}.fa-dong-sign:before{content:\"\\e169\"}.fa-capsules:before{content:\"\\f46b\"}.fa-poo-bolt:before,.fa-poo-storm:before{content:\"\\f75a\"}.fa-face-frown-open:before,.fa-frown-open:before{content:\"\\f57a\"}.fa-hand-point-up:before{content:\"\\f0a6\"}.fa-money-bill:before{content:\"\\f0d6\"}.fa-bookmark:before{content:\"\\f02e\"}.fa-align-justify:before{content:\"\\f039\"}.fa-umbrella-beach:before{content:\"\\f5ca\"}.fa-helmet-un:before{content:\"\\e503\"}.fa-bullseye:before{content:\"\\f140\"}.fa-bacon:before{content:\"\\f7e5\"}.fa-hand-point-down:before{content:\"\\f0a7\"}.fa-arrow-up-from-bracket:before{content:\"\\e09a\"}.fa-folder-blank:before,.fa-folder:before{content:\"\\f07b\"}.fa-file-medical-alt:before,.fa-file-waveform:before{content:\"\\f478\"}.fa-radiation:before{content:\"\\f7b9\"}.fa-chart-simple:before{content:\"\\e473\"}.fa-mars-stroke:before{content:\"\\f229\"}.fa-vial:before{content:\"\\f492\"}.fa-dashboard:before,.fa-gauge-med:before,.fa-gauge:before,.fa-tachometer-alt-average:before{content:\"\\f624\"}.fa-magic-wand-sparkles:before,.fa-wand-magic-sparkles:before{content:\"\\e2ca\"}.fa-e:before{content:\"\\45\"}.fa-pen-alt:before,.fa-pen-clip:before{content:\"\\f305\"}.fa-bridge-circle-exclamation:before{content:\"\\e4ca\"}.fa-user:before{content:\"\\f007\"}.fa-school-circle-check:before{content:\"\\e56b\"}.fa-dumpster:before{content:\"\\f793\"}.fa-shuttle-van:before,.fa-van-shuttle:before{content:\"\\f5b6\"}.fa-building-user:before{content:\"\\e4da\"}.fa-caret-square-left:before,.fa-square-caret-left:before{content:\"\\f191\"}.fa-highlighter:before{content:\"\\f591\"}.fa-key:before{content:\"\\f084\"}.fa-bullhorn:before{content:\"\\f0a1\"}.fa-globe:before{content:\"\\f0ac\"}.fa-synagogue:before{content:\"\\f69b\"}.fa-person-half-dress:before{content:\"\\e548\"}.fa-road-bridge:before{content:\"\\e563\"}.fa-location-arrow:before{content:\"\\f124\"}.fa-c:before{content:\"\\43\"}.fa-tablet-button:before{content:\"\\f10a\"}.fa-building-lock:before{content:\"\\e4d6\"}.fa-pizza-slice:before{content:\"\\f818\"}.fa-money-bill-wave:before{content:\"\\f53a\"}.fa-area-chart:before,.fa-chart-area:before{content:\"\\f1fe\"}.fa-house-flag:before{content:\"\\e50d\"}.fa-person-circle-minus:before{content:\"\\e540\"}.fa-ban:before,.fa-cancel:before{content:\"\\f05e\"}.fa-camera-rotate:before{content:\"\\e0d8\"}.fa-air-freshener:before,.fa-spray-can-sparkles:before{content:\"\\f5d0\"}.fa-star:before{content:\"\\f005\"}.fa-repeat:before{content:\"\\f363\"}.fa-cross:before{content:\"\\f654\"}.fa-box:before{content:\"\\f466\"}.fa-venus-mars:before{content:\"\\f228\"}.fa-arrow-pointer:before,.fa-mouse-pointer:before{content:\"\\f245\"}.fa-expand-arrows-alt:before,.fa-maximize:before{content:\"\\f31e\"}.fa-charging-station:before{content:\"\\f5e7\"}.fa-shapes:before,.fa-triangle-circle-square:before{content:\"\\f61f\"}.fa-random:before,.fa-shuffle:before{content:\"\\f074\"}.fa-person-running:before,.fa-running:before{content:\"\\f70c\"}.fa-mobile-retro:before{content:\"\\e527\"}.fa-grip-lines-vertical:before{content:\"\\f7a5\"}.fa-spider:before{content:\"\\f717\"}.fa-hands-bound:before{content:\"\\e4f9\"}.fa-file-invoice-dollar:before{content:\"\\f571\"}.fa-plane-circle-exclamation:before{content:\"\\e556\"}.fa-x-ray:before{content:\"\\f497\"}.fa-spell-check:before{content:\"\\f891\"}.fa-slash:before{content:\"\\f715\"}.fa-computer-mouse:before,.fa-mouse:before{content:\"\\f8cc\"}.fa-arrow-right-to-bracket:before,.fa-sign-in:before{content:\"\\f090\"}.fa-shop-slash:before,.fa-store-alt-slash:before{content:\"\\e070\"}.fa-server:before{content:\"\\f233\"}.fa-virus-covid-slash:before{content:\"\\e4a9\"}.fa-shop-lock:before{content:\"\\e4a5\"}.fa-hourglass-1:before,.fa-hourglass-start:before{content:\"\\f251\"}.fa-blender-phone:before{content:\"\\f6b6\"}.fa-building-wheat:before{content:\"\\e4db\"}.fa-person-breastfeeding:before{content:\"\\e53a\"}.fa-right-to-bracket:before,.fa-sign-in-alt:before{content:\"\\f2f6\"}.fa-venus:before{content:\"\\f221\"}.fa-passport:before{content:\"\\f5ab\"}.fa-heart-pulse:before,.fa-heartbeat:before{content:\"\\f21e\"}.fa-people-carry-box:before,.fa-people-carry:before{content:\"\\f4ce\"}.fa-temperature-high:before{content:\"\\f769\"}.fa-microchip:before{content:\"\\f2db\"}.fa-crown:before{content:\"\\f521\"}.fa-weight-hanging:before{content:\"\\f5cd\"}.fa-xmarks-lines:before{content:\"\\e59a\"}.fa-file-prescription:before{content:\"\\f572\"}.fa-weight-scale:before,.fa-weight:before{content:\"\\f496\"}.fa-user-friends:before,.fa-user-group:before{content:\"\\f500\"}.fa-arrow-up-a-z:before,.fa-sort-alpha-up:before{content:\"\\f15e\"}.fa-chess-knight:before{content:\"\\f441\"}.fa-face-laugh-squint:before,.fa-laugh-squint:before{content:\"\\f59b\"}.fa-wheelchair:before{content:\"\\f193\"}.fa-arrow-circle-up:before,.fa-circle-arrow-up:before{content:\"\\f0aa\"}.fa-toggle-on:before{content:\"\\f205\"}.fa-person-walking:before,.fa-walking:before{content:\"\\f554\"}.fa-l:before{content:\"\\4c\"}.fa-fire:before{content:\"\\f06d\"}.fa-bed-pulse:before,.fa-procedures:before{content:\"\\f487\"}.fa-shuttle-space:before,.fa-space-shuttle:before{content:\"\\f197\"}.fa-face-laugh:before,.fa-laugh:before{content:\"\\f599\"}.fa-folder-open:before{content:\"\\f07c\"}.fa-heart-circle-plus:before{content:\"\\e500\"}.fa-code-fork:before{content:\"\\e13b\"}.fa-city:before{content:\"\\f64f\"}.fa-microphone-alt:before,.fa-microphone-lines:before{content:\"\\f3c9\"}.fa-pepper-hot:before{content:\"\\f816\"}.fa-unlock:before{content:\"\\f09c\"}.fa-colon-sign:before{content:\"\\e140\"}.fa-headset:before{content:\"\\f590\"}.fa-store-slash:before{content:\"\\e071\"}.fa-road-circle-xmark:before{content:\"\\e566\"}.fa-user-minus:before{content:\"\\f503\"}.fa-mars-stroke-up:before,.fa-mars-stroke-v:before{content:\"\\f22a\"}.fa-champagne-glasses:before,.fa-glass-cheers:before{content:\"\\f79f\"}.fa-clipboard:before{content:\"\\f328\"}.fa-house-circle-exclamation:before{content:\"\\e50a\"}.fa-file-arrow-up:before,.fa-file-upload:before{content:\"\\f574\"}.fa-wifi-3:before,.fa-wifi-strong:before,.fa-wifi:before{content:\"\\f1eb\"}.fa-bath:before,.fa-bathtub:before{content:\"\\f2cd\"}.fa-underline:before{content:\"\\f0cd\"}.fa-user-edit:before,.fa-user-pen:before{content:\"\\f4ff\"}.fa-signature:before{content:\"\\f5b7\"}.fa-stroopwafel:before{content:\"\\f551\"}.fa-bold:before{content:\"\\f032\"}.fa-anchor-lock:before{content:\"\\e4ad\"}.fa-building-ngo:before{content:\"\\e4d7\"}.fa-manat-sign:before{content:\"\\e1d5\"}.fa-not-equal:before{content:\"\\f53e\"}.fa-border-style:before,.fa-border-top-left:before{content:\"\\f853\"}.fa-map-location-dot:before,.fa-map-marked-alt:before{content:\"\\f5a0\"}.fa-jedi:before{content:\"\\f669\"}.fa-poll:before,.fa-square-poll-vertical:before{content:\"\\f681\"}.fa-mug-hot:before{content:\"\\f7b6\"}.fa-battery-car:before,.fa-car-battery:before{content:\"\\f5df\"}.fa-gift:before{content:\"\\f06b\"}.fa-dice-two:before{content:\"\\f528\"}.fa-chess-queen:before{content:\"\\f445\"}.fa-glasses:before{content:\"\\f530\"}.fa-chess-board:before{content:\"\\f43c\"}.fa-building-circle-check:before{content:\"\\e4d2\"}.fa-person-chalkboard:before{content:\"\\e53d\"}.fa-mars-stroke-h:before,.fa-mars-stroke-right:before{content:\"\\f22b\"}.fa-hand-back-fist:before,.fa-hand-rock:before{content:\"\\f255\"}.fa-caret-square-up:before,.fa-square-caret-up:before{content:\"\\f151\"}.fa-cloud-showers-water:before{content:\"\\e4e4\"}.fa-bar-chart:before,.fa-chart-bar:before{content:\"\\f080\"}.fa-hands-bubbles:before,.fa-hands-wash:before{content:\"\\e05e\"}.fa-less-than-equal:before{content:\"\\f537\"}.fa-train:before{content:\"\\f238\"}.fa-eye-low-vision:before,.fa-low-vision:before{content:\"\\f2a8\"}.fa-crow:before{content:\"\\f520\"}.fa-sailboat:before{content:\"\\e445\"}.fa-window-restore:before{content:\"\\f2d2\"}.fa-plus-square:before,.fa-square-plus:before{content:\"\\f0fe\"}.fa-torii-gate:before{content:\"\\f6a1\"}.fa-frog:before{content:\"\\f52e\"}.fa-bucket:before{content:\"\\e4cf\"}.fa-image:before{content:\"\\f03e\"}.fa-microphone:before{content:\"\\f130\"}.fa-cow:before{content:\"\\f6c8\"}.fa-caret-up:before{content:\"\\f0d8\"}.fa-screwdriver:before{content:\"\\f54a\"}.fa-folder-closed:before{content:\"\\e185\"}.fa-house-tsunami:before{content:\"\\e515\"}.fa-square-nfi:before{content:\"\\e576\"}.fa-arrow-up-from-ground-water:before{content:\"\\e4b5\"}.fa-glass-martini-alt:before,.fa-martini-glass:before{content:\"\\f57b\"}.fa-rotate-back:before,.fa-rotate-backward:before,.fa-rotate-left:before,.fa-undo-alt:before{content:\"\\f2ea\"}.fa-columns:before,.fa-table-columns:before{content:\"\\f0db\"}.fa-lemon:before{content:\"\\f094\"}.fa-head-side-mask:before{content:\"\\e063\"}.fa-handshake:before{content:\"\\f2b5\"}.fa-gem:before{content:\"\\f3a5\"}.fa-dolly-box:before,.fa-dolly:before{content:\"\\f472\"}.fa-smoking:before{content:\"\\f48d\"}.fa-compress-arrows-alt:before,.fa-minimize:before{content:\"\\f78c\"}.fa-monument:before{content:\"\\f5a6\"}.fa-snowplow:before{content:\"\\f7d2\"}.fa-angle-double-right:before,.fa-angles-right:before{content:\"\\f101\"}.fa-cannabis:before{content:\"\\f55f\"}.fa-circle-play:before,.fa-play-circle:before{content:\"\\f144\"}.fa-tablets:before{content:\"\\f490\"}.fa-ethernet:before{content:\"\\f796\"}.fa-eur:before,.fa-euro-sign:before,.fa-euro:before{content:\"\\f153\"}.fa-chair:before{content:\"\\f6c0\"}.fa-check-circle:before,.fa-circle-check:before{content:\"\\f058\"}.fa-circle-stop:before,.fa-stop-circle:before{content:\"\\f28d\"}.fa-compass-drafting:before,.fa-drafting-compass:before{content:\"\\f568\"}.fa-plate-wheat:before{content:\"\\e55a\"}.fa-icicles:before{content:\"\\f7ad\"}.fa-person-shelter:before{content:\"\\e54f\"}.fa-neuter:before{content:\"\\f22c\"}.fa-id-badge:before{content:\"\\f2c1\"}.fa-marker:before{content:\"\\f5a1\"}.fa-face-laugh-beam:before,.fa-laugh-beam:before{content:\"\\f59a\"}.fa-helicopter-symbol:before{content:\"\\e502\"}.fa-universal-access:before{content:\"\\f29a\"}.fa-chevron-circle-up:before,.fa-circle-chevron-up:before{content:\"\\f139\"}.fa-lari-sign:before{content:\"\\e1c8\"}.fa-volcano:before{content:\"\\f770\"}.fa-person-walking-dashed-line-arrow-right:before{content:\"\\e553\"}.fa-gbp:before,.fa-pound-sign:before,.fa-sterling-sign:before{content:\"\\f154\"}.fa-viruses:before{content:\"\\e076\"}.fa-square-person-confined:before{content:\"\\e577\"}.fa-user-tie:before{content:\"\\f508\"}.fa-arrow-down-long:before,.fa-long-arrow-down:before{content:\"\\f175\"}.fa-tent-arrow-down-to-line:before{content:\"\\e57e\"}.fa-certificate:before{content:\"\\f0a3\"}.fa-mail-reply-all:before,.fa-reply-all:before{content:\"\\f122\"}.fa-suitcase:before{content:\"\\f0f2\"}.fa-person-skating:before,.fa-skating:before{content:\"\\f7c5\"}.fa-filter-circle-dollar:before,.fa-funnel-dollar:before{content:\"\\f662\"}.fa-camera-retro:before{content:\"\\f083\"}.fa-arrow-circle-down:before,.fa-circle-arrow-down:before{content:\"\\f0ab\"}.fa-arrow-right-to-file:before,.fa-file-import:before{content:\"\\f56f\"}.fa-external-link-square:before,.fa-square-arrow-up-right:before{content:\"\\f14c\"}.fa-box-open:before{content:\"\\f49e\"}.fa-scroll:before{content:\"\\f70e\"}.fa-spa:before{content:\"\\f5bb\"}.fa-location-pin-lock:before{content:\"\\e51f\"}.fa-pause:before{content:\"\\f04c\"}.fa-hill-avalanche:before{content:\"\\e507\"}.fa-temperature-0:before,.fa-temperature-empty:before,.fa-thermometer-0:before,.fa-thermometer-empty:before{content:\"\\f2cb\"}.fa-bomb:before{content:\"\\f1e2\"}.fa-registered:before{content:\"\\f25d\"}.fa-address-card:before,.fa-contact-card:before,.fa-vcard:before{content:\"\\f2bb\"}.fa-balance-scale-right:before,.fa-scale-unbalanced-flip:before{content:\"\\f516\"}.fa-subscript:before{content:\"\\f12c\"}.fa-diamond-turn-right:before,.fa-directions:before{content:\"\\f5eb\"}.fa-burst:before{content:\"\\e4dc\"}.fa-house-laptop:before,.fa-laptop-house:before{content:\"\\e066\"}.fa-face-tired:before,.fa-tired:before{content:\"\\f5c8\"}.fa-money-bills:before{content:\"\\e1f3\"}.fa-smog:before{content:\"\\f75f\"}.fa-crutch:before{content:\"\\f7f7\"}.fa-cloud-arrow-up:before,.fa-cloud-upload-alt:before,.fa-cloud-upload:before{content:\"\\f0ee\"}.fa-palette:before{content:\"\\f53f\"}.fa-arrows-turn-right:before{content:\"\\e4c0\"}.fa-vest:before{content:\"\\e085\"}.fa-ferry:before{content:\"\\e4ea\"}.fa-arrows-down-to-people:before{content:\"\\e4b9\"}.fa-seedling:before,.fa-sprout:before{content:\"\\f4d8\"}.fa-arrows-alt-h:before,.fa-left-right:before{content:\"\\f337\"}.fa-boxes-packing:before{content:\"\\e4c7\"}.fa-arrow-circle-left:before,.fa-circle-arrow-left:before{content:\"\\f0a8\"}.fa-group-arrows-rotate:before{content:\"\\e4f6\"}.fa-bowl-food:before{content:\"\\e4c6\"}.fa-candy-cane:before{content:\"\\f786\"}.fa-arrow-down-wide-short:before,.fa-sort-amount-asc:before,.fa-sort-amount-down:before{content:\"\\f160\"}.fa-cloud-bolt:before,.fa-thunderstorm:before{content:\"\\f76c\"}.fa-remove-format:before,.fa-text-slash:before{content:\"\\f87d\"}.fa-face-smile-wink:before,.fa-smile-wink:before{content:\"\\f4da\"}.fa-file-word:before{content:\"\\f1c2\"}.fa-file-powerpoint:before{content:\"\\f1c4\"}.fa-arrows-h:before,.fa-arrows-left-right:before{content:\"\\f07e\"}.fa-house-lock:before{content:\"\\e510\"}.fa-cloud-arrow-down:before,.fa-cloud-download-alt:before,.fa-cloud-download:before{content:\"\\f0ed\"}.fa-children:before{content:\"\\e4e1\"}.fa-blackboard:before,.fa-chalkboard:before{content:\"\\f51b\"}.fa-user-alt-slash:before,.fa-user-large-slash:before{content:\"\\f4fa\"}.fa-envelope-open:before{content:\"\\f2b6\"}.fa-handshake-alt-slash:before,.fa-handshake-simple-slash:before{content:\"\\e05f\"}.fa-mattress-pillow:before{content:\"\\e525\"}.fa-guarani-sign:before{content:\"\\e19a\"}.fa-arrows-rotate:before,.fa-refresh:before,.fa-sync:before{content:\"\\f021\"}.fa-fire-extinguisher:before{content:\"\\f134\"}.fa-cruzeiro-sign:before{content:\"\\e152\"}.fa-greater-than-equal:before{content:\"\\f532\"}.fa-shield-alt:before,.fa-shield-halved:before{content:\"\\f3ed\"}.fa-atlas:before,.fa-book-atlas:before{content:\"\\f558\"}.fa-virus:before{content:\"\\e074\"}.fa-envelope-circle-check:before{content:\"\\e4e8\"}.fa-layer-group:before{content:\"\\f5fd\"}.fa-arrows-to-dot:before{content:\"\\e4be\"}.fa-archway:before{content:\"\\f557\"}.fa-heart-circle-check:before{content:\"\\e4fd\"}.fa-house-chimney-crack:before,.fa-house-damage:before{content:\"\\f6f1\"}.fa-file-archive:before,.fa-file-zipper:before{content:\"\\f1c6\"}.fa-square:before{content:\"\\f0c8\"}.fa-glass-martini:before,.fa-martini-glass-empty:before{content:\"\\f000\"}.fa-couch:before{content:\"\\f4b8\"}.fa-cedi-sign:before{content:\"\\e0df\"}.fa-italic:before{content:\"\\f033\"}.fa-church:before{content:\"\\f51d\"}.fa-comments-dollar:before{content:\"\\f653\"}.fa-democrat:before{content:\"\\f747\"}.fa-z:before{content:\"\\5a\"}.fa-person-skiing:before,.fa-skiing:before{content:\"\\f7c9\"}.fa-road-lock:before{content:\"\\e567\"}.fa-a:before{content:\"\\41\"}.fa-temperature-arrow-down:before,.fa-temperature-down:before{content:\"\\e03f\"}.fa-feather-alt:before,.fa-feather-pointed:before{content:\"\\f56b\"}.fa-p:before{content:\"\\50\"}.fa-snowflake:before{content:\"\\f2dc\"}.fa-newspaper:before{content:\"\\f1ea\"}.fa-ad:before,.fa-rectangle-ad:before{content:\"\\f641\"}.fa-arrow-circle-right:before,.fa-circle-arrow-right:before{content:\"\\f0a9\"}.fa-filter-circle-xmark:before{content:\"\\e17b\"}.fa-locust:before{content:\"\\e520\"}.fa-sort:before,.fa-unsorted:before{content:\"\\f0dc\"}.fa-list-1-2:before,.fa-list-numeric:before,.fa-list-ol:before{content:\"\\f0cb\"}.fa-person-dress-burst:before{content:\"\\e544\"}.fa-money-check-alt:before,.fa-money-check-dollar:before{content:\"\\f53d\"}.fa-vector-square:before{content:\"\\f5cb\"}.fa-bread-slice:before{content:\"\\f7ec\"}.fa-language:before{content:\"\\f1ab\"}.fa-face-kiss-wink-heart:before,.fa-kiss-wink-heart:before{content:\"\\f598\"}.fa-filter:before{content:\"\\f0b0\"}.fa-question:before{content:\"\\3f\"}.fa-file-signature:before{content:\"\\f573\"}.fa-arrows-alt:before,.fa-up-down-left-right:before{content:\"\\f0b2\"}.fa-house-chimney-user:before{content:\"\\e065\"}.fa-hand-holding-heart:before{content:\"\\f4be\"}.fa-puzzle-piece:before{content:\"\\f12e\"}.fa-money-check:before{content:\"\\f53c\"}.fa-star-half-alt:before,.fa-star-half-stroke:before{content:\"\\f5c0\"}.fa-code:before{content:\"\\f121\"}.fa-glass-whiskey:before,.fa-whiskey-glass:before{content:\"\\f7a0\"}.fa-building-circle-exclamation:before{content:\"\\e4d3\"}.fa-magnifying-glass-chart:before{content:\"\\e522\"}.fa-arrow-up-right-from-square:before,.fa-external-link:before{content:\"\\f08e\"}.fa-cubes-stacked:before{content:\"\\e4e6\"}.fa-krw:before,.fa-won-sign:before,.fa-won:before{content:\"\\f159\"}.fa-virus-covid:before{content:\"\\e4a8\"}.fa-austral-sign:before{content:\"\\e0a9\"}.fa-f:before{content:\"\\46\"}.fa-leaf:before{content:\"\\f06c\"}.fa-road:before{content:\"\\f018\"}.fa-cab:before,.fa-taxi:before{content:\"\\f1ba\"}.fa-person-circle-plus:before{content:\"\\e541\"}.fa-chart-pie:before,.fa-pie-chart:before{content:\"\\f200\"}.fa-bolt-lightning:before{content:\"\\e0b7\"}.fa-sack-xmark:before{content:\"\\e56a\"}.fa-file-excel:before{content:\"\\f1c3\"}.fa-file-contract:before{content:\"\\f56c\"}.fa-fish-fins:before{content:\"\\e4f2\"}.fa-building-flag:before{content:\"\\e4d5\"}.fa-face-grin-beam:before,.fa-grin-beam:before{content:\"\\f582\"}.fa-object-ungroup:before{content:\"\\f248\"}.fa-poop:before{content:\"\\f619\"}.fa-location-pin:before,.fa-map-marker:before{content:\"\\f041\"}.fa-kaaba:before{content:\"\\f66b\"}.fa-toilet-paper:before{content:\"\\f71e\"}.fa-hard-hat:before,.fa-hat-hard:before,.fa-helmet-safety:before{content:\"\\f807\"}.fa-eject:before{content:\"\\f052\"}.fa-arrow-alt-circle-right:before,.fa-circle-right:before{content:\"\\f35a\"}.fa-plane-circle-check:before{content:\"\\e555\"}.fa-face-rolling-eyes:before,.fa-meh-rolling-eyes:before{content:\"\\f5a5\"}.fa-object-group:before{content:\"\\f247\"}.fa-chart-line:before,.fa-line-chart:before{content:\"\\f201\"}.fa-mask-ventilator:before{content:\"\\e524\"}.fa-arrow-right:before{content:\"\\f061\"}.fa-map-signs:before,.fa-signs-post:before{content:\"\\f277\"}.fa-cash-register:before{content:\"\\f788\"}.fa-person-circle-question:before{content:\"\\e542\"}.fa-h:before{content:\"\\48\"}.fa-tarp:before{content:\"\\e57b\"}.fa-screwdriver-wrench:before,.fa-tools:before{content:\"\\f7d9\"}.fa-arrows-to-eye:before{content:\"\\e4bf\"}.fa-plug-circle-bolt:before{content:\"\\e55b\"}.fa-heart:before{content:\"\\f004\"}.fa-mars-and-venus:before{content:\"\\f224\"}.fa-home-user:before,.fa-house-user:before{content:\"\\e1b0\"}.fa-dumpster-fire:before{content:\"\\f794\"}.fa-house-crack:before{content:\"\\e3b1\"}.fa-cocktail:before,.fa-martini-glass-citrus:before{content:\"\\f561\"}.fa-face-surprise:before,.fa-surprise:before{content:\"\\f5c2\"}.fa-bottle-water:before{content:\"\\e4c5\"}.fa-circle-pause:before,.fa-pause-circle:before{content:\"\\f28b\"}.fa-toilet-paper-slash:before{content:\"\\e072\"}.fa-apple-alt:before,.fa-apple-whole:before{content:\"\\f5d1\"}.fa-kitchen-set:before{content:\"\\e51a\"}.fa-r:before{content:\"\\52\"}.fa-temperature-1:before,.fa-temperature-quarter:before,.fa-thermometer-1:before,.fa-thermometer-quarter:before{content:\"\\f2ca\"}.fa-cube:before{content:\"\\f1b2\"}.fa-bitcoin-sign:before{content:\"\\e0b4\"}.fa-shield-dog:before{content:\"\\e573\"}.fa-solar-panel:before{content:\"\\f5ba\"}.fa-lock-open:before{content:\"\\f3c1\"}.fa-elevator:before{content:\"\\e16d\"}.fa-money-bill-transfer:before{content:\"\\e528\"}.fa-money-bill-trend-up:before{content:\"\\e529\"}.fa-house-flood-water-circle-arrow-right:before{content:\"\\e50f\"}.fa-poll-h:before,.fa-square-poll-horizontal:before{content:\"\\f682\"}.fa-circle:before{content:\"\\f111\"}.fa-backward-fast:before,.fa-fast-backward:before{content:\"\\f049\"}.fa-recycle:before{content:\"\\f1b8\"}.fa-user-astronaut:before{content:\"\\f4fb\"}.fa-plane-slash:before{content:\"\\e069\"}.fa-trademark:before{content:\"\\f25c\"}.fa-basketball-ball:before,.fa-basketball:before{content:\"\\f434\"}.fa-satellite-dish:before{content:\"\\f7c0\"}.fa-arrow-alt-circle-up:before,.fa-circle-up:before{content:\"\\f35b\"}.fa-mobile-alt:before,.fa-mobile-screen-button:before{content:\"\\f3cd\"}.fa-volume-high:before,.fa-volume-up:before{content:\"\\f028\"}.fa-users-rays:before{content:\"\\e593\"}.fa-wallet:before{content:\"\\f555\"}.fa-clipboard-check:before{content:\"\\f46c\"}.fa-file-audio:before{content:\"\\f1c7\"}.fa-burger:before,.fa-hamburger:before{content:\"\\f805\"}.fa-wrench:before{content:\"\\f0ad\"}.fa-bugs:before{content:\"\\e4d0\"}.fa-rupee-sign:before,.fa-rupee:before{content:\"\\f156\"}.fa-file-image:before{content:\"\\f1c5\"}.fa-circle-question:before,.fa-question-circle:before{content:\"\\f059\"}.fa-plane-departure:before{content:\"\\f5b0\"}.fa-handshake-slash:before{content:\"\\e060\"}.fa-book-bookmark:before{content:\"\\e0bb\"}.fa-code-branch:before{content:\"\\f126\"}.fa-hat-cowboy:before{content:\"\\f8c0\"}.fa-bridge:before{content:\"\\e4c8\"}.fa-phone-alt:before,.fa-phone-flip:before{content:\"\\f879\"}.fa-truck-front:before{content:\"\\e2b7\"}.fa-cat:before{content:\"\\f6be\"}.fa-anchor-circle-exclamation:before{content:\"\\e4ab\"}.fa-truck-field:before{content:\"\\e58d\"}.fa-route:before{content:\"\\f4d7\"}.fa-clipboard-question:before{content:\"\\e4e3\"}.fa-panorama:before{content:\"\\e209\"}.fa-comment-medical:before{content:\"\\f7f5\"}.fa-teeth-open:before{content:\"\\f62f\"}.fa-file-circle-minus:before{content:\"\\e4ed\"}.fa-tags:before{content:\"\\f02c\"}.fa-wine-glass:before{content:\"\\f4e3\"}.fa-fast-forward:before,.fa-forward-fast:before{content:\"\\f050\"}.fa-face-meh-blank:before,.fa-meh-blank:before{content:\"\\f5a4\"}.fa-parking:before,.fa-square-parking:before{content:\"\\f540\"}.fa-house-signal:before{content:\"\\e012\"}.fa-bars-progress:before,.fa-tasks-alt:before{content:\"\\f828\"}.fa-faucet-drip:before{content:\"\\e006\"}.fa-cart-flatbed:before,.fa-dolly-flatbed:before{content:\"\\f474\"}.fa-ban-smoking:before,.fa-smoking-ban:before{content:\"\\f54d\"}.fa-terminal:before{content:\"\\f120\"}.fa-mobile-button:before{content:\"\\f10b\"}.fa-house-medical-flag:before{content:\"\\e514\"}.fa-basket-shopping:before,.fa-shopping-basket:before{content:\"\\f291\"}.fa-tape:before{content:\"\\f4db\"}.fa-bus-alt:before,.fa-bus-simple:before{content:\"\\f55e\"}.fa-eye:before{content:\"\\f06e\"}.fa-face-sad-cry:before,.fa-sad-cry:before{content:\"\\f5b3\"}.fa-audio-description:before{content:\"\\f29e\"}.fa-person-military-to-person:before{content:\"\\e54c\"}.fa-file-shield:before{content:\"\\e4f0\"}.fa-user-slash:before{content:\"\\f506\"}.fa-pen:before{content:\"\\f304\"}.fa-tower-observation:before{content:\"\\e586\"}.fa-file-code:before{content:\"\\f1c9\"}.fa-signal-5:before,.fa-signal-perfect:before,.fa-signal:before{content:\"\\f012\"}.fa-bus:before{content:\"\\f207\"}.fa-heart-circle-xmark:before{content:\"\\e501\"}.fa-home-lg:before,.fa-house-chimney:before{content:\"\\e3af\"}.fa-window-maximize:before{content:\"\\f2d0\"}.fa-face-frown:before,.fa-frown:before{content:\"\\f119\"}.fa-prescription:before{content:\"\\f5b1\"}.fa-shop:before,.fa-store-alt:before{content:\"\\f54f\"}.fa-floppy-disk:before,.fa-save:before{content:\"\\f0c7\"}.fa-vihara:before{content:\"\\f6a7\"}.fa-balance-scale-left:before,.fa-scale-unbalanced:before{content:\"\\f515\"}.fa-sort-asc:before,.fa-sort-up:before{content:\"\\f0de\"}.fa-comment-dots:before,.fa-commenting:before{content:\"\\f4ad\"}.fa-plant-wilt:before{content:\"\\e5aa\"}.fa-diamond:before{content:\"\\f219\"}.fa-face-grin-squint:before,.fa-grin-squint:before{content:\"\\f585\"}.fa-hand-holding-dollar:before,.fa-hand-holding-usd:before{content:\"\\f4c0\"}.fa-bacterium:before{content:\"\\e05a\"}.fa-hand-pointer:before{content:\"\\f25a\"}.fa-drum-steelpan:before{content:\"\\f56a\"}.fa-hand-scissors:before{content:\"\\f257\"}.fa-hands-praying:before,.fa-praying-hands:before{content:\"\\f684\"}.fa-arrow-right-rotate:before,.fa-arrow-rotate-forward:before,.fa-arrow-rotate-right:before,.fa-redo:before{content:\"\\f01e\"}.fa-biohazard:before{content:\"\\f780\"}.fa-location-crosshairs:before,.fa-location:before{content:\"\\f601\"}.fa-mars-double:before{content:\"\\f227\"}.fa-child-dress:before{content:\"\\e59c\"}.fa-users-between-lines:before{content:\"\\e591\"}.fa-lungs-virus:before{content:\"\\e067\"}.fa-face-grin-tears:before,.fa-grin-tears:before{content:\"\\f588\"}.fa-phone:before{content:\"\\f095\"}.fa-calendar-times:before,.fa-calendar-xmark:before{content:\"\\f273\"}.fa-child-reaching:before{content:\"\\e59d\"}.fa-head-side-virus:before{content:\"\\e064\"}.fa-user-cog:before,.fa-user-gear:before{content:\"\\f4fe\"}.fa-arrow-up-1-9:before,.fa-sort-numeric-up:before{content:\"\\f163\"}.fa-door-closed:before{content:\"\\f52a\"}.fa-shield-virus:before{content:\"\\e06c\"}.fa-dice-six:before{content:\"\\f526\"}.fa-mosquito-net:before{content:\"\\e52c\"}.fa-bridge-water:before{content:\"\\e4ce\"}.fa-person-booth:before{content:\"\\f756\"}.fa-text-width:before{content:\"\\f035\"}.fa-hat-wizard:before{content:\"\\f6e8\"}.fa-pen-fancy:before{content:\"\\f5ac\"}.fa-digging:before,.fa-person-digging:before{content:\"\\f85e\"}.fa-trash:before{content:\"\\f1f8\"}.fa-gauge-simple-med:before,.fa-gauge-simple:before,.fa-tachometer-average:before{content:\"\\f629\"}.fa-book-medical:before{content:\"\\f7e6\"}.fa-poo:before{content:\"\\f2fe\"}.fa-quote-right-alt:before,.fa-quote-right:before{content:\"\\f10e\"}.fa-shirt:before,.fa-t-shirt:before,.fa-tshirt:before{content:\"\\f553\"}.fa-cubes:before{content:\"\\f1b3\"}.fa-divide:before{content:\"\\f529\"}.fa-tenge-sign:before,.fa-tenge:before{content:\"\\f7d7\"}.fa-headphones:before{content:\"\\f025\"}.fa-hands-holding:before{content:\"\\f4c2\"}.fa-hands-clapping:before{content:\"\\e1a8\"}.fa-republican:before{content:\"\\f75e\"}.fa-arrow-left:before{content:\"\\f060\"}.fa-person-circle-xmark:before{content:\"\\e543\"}.fa-ruler:before{content:\"\\f545\"}.fa-align-left:before{content:\"\\f036\"}.fa-dice-d6:before{content:\"\\f6d1\"}.fa-restroom:before{content:\"\\f7bd\"}.fa-j:before{content:\"\\4a\"}.fa-users-viewfinder:before{content:\"\\e595\"}.fa-file-video:before{content:\"\\f1c8\"}.fa-external-link-alt:before,.fa-up-right-from-square:before{content:\"\\f35d\"}.fa-table-cells:before,.fa-th:before{content:\"\\f00a\"}.fa-file-pdf:before{content:\"\\f1c1\"}.fa-bible:before,.fa-book-bible:before{content:\"\\f647\"}.fa-o:before{content:\"\\4f\"}.fa-medkit:before,.fa-suitcase-medical:before{content:\"\\f0fa\"}.fa-user-secret:before{content:\"\\f21b\"}.fa-otter:before{content:\"\\f700\"}.fa-female:before,.fa-person-dress:before{content:\"\\f182\"}.fa-comment-dollar:before{content:\"\\f651\"}.fa-briefcase-clock:before,.fa-business-time:before{content:\"\\f64a\"}.fa-table-cells-large:before,.fa-th-large:before{content:\"\\f009\"}.fa-book-tanakh:before,.fa-tanakh:before{content:\"\\f827\"}.fa-phone-volume:before,.fa-volume-control-phone:before{content:\"\\f2a0\"}.fa-hat-cowboy-side:before{content:\"\\f8c1\"}.fa-clipboard-user:before{content:\"\\f7f3\"}.fa-child:before{content:\"\\f1ae\"}.fa-lira-sign:before{content:\"\\f195\"}.fa-satellite:before{content:\"\\f7bf\"}.fa-plane-lock:before{content:\"\\e558\"}.fa-tag:before{content:\"\\f02b\"}.fa-comment:before{content:\"\\f075\"}.fa-birthday-cake:before,.fa-cake-candles:before,.fa-cake:before{content:\"\\f1fd\"}.fa-envelope:before{content:\"\\f0e0\"}.fa-angle-double-up:before,.fa-angles-up:before{content:\"\\f102\"}.fa-paperclip:before{content:\"\\f0c6\"}.fa-arrow-right-to-city:before{content:\"\\e4b3\"}.fa-ribbon:before{content:\"\\f4d6\"}.fa-lungs:before{content:\"\\f604\"}.fa-arrow-up-9-1:before,.fa-sort-numeric-up-alt:before{content:\"\\f887\"}.fa-litecoin-sign:before{content:\"\\e1d3\"}.fa-border-none:before{content:\"\\f850\"}.fa-circle-nodes:before{content:\"\\e4e2\"}.fa-parachute-box:before{content:\"\\f4cd\"}.fa-indent:before{content:\"\\f03c\"}.fa-truck-field-un:before{content:\"\\e58e\"}.fa-hourglass-empty:before,.fa-hourglass:before{content:\"\\f254\"}.fa-mountain:before{content:\"\\f6fc\"}.fa-user-doctor:before,.fa-user-md:before{content:\"\\f0f0\"}.fa-circle-info:before,.fa-info-circle:before{content:\"\\f05a\"}.fa-cloud-meatball:before{content:\"\\f73b\"}.fa-camera-alt:before,.fa-camera:before{content:\"\\f030\"}.fa-square-virus:before{content:\"\\e578\"}.fa-meteor:before{content:\"\\f753\"}.fa-car-on:before{content:\"\\e4dd\"}.fa-sleigh:before{content:\"\\f7cc\"}.fa-arrow-down-1-9:before,.fa-sort-numeric-asc:before,.fa-sort-numeric-down:before{content:\"\\f162\"}.fa-hand-holding-droplet:before,.fa-hand-holding-water:before{content:\"\\f4c1\"}.fa-water:before{content:\"\\f773\"}.fa-calendar-check:before{content:\"\\f274\"}.fa-braille:before{content:\"\\f2a1\"}.fa-prescription-bottle-alt:before,.fa-prescription-bottle-medical:before{content:\"\\f486\"}.fa-landmark:before{content:\"\\f66f\"}.fa-truck:before{content:\"\\f0d1\"}.fa-crosshairs:before{content:\"\\f05b\"}.fa-person-cane:before{content:\"\\e53c\"}.fa-tent:before{content:\"\\e57d\"}.fa-vest-patches:before{content:\"\\e086\"}.fa-check-double:before{content:\"\\f560\"}.fa-arrow-down-a-z:before,.fa-sort-alpha-asc:before,.fa-sort-alpha-down:before{content:\"\\f15d\"}.fa-money-bill-wheat:before{content:\"\\e52a\"}.fa-cookie:before{content:\"\\f563\"}.fa-arrow-left-rotate:before,.fa-arrow-rotate-back:before,.fa-arrow-rotate-backward:before,.fa-arrow-rotate-left:before,.fa-undo:before{content:\"\\f0e2\"}.fa-hard-drive:before,.fa-hdd:before{content:\"\\f0a0\"}.fa-face-grin-squint-tears:before,.fa-grin-squint-tears:before{content:\"\\f586\"}.fa-dumbbell:before{content:\"\\f44b\"}.fa-list-alt:before,.fa-rectangle-list:before{content:\"\\f022\"}.fa-tarp-droplet:before{content:\"\\e57c\"}.fa-house-medical-circle-check:before{content:\"\\e511\"}.fa-person-skiing-nordic:before,.fa-skiing-nordic:before{content:\"\\f7ca\"}.fa-calendar-plus:before{content:\"\\f271\"}.fa-plane-arrival:before{content:\"\\f5af\"}.fa-arrow-alt-circle-left:before,.fa-circle-left:before{content:\"\\f359\"}.fa-subway:before,.fa-train-subway:before{content:\"\\f239\"}.fa-chart-gantt:before{content:\"\\e0e4\"}.fa-indian-rupee-sign:before,.fa-indian-rupee:before,.fa-inr:before{content:\"\\e1bc\"}.fa-crop-alt:before,.fa-crop-simple:before{content:\"\\f565\"}.fa-money-bill-1:before,.fa-money-bill-alt:before{content:\"\\f3d1\"}.fa-left-long:before,.fa-long-arrow-alt-left:before{content:\"\\f30a\"}.fa-dna:before{content:\"\\f471\"}.fa-virus-slash:before{content:\"\\e075\"}.fa-minus:before,.fa-subtract:before{content:\"\\f068\"}.fa-chess:before{content:\"\\f439\"}.fa-arrow-left-long:before,.fa-long-arrow-left:before{content:\"\\f177\"}.fa-plug-circle-check:before{content:\"\\e55c\"}.fa-street-view:before{content:\"\\f21d\"}.fa-franc-sign:before{content:\"\\e18f\"}.fa-volume-off:before{content:\"\\f026\"}.fa-american-sign-language-interpreting:before,.fa-asl-interpreting:before,.fa-hands-american-sign-language-interpreting:before,.fa-hands-asl-interpreting:before{content:\"\\f2a3\"}.fa-cog:before,.fa-gear:before{content:\"\\f013\"}.fa-droplet-slash:before,.fa-tint-slash:before{content:\"\\f5c7\"}.fa-mosque:before{content:\"\\f678\"}.fa-mosquito:before{content:\"\\e52b\"}.fa-star-of-david:before{content:\"\\f69a\"}.fa-person-military-rifle:before{content:\"\\e54b\"}.fa-cart-shopping:before,.fa-shopping-cart:before{content:\"\\f07a\"}.fa-vials:before{content:\"\\f493\"}.fa-plug-circle-plus:before{content:\"\\e55f\"}.fa-place-of-worship:before{content:\"\\f67f\"}.fa-grip-vertical:before{content:\"\\f58e\"}.fa-arrow-turn-up:before,.fa-level-up:before{content:\"\\f148\"}.fa-u:before{content:\"\\55\"}.fa-square-root-alt:before,.fa-square-root-variable:before{content:\"\\f698\"}.fa-clock-four:before,.fa-clock:before{content:\"\\f017\"}.fa-backward-step:before,.fa-step-backward:before{content:\"\\f048\"}.fa-pallet:before{content:\"\\f482\"}.fa-faucet:before{content:\"\\e005\"}.fa-baseball-bat-ball:before{content:\"\\f432\"}.fa-s:before{content:\"\\53\"}.fa-timeline:before{content:\"\\e29c\"}.fa-keyboard:before{content:\"\\f11c\"}.fa-caret-down:before{content:\"\\f0d7\"}.fa-clinic-medical:before,.fa-house-chimney-medical:before{content:\"\\f7f2\"}.fa-temperature-3:before,.fa-temperature-three-quarters:before,.fa-thermometer-3:before,.fa-thermometer-three-quarters:before{content:\"\\f2c8\"}.fa-mobile-android-alt:before,.fa-mobile-screen:before{content:\"\\f3cf\"}.fa-plane-up:before{content:\"\\e22d\"}.fa-piggy-bank:before{content:\"\\f4d3\"}.fa-battery-3:before,.fa-battery-half:before{content:\"\\f242\"}.fa-mountain-city:before{content:\"\\e52e\"}.fa-coins:before{content:\"\\f51e\"}.fa-khanda:before{content:\"\\f66d\"}.fa-sliders-h:before,.fa-sliders:before{content:\"\\f1de\"}.fa-folder-tree:before{content:\"\\f802\"}.fa-network-wired:before{content:\"\\f6ff\"}.fa-map-pin:before{content:\"\\f276\"}.fa-hamsa:before{content:\"\\f665\"}.fa-cent-sign:before{content:\"\\e3f5\"}.fa-flask:before{content:\"\\f0c3\"}.fa-person-pregnant:before{content:\"\\e31e\"}.fa-wand-sparkles:before{content:\"\\f72b\"}.fa-ellipsis-v:before,.fa-ellipsis-vertical:before{content:\"\\f142\"}.fa-ticket:before{content:\"\\f145\"}.fa-power-off:before{content:\"\\f011\"}.fa-long-arrow-alt-right:before,.fa-right-long:before{content:\"\\f30b\"}.fa-flag-usa:before{content:\"\\f74d\"}.fa-laptop-file:before{content:\"\\e51d\"}.fa-teletype:before,.fa-tty:before{content:\"\\f1e4\"}.fa-diagram-next:before{content:\"\\e476\"}.fa-person-rifle:before{content:\"\\e54e\"}.fa-house-medical-circle-exclamation:before{content:\"\\e512\"}.fa-closed-captioning:before{content:\"\\f20a\"}.fa-hiking:before,.fa-person-hiking:before{content:\"\\f6ec\"}.fa-venus-double:before{content:\"\\f226\"}.fa-images:before{content:\"\\f302\"}.fa-calculator:before{content:\"\\f1ec\"}.fa-people-pulling:before{content:\"\\e535\"}.fa-n:before{content:\"\\4e\"}.fa-cable-car:before,.fa-tram:before{content:\"\\f7da\"}.fa-cloud-rain:before{content:\"\\f73d\"}.fa-building-circle-xmark:before{content:\"\\e4d4\"}.fa-ship:before{content:\"\\f21a\"}.fa-arrows-down-to-line:before{content:\"\\e4b8\"}.fa-download:before{content:\"\\f019\"}.fa-face-grin:before,.fa-grin:before{content:\"\\f580\"}.fa-backspace:before,.fa-delete-left:before{content:\"\\f55a\"}.fa-eye-dropper-empty:before,.fa-eye-dropper:before,.fa-eyedropper:before{content:\"\\f1fb\"}.fa-file-circle-check:before{content:\"\\e5a0\"}.fa-forward:before{content:\"\\f04e\"}.fa-mobile-android:before,.fa-mobile-phone:before,.fa-mobile:before{content:\"\\f3ce\"}.fa-face-meh:before,.fa-meh:before{content:\"\\f11a\"}.fa-align-center:before{content:\"\\f037\"}.fa-book-dead:before,.fa-book-skull:before{content:\"\\f6b7\"}.fa-drivers-license:before,.fa-id-card:before{content:\"\\f2c2\"}.fa-dedent:before,.fa-outdent:before{content:\"\\f03b\"}.fa-heart-circle-exclamation:before{content:\"\\e4fe\"}.fa-home-alt:before,.fa-home-lg-alt:before,.fa-home:before,.fa-house:before{content:\"\\f015\"}.fa-calendar-week:before{content:\"\\f784\"}.fa-laptop-medical:before{content:\"\\f812\"}.fa-b:before{content:\"\\42\"}.fa-file-medical:before{content:\"\\f477\"}.fa-dice-one:before{content:\"\\f525\"}.fa-kiwi-bird:before{content:\"\\f535\"}.fa-arrow-right-arrow-left:before,.fa-exchange:before{content:\"\\f0ec\"}.fa-redo-alt:before,.fa-rotate-forward:before,.fa-rotate-right:before{content:\"\\f2f9\"}.fa-cutlery:before,.fa-utensils:before{content:\"\\f2e7\"}.fa-arrow-up-wide-short:before,.fa-sort-amount-up:before{content:\"\\f161\"}.fa-mill-sign:before{content:\"\\e1ed\"}.fa-bowl-rice:before{content:\"\\e2eb\"}.fa-skull:before{content:\"\\f54c\"}.fa-broadcast-tower:before,.fa-tower-broadcast:before{content:\"\\f519\"}.fa-truck-pickup:before{content:\"\\f63c\"}.fa-long-arrow-alt-up:before,.fa-up-long:before{content:\"\\f30c\"}.fa-stop:before{content:\"\\f04d\"}.fa-code-merge:before{content:\"\\f387\"}.fa-upload:before{content:\"\\f093\"}.fa-hurricane:before{content:\"\\f751\"}.fa-mound:before{content:\"\\e52d\"}.fa-toilet-portable:before{content:\"\\e583\"}.fa-compact-disc:before{content:\"\\f51f\"}.fa-file-arrow-down:before,.fa-file-download:before{content:\"\\f56d\"}.fa-caravan:before{content:\"\\f8ff\"}.fa-shield-cat:before{content:\"\\e572\"}.fa-bolt:before,.fa-zap:before{content:\"\\f0e7\"}.fa-glass-water:before{content:\"\\e4f4\"}.fa-oil-well:before{content:\"\\e532\"}.fa-vault:before{content:\"\\e2c5\"}.fa-mars:before{content:\"\\f222\"}.fa-toilet:before{content:\"\\f7d8\"}.fa-plane-circle-xmark:before{content:\"\\e557\"}.fa-cny:before,.fa-jpy:before,.fa-rmb:before,.fa-yen-sign:before,.fa-yen:before{content:\"\\f157\"}.fa-rouble:before,.fa-rub:before,.fa-ruble-sign:before,.fa-ruble:before{content:\"\\f158\"}.fa-sun:before{content:\"\\f185\"}.fa-guitar:before{content:\"\\f7a6\"}.fa-face-laugh-wink:before,.fa-laugh-wink:before{content:\"\\f59c\"}.fa-horse-head:before{content:\"\\f7ab\"}.fa-bore-hole:before{content:\"\\e4c3\"}.fa-industry:before{content:\"\\f275\"}.fa-arrow-alt-circle-down:before,.fa-circle-down:before{content:\"\\f358\"}.fa-arrows-turn-to-dots:before{content:\"\\e4c1\"}.fa-florin-sign:before{content:\"\\e184\"}.fa-arrow-down-short-wide:before,.fa-sort-amount-desc:before,.fa-sort-amount-down-alt:before{content:\"\\f884\"}.fa-less-than:before{content:\"\\3c\"}.fa-angle-down:before{content:\"\\f107\"}.fa-car-tunnel:before{content:\"\\e4de\"}.fa-head-side-cough:before{content:\"\\e061\"}.fa-grip-lines:before{content:\"\\f7a4\"}.fa-thumbs-down:before{content:\"\\f165\"}.fa-user-lock:before{content:\"\\f502\"}.fa-arrow-right-long:before,.fa-long-arrow-right:before{content:\"\\f178\"}.fa-anchor-circle-xmark:before{content:\"\\e4ac\"}.fa-ellipsis-h:before,.fa-ellipsis:before{content:\"\\f141\"}.fa-chess-pawn:before{content:\"\\f443\"}.fa-first-aid:before,.fa-kit-medical:before{content:\"\\f479\"}.fa-person-through-window:before{content:\"\\e5a9\"}.fa-toolbox:before{content:\"\\f552\"}.fa-hands-holding-circle:before{content:\"\\e4fb\"}.fa-bug:before{content:\"\\f188\"}.fa-credit-card-alt:before,.fa-credit-card:before{content:\"\\f09d\"}.fa-automobile:before,.fa-car:before{content:\"\\f1b9\"}.fa-hand-holding-hand:before{content:\"\\e4f7\"}.fa-book-open-reader:before,.fa-book-reader:before{content:\"\\f5da\"}.fa-mountain-sun:before{content:\"\\e52f\"}.fa-arrows-left-right-to-line:before{content:\"\\e4ba\"}.fa-dice-d20:before{content:\"\\f6cf\"}.fa-truck-droplet:before{content:\"\\e58c\"}.fa-file-circle-xmark:before{content:\"\\e5a1\"}.fa-temperature-arrow-up:before,.fa-temperature-up:before{content:\"\\e040\"}.fa-medal:before{content:\"\\f5a2\"}.fa-bed:before{content:\"\\f236\"}.fa-h-square:before,.fa-square-h:before{content:\"\\f0fd\"}.fa-podcast:before{content:\"\\f2ce\"}.fa-temperature-4:before,.fa-temperature-full:before,.fa-thermometer-4:before,.fa-thermometer-full:before{content:\"\\f2c7\"}.fa-bell:before{content:\"\\f0f3\"}.fa-superscript:before{content:\"\\f12b\"}.fa-plug-circle-xmark:before{content:\"\\e560\"}.fa-star-of-life:before{content:\"\\f621\"}.fa-phone-slash:before{content:\"\\f3dd\"}.fa-paint-roller:before{content:\"\\f5aa\"}.fa-hands-helping:before,.fa-handshake-angle:before{content:\"\\f4c4\"}.fa-location-dot:before,.fa-map-marker-alt:before{content:\"\\f3c5\"}.fa-file:before{content:\"\\f15b\"}.fa-greater-than:before{content:\"\\3e\"}.fa-person-swimming:before,.fa-swimmer:before{content:\"\\f5c4\"}.fa-arrow-down:before{content:\"\\f063\"}.fa-droplet:before,.fa-tint:before{content:\"\\f043\"}.fa-eraser:before{content:\"\\f12d\"}.fa-earth-america:before,.fa-earth-americas:before,.fa-earth:before,.fa-globe-americas:before{content:\"\\f57d\"}.fa-person-burst:before{content:\"\\e53b\"}.fa-dove:before{content:\"\\f4ba\"}.fa-battery-0:before,.fa-battery-empty:before{content:\"\\f244\"}.fa-socks:before{content:\"\\f696\"}.fa-inbox:before{content:\"\\f01c\"}.fa-section:before{content:\"\\e447\"}.fa-gauge-high:before,.fa-tachometer-alt-fast:before,.fa-tachometer-alt:before{content:\"\\f625\"}.fa-envelope-open-text:before{content:\"\\f658\"}.fa-hospital-alt:before,.fa-hospital-wide:before,.fa-hospital:before{content:\"\\f0f8\"}.fa-wine-bottle:before{content:\"\\f72f\"}.fa-chess-rook:before{content:\"\\f447\"}.fa-bars-staggered:before,.fa-reorder:before,.fa-stream:before{content:\"\\f550\"}.fa-dharmachakra:before{content:\"\\f655\"}.fa-hotdog:before{content:\"\\f80f\"}.fa-blind:before,.fa-person-walking-with-cane:before{content:\"\\f29d\"}.fa-drum:before{content:\"\\f569\"}.fa-ice-cream:before{content:\"\\f810\"}.fa-heart-circle-bolt:before{content:\"\\e4fc\"}.fa-fax:before{content:\"\\f1ac\"}.fa-paragraph:before{content:\"\\f1dd\"}.fa-check-to-slot:before,.fa-vote-yea:before{content:\"\\f772\"}.fa-star-half:before{content:\"\\f089\"}.fa-boxes-alt:before,.fa-boxes-stacked:before,.fa-boxes:before{content:\"\\f468\"}.fa-chain:before,.fa-link:before{content:\"\\f0c1\"}.fa-assistive-listening-systems:before,.fa-ear-listen:before{content:\"\\f2a2\"}.fa-tree-city:before{content:\"\\e587\"}.fa-play:before{content:\"\\f04b\"}.fa-font:before{content:\"\\f031\"}.fa-rupiah-sign:before{content:\"\\e23d\"}.fa-magnifying-glass:before,.fa-search:before{content:\"\\f002\"}.fa-ping-pong-paddle-ball:before,.fa-table-tennis-paddle-ball:before,.fa-table-tennis:before{content:\"\\f45d\"}.fa-diagnoses:before,.fa-person-dots-from-line:before{content:\"\\f470\"}.fa-trash-can-arrow-up:before,.fa-trash-restore-alt:before{content:\"\\f82a\"}.fa-naira-sign:before{content:\"\\e1f6\"}.fa-cart-arrow-down:before{content:\"\\f218\"}.fa-walkie-talkie:before{content:\"\\f8ef\"}.fa-file-edit:before,.fa-file-pen:before{content:\"\\f31c\"}.fa-receipt:before{content:\"\\f543\"}.fa-pen-square:before,.fa-pencil-square:before,.fa-square-pen:before{content:\"\\f14b\"}.fa-suitcase-rolling:before{content:\"\\f5c1\"}.fa-person-circle-exclamation:before{content:\"\\e53f\"}.fa-chevron-down:before{content:\"\\f078\"}.fa-battery-5:before,.fa-battery-full:before,.fa-battery:before{content:\"\\f240\"}.fa-skull-crossbones:before{content:\"\\f714\"}.fa-code-compare:before{content:\"\\e13a\"}.fa-list-dots:before,.fa-list-ul:before{content:\"\\f0ca\"}.fa-school-lock:before{content:\"\\e56f\"}.fa-tower-cell:before{content:\"\\e585\"}.fa-down-long:before,.fa-long-arrow-alt-down:before{content:\"\\f309\"}.fa-ranking-star:before{content:\"\\e561\"}.fa-chess-king:before{content:\"\\f43f\"}.fa-person-harassing:before{content:\"\\e549\"}.fa-brazilian-real-sign:before{content:\"\\e46c\"}.fa-landmark-alt:before,.fa-landmark-dome:before{content:\"\\f752\"}.fa-arrow-up:before{content:\"\\f062\"}.fa-television:before,.fa-tv-alt:before,.fa-tv:before{content:\"\\f26c\"}.fa-shrimp:before{content:\"\\e448\"}.fa-list-check:before,.fa-tasks:before{content:\"\\f0ae\"}.fa-jug-detergent:before{content:\"\\e519\"}.fa-circle-user:before,.fa-user-circle:before{content:\"\\f2bd\"}.fa-user-shield:before{content:\"\\f505\"}.fa-wind:before{content:\"\\f72e\"}.fa-car-burst:before,.fa-car-crash:before{content:\"\\f5e1\"}.fa-y:before{content:\"\\59\"}.fa-person-snowboarding:before,.fa-snowboarding:before{content:\"\\f7ce\"}.fa-shipping-fast:before,.fa-truck-fast:before{content:\"\\f48b\"}.fa-fish:before{content:\"\\f578\"}.fa-user-graduate:before{content:\"\\f501\"}.fa-adjust:before,.fa-circle-half-stroke:before{content:\"\\f042\"}.fa-clapperboard:before{content:\"\\e131\"}.fa-circle-radiation:before,.fa-radiation-alt:before{content:\"\\f7ba\"}.fa-baseball-ball:before,.fa-baseball:before{content:\"\\f433\"}.fa-jet-fighter-up:before{content:\"\\e518\"}.fa-diagram-project:before,.fa-project-diagram:before{content:\"\\f542\"}.fa-copy:before{content:\"\\f0c5\"}.fa-volume-mute:before,.fa-volume-times:before,.fa-volume-xmark:before{content:\"\\f6a9\"}.fa-hand-sparkles:before{content:\"\\e05d\"}.fa-grip-horizontal:before,.fa-grip:before{content:\"\\f58d\"}.fa-share-from-square:before,.fa-share-square:before{content:\"\\f14d\"}.fa-child-combatant:before,.fa-child-rifle:before{content:\"\\e4e0\"}.fa-gun:before{content:\"\\e19b\"}.fa-phone-square:before,.fa-square-phone:before{content:\"\\f098\"}.fa-add:before,.fa-plus:before{content:\"\\2b\"}.fa-expand:before{content:\"\\f065\"}.fa-computer:before{content:\"\\e4e5\"}.fa-close:before,.fa-multiply:before,.fa-remove:before,.fa-times:before,.fa-xmark:before{content:\"\\f00d\"}.fa-arrows-up-down-left-right:before,.fa-arrows:before{content:\"\\f047\"}.fa-chalkboard-teacher:before,.fa-chalkboard-user:before{content:\"\\f51c\"}.fa-peso-sign:before{content:\"\\e222\"}.fa-building-shield:before{content:\"\\e4d8\"}.fa-baby:before{content:\"\\f77c\"}.fa-users-line:before{content:\"\\e592\"}.fa-quote-left-alt:before,.fa-quote-left:before{content:\"\\f10d\"}.fa-tractor:before{content:\"\\f722\"}.fa-trash-arrow-up:before,.fa-trash-restore:before{content:\"\\f829\"}.fa-arrow-down-up-lock:before{content:\"\\e4b0\"}.fa-lines-leaning:before{content:\"\\e51e\"}.fa-ruler-combined:before{content:\"\\f546\"}.fa-copyright:before{content:\"\\f1f9\"}.fa-equals:before{content:\"\\3d\"}.fa-blender:before{content:\"\\f517\"}.fa-teeth:before{content:\"\\f62e\"}.fa-ils:before,.fa-shekel-sign:before,.fa-shekel:before,.fa-sheqel-sign:before,.fa-sheqel:before{content:\"\\f20b\"}.fa-map:before{content:\"\\f279\"}.fa-rocket:before{content:\"\\f135\"}.fa-photo-film:before,.fa-photo-video:before{content:\"\\f87c\"}.fa-folder-minus:before{content:\"\\f65d\"}.fa-store:before{content:\"\\f54e\"}.fa-arrow-trend-up:before{content:\"\\e098\"}.fa-plug-circle-minus:before{content:\"\\e55e\"}.fa-sign-hanging:before,.fa-sign:before{content:\"\\f4d9\"}.fa-bezier-curve:before{content:\"\\f55b\"}.fa-bell-slash:before{content:\"\\f1f6\"}.fa-tablet-android:before,.fa-tablet:before{content:\"\\f3fb\"}.fa-school-flag:before{content:\"\\e56e\"}.fa-fill:before{content:\"\\f575\"}.fa-angle-up:before{content:\"\\f106\"}.fa-drumstick-bite:before{content:\"\\f6d7\"}.fa-holly-berry:before{content:\"\\f7aa\"}.fa-chevron-left:before{content:\"\\f053\"}.fa-bacteria:before{content:\"\\e059\"}.fa-hand-lizard:before{content:\"\\f258\"}.fa-notdef:before{content:\"\\e1fe\"}.fa-disease:before{content:\"\\f7fa\"}.fa-briefcase-medical:before{content:\"\\f469\"}.fa-genderless:before{content:\"\\f22d\"}.fa-chevron-right:before{content:\"\\f054\"}.fa-retweet:before{content:\"\\f079\"}.fa-car-alt:before,.fa-car-rear:before{content:\"\\f5de\"}.fa-pump-soap:before{content:\"\\e06b\"}.fa-video-slash:before{content:\"\\f4e2\"}.fa-battery-2:before,.fa-battery-quarter:before{content:\"\\f243\"}.fa-radio:before{content:\"\\f8d7\"}.fa-baby-carriage:before,.fa-carriage-baby:before{content:\"\\f77d\"}.fa-traffic-light:before{content:\"\\f637\"}.fa-thermometer:before{content:\"\\f491\"}.fa-vr-cardboard:before{content:\"\\f729\"}.fa-hand-middle-finger:before{content:\"\\f806\"}.fa-percent:before,.fa-percentage:before{content:\"\\25\"}.fa-truck-moving:before{content:\"\\f4df\"}.fa-glass-water-droplet:before{content:\"\\e4f5\"}.fa-display:before{content:\"\\e163\"}.fa-face-smile:before,.fa-smile:before{content:\"\\f118\"}.fa-thumb-tack:before,.fa-thumbtack:before{content:\"\\f08d\"}.fa-trophy:before{content:\"\\f091\"}.fa-person-praying:before,.fa-pray:before{content:\"\\f683\"}.fa-hammer:before{content:\"\\f6e3\"}.fa-hand-peace:before{content:\"\\f25b\"}.fa-rotate:before,.fa-sync-alt:before{content:\"\\f2f1\"}.fa-spinner:before{content:\"\\f110\"}.fa-robot:before{content:\"\\f544\"}.fa-peace:before{content:\"\\f67c\"}.fa-cogs:before,.fa-gears:before{content:\"\\f085\"}.fa-warehouse:before{content:\"\\f494\"}.fa-arrow-up-right-dots:before{content:\"\\e4b7\"}.fa-splotch:before{content:\"\\f5bc\"}.fa-face-grin-hearts:before,.fa-grin-hearts:before{content:\"\\f584\"}.fa-dice-four:before{content:\"\\f524\"}.fa-sim-card:before{content:\"\\f7c4\"}.fa-transgender-alt:before,.fa-transgender:before{content:\"\\f225\"}.fa-mercury:before{content:\"\\f223\"}.fa-arrow-turn-down:before,.fa-level-down:before{content:\"\\f149\"}.fa-person-falling-burst:before{content:\"\\e547\"}.fa-award:before{content:\"\\f559\"}.fa-ticket-alt:before,.fa-ticket-simple:before{content:\"\\f3ff\"}.fa-building:before{content:\"\\f1ad\"}.fa-angle-double-left:before,.fa-angles-left:before{content:\"\\f100\"}.fa-qrcode:before{content:\"\\f029\"}.fa-clock-rotate-left:before,.fa-history:before{content:\"\\f1da\"}.fa-face-grin-beam-sweat:before,.fa-grin-beam-sweat:before{content:\"\\f583\"}.fa-arrow-right-from-file:before,.fa-file-export:before{content:\"\\f56e\"}.fa-shield-blank:before,.fa-shield:before{content:\"\\f132\"}.fa-arrow-up-short-wide:before,.fa-sort-amount-up-alt:before{content:\"\\f885\"}.fa-house-medical:before{content:\"\\e3b2\"}.fa-golf-ball-tee:before,.fa-golf-ball:before{content:\"\\f450\"}.fa-chevron-circle-left:before,.fa-circle-chevron-left:before{content:\"\\f137\"}.fa-house-chimney-window:before{content:\"\\e00d\"}.fa-pen-nib:before{content:\"\\f5ad\"}.fa-tent-arrow-turn-left:before{content:\"\\e580\"}.fa-tents:before{content:\"\\e582\"}.fa-magic:before,.fa-wand-magic:before{content:\"\\f0d0\"}.fa-dog:before{content:\"\\f6d3\"}.fa-carrot:before{content:\"\\f787\"}.fa-moon:before{content:\"\\f186\"}.fa-wine-glass-alt:before,.fa-wine-glass-empty:before{content:\"\\f5ce\"}.fa-cheese:before{content:\"\\f7ef\"}.fa-yin-yang:before{content:\"\\f6ad\"}.fa-music:before{content:\"\\f001\"}.fa-code-commit:before{content:\"\\f386\"}.fa-temperature-low:before{content:\"\\f76b\"}.fa-biking:before,.fa-person-biking:before{content:\"\\f84a\"}.fa-broom:before{content:\"\\f51a\"}.fa-shield-heart:before{content:\"\\e574\"}.fa-gopuram:before{content:\"\\f664\"}.fa-earth-oceania:before,.fa-globe-oceania:before{content:\"\\e47b\"}.fa-square-xmark:before,.fa-times-square:before,.fa-xmark-square:before{content:\"\\f2d3\"}.fa-hashtag:before{content:\"\\23\"}.fa-expand-alt:before,.fa-up-right-and-down-left-from-center:before{content:\"\\f424\"}.fa-oil-can:before{content:\"\\f613\"}.fa-t:before{content:\"\\54\"}.fa-hippo:before{content:\"\\f6ed\"}.fa-chart-column:before{content:\"\\e0e3\"}.fa-infinity:before{content:\"\\f534\"}.fa-vial-circle-check:before{content:\"\\e596\"}.fa-person-arrow-down-to-line:before{content:\"\\e538\"}.fa-voicemail:before{content:\"\\f897\"}.fa-fan:before{content:\"\\f863\"}.fa-person-walking-luggage:before{content:\"\\e554\"}.fa-arrows-alt-v:before,.fa-up-down:before{content:\"\\f338\"}.fa-cloud-moon-rain:before{content:\"\\f73c\"}.fa-calendar:before{content:\"\\f133\"}.fa-trailer:before{content:\"\\e041\"}.fa-bahai:before,.fa-haykal:before{content:\"\\f666\"}.fa-sd-card:before{content:\"\\f7c2\"}.fa-dragon:before{content:\"\\f6d5\"}.fa-shoe-prints:before{content:\"\\f54b\"}.fa-circle-plus:before,.fa-plus-circle:before{content:\"\\f055\"}.fa-face-grin-tongue-wink:before,.fa-grin-tongue-wink:before{content:\"\\f58b\"}.fa-hand-holding:before{content:\"\\f4bd\"}.fa-plug-circle-exclamation:before{content:\"\\e55d\"}.fa-chain-broken:before,.fa-chain-slash:before,.fa-link-slash:before,.fa-unlink:before{content:\"\\f127\"}.fa-clone:before{content:\"\\f24d\"}.fa-person-walking-arrow-loop-left:before{content:\"\\e551\"}.fa-arrow-up-z-a:before,.fa-sort-alpha-up-alt:before{content:\"\\f882\"}.fa-fire-alt:before,.fa-fire-flame-curved:before{content:\"\\f7e4\"}.fa-tornado:before{content:\"\\f76f\"}.fa-file-circle-plus:before{content:\"\\e494\"}.fa-book-quran:before,.fa-quran:before{content:\"\\f687\"}.fa-anchor:before{content:\"\\f13d\"}.fa-border-all:before{content:\"\\f84c\"}.fa-angry:before,.fa-face-angry:before{content:\"\\f556\"}.fa-cookie-bite:before{content:\"\\f564\"}.fa-arrow-trend-down:before{content:\"\\e097\"}.fa-feed:before,.fa-rss:before{content:\"\\f09e\"}.fa-draw-polygon:before{content:\"\\f5ee\"}.fa-balance-scale:before,.fa-scale-balanced:before{content:\"\\f24e\"}.fa-gauge-simple-high:before,.fa-tachometer-fast:before,.fa-tachometer:before{content:\"\\f62a\"}.fa-shower:before{content:\"\\f2cc\"}.fa-desktop-alt:before,.fa-desktop:before{content:\"\\f390\"}.fa-m:before{content:\"\\4d\"}.fa-table-list:before,.fa-th-list:before{content:\"\\f00b\"}.fa-comment-sms:before,.fa-sms:before{content:\"\\f7cd\"}.fa-book:before{content:\"\\f02d\"}.fa-user-plus:before{content:\"\\f234\"}.fa-check:before{content:\"\\f00c\"}.fa-battery-4:before,.fa-battery-three-quarters:before{content:\"\\f241\"}.fa-house-circle-check:before{content:\"\\e509\"}.fa-angle-left:before{content:\"\\f104\"}.fa-diagram-successor:before{content:\"\\e47a\"}.fa-truck-arrow-right:before{content:\"\\e58b\"}.fa-arrows-split-up-and-left:before{content:\"\\e4bc\"}.fa-fist-raised:before,.fa-hand-fist:before{content:\"\\f6de\"}.fa-cloud-moon:before{content:\"\\f6c3\"}.fa-briefcase:before{content:\"\\f0b1\"}.fa-person-falling:before{content:\"\\e546\"}.fa-image-portrait:before,.fa-portrait:before{content:\"\\f3e0\"}.fa-user-tag:before{content:\"\\f507\"}.fa-rug:before{content:\"\\e569\"}.fa-earth-europe:before,.fa-globe-europe:before{content:\"\\f7a2\"}.fa-cart-flatbed-suitcase:before,.fa-luggage-cart:before{content:\"\\f59d\"}.fa-rectangle-times:before,.fa-rectangle-xmark:before,.fa-times-rectangle:before,.fa-window-close:before{content:\"\\f410\"}.fa-baht-sign:before{content:\"\\e0ac\"}.fa-book-open:before{content:\"\\f518\"}.fa-book-journal-whills:before,.fa-journal-whills:before{content:\"\\f66a\"}.fa-handcuffs:before{content:\"\\e4f8\"}.fa-exclamation-triangle:before,.fa-triangle-exclamation:before,.fa-warning:before{content:\"\\f071\"}.fa-database:before{content:\"\\f1c0\"}.fa-arrow-turn-right:before,.fa-mail-forward:before,.fa-share:before{content:\"\\f064\"}.fa-bottle-droplet:before{content:\"\\e4c4\"}.fa-mask-face:before{content:\"\\e1d7\"}.fa-hill-rockslide:before{content:\"\\e508\"}.fa-exchange-alt:before,.fa-right-left:before{content:\"\\f362\"}.fa-paper-plane:before{content:\"\\f1d8\"}.fa-road-circle-exclamation:before{content:\"\\e565\"}.fa-dungeon:before{content:\"\\f6d9\"}.fa-align-right:before{content:\"\\f038\"}.fa-money-bill-1-wave:before,.fa-money-bill-wave-alt:before{content:\"\\f53b\"}.fa-life-ring:before{content:\"\\f1cd\"}.fa-hands:before,.fa-sign-language:before,.fa-signing:before{content:\"\\f2a7\"}.fa-calendar-day:before{content:\"\\f783\"}.fa-ladder-water:before,.fa-swimming-pool:before,.fa-water-ladder:before{content:\"\\f5c5\"}.fa-arrows-up-down:before,.fa-arrows-v:before{content:\"\\f07d\"}.fa-face-grimace:before,.fa-grimace:before{content:\"\\f57f\"}.fa-wheelchair-alt:before,.fa-wheelchair-move:before{content:\"\\e2ce\"}.fa-level-down-alt:before,.fa-turn-down:before{content:\"\\f3be\"}.fa-person-walking-arrow-right:before{content:\"\\e552\"}.fa-envelope-square:before,.fa-square-envelope:before{content:\"\\f199\"}.fa-dice:before{content:\"\\f522\"}.fa-bowling-ball:before{content:\"\\f436\"}.fa-brain:before{content:\"\\f5dc\"}.fa-band-aid:before,.fa-bandage:before{content:\"\\f462\"}.fa-calendar-minus:before{content:\"\\f272\"}.fa-circle-xmark:before,.fa-times-circle:before,.fa-xmark-circle:before{content:\"\\f057\"}.fa-gifts:before{content:\"\\f79c\"}.fa-hotel:before{content:\"\\f594\"}.fa-earth-asia:before,.fa-globe-asia:before{content:\"\\f57e\"}.fa-id-card-alt:before,.fa-id-card-clip:before{content:\"\\f47f\"}.fa-magnifying-glass-plus:before,.fa-search-plus:before{content:\"\\f00e\"}.fa-thumbs-up:before{content:\"\\f164\"}.fa-user-clock:before{content:\"\\f4fd\"}.fa-allergies:before,.fa-hand-dots:before{content:\"\\f461\"}.fa-file-invoice:before{content:\"\\f570\"}.fa-window-minimize:before{content:\"\\f2d1\"}.fa-coffee:before,.fa-mug-saucer:before{content:\"\\f0f4\"}.fa-brush:before{content:\"\\f55d\"}.fa-mask:before{content:\"\\f6fa\"}.fa-magnifying-glass-minus:before,.fa-search-minus:before{content:\"\\f010\"}.fa-ruler-vertical:before{content:\"\\f548\"}.fa-user-alt:before,.fa-user-large:before{content:\"\\f406\"}.fa-train-tram:before{content:\"\\e5b4\"}.fa-user-nurse:before{content:\"\\f82f\"}.fa-syringe:before{content:\"\\f48e\"}.fa-cloud-sun:before{content:\"\\f6c4\"}.fa-stopwatch-20:before{content:\"\\e06f\"}.fa-square-full:before{content:\"\\f45c\"}.fa-magnet:before{content:\"\\f076\"}.fa-jar:before{content:\"\\e516\"}.fa-note-sticky:before,.fa-sticky-note:before{content:\"\\f249\"}.fa-bug-slash:before{content:\"\\e490\"}.fa-arrow-up-from-water-pump:before{content:\"\\e4b6\"}.fa-bone:before{content:\"\\f5d7\"}.fa-user-injured:before{content:\"\\f728\"}.fa-face-sad-tear:before,.fa-sad-tear:before{content:\"\\f5b4\"}.fa-plane:before{content:\"\\f072\"}.fa-tent-arrows-down:before{content:\"\\e581\"}.fa-exclamation:before{content:\"\\21\"}.fa-arrows-spin:before{content:\"\\e4bb\"}.fa-print:before{content:\"\\f02f\"}.fa-try:before,.fa-turkish-lira-sign:before,.fa-turkish-lira:before{content:\"\\e2bb\"}.fa-dollar-sign:before,.fa-dollar:before,.fa-usd:before{content:\"\\24\"}.fa-x:before{content:\"\\58\"}.fa-magnifying-glass-dollar:before,.fa-search-dollar:before{content:\"\\f688\"}.fa-users-cog:before,.fa-users-gear:before{content:\"\\f509\"}.fa-person-military-pointing:before{content:\"\\e54a\"}.fa-bank:before,.fa-building-columns:before,.fa-institution:before,.fa-museum:before,.fa-university:before{content:\"\\f19c\"}.fa-umbrella:before{content:\"\\f0e9\"}.fa-trowel:before{content:\"\\e589\"}.fa-d:before{content:\"\\44\"}.fa-stapler:before{content:\"\\e5af\"}.fa-masks-theater:before,.fa-theater-masks:before{content:\"\\f630\"}.fa-kip-sign:before{content:\"\\e1c4\"}.fa-hand-point-left:before{content:\"\\f0a5\"}.fa-handshake-alt:before,.fa-handshake-simple:before{content:\"\\f4c6\"}.fa-fighter-jet:before,.fa-jet-fighter:before{content:\"\\f0fb\"}.fa-share-alt-square:before,.fa-square-share-nodes:before{content:\"\\f1e1\"}.fa-barcode:before{content:\"\\f02a\"}.fa-plus-minus:before{content:\"\\e43c\"}.fa-video-camera:before,.fa-video:before{content:\"\\f03d\"}.fa-graduation-cap:before,.fa-mortar-board:before{content:\"\\f19d\"}.fa-hand-holding-medical:before{content:\"\\e05c\"}.fa-person-circle-check:before{content:\"\\e53e\"}.fa-level-up-alt:before,.fa-turn-up:before{content:\"\\f3bf\"}\r\n .fa-sr-only,.fa-sr-only-focusable:not(:focus),.sr-only,.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}:host,:root{--fa-style-family-brands:\"Font Awesome 6 Brands\";--fa-font-brands:normal 400 1em/1 \"Font Awesome 6 Brands\"}@font-face{font-family:\"Font Awesome 6 Brands\";font-style:normal;font-weight:400;font-display:block;src:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff2\"),url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"truetype\")}.fa-brands,.fab{font-weight:400}.fa-monero:before{content:\"\\f3d0\"}.fa-hooli:before{content:\"\\f427\"}.fa-yelp:before{content:\"\\f1e9\"}.fa-cc-visa:before{content:\"\\f1f0\"}.fa-lastfm:before{content:\"\\f202\"}.fa-shopware:before{content:\"\\f5b5\"}.fa-creative-commons-nc:before{content:\"\\f4e8\"}.fa-aws:before{content:\"\\f375\"}.fa-redhat:before{content:\"\\f7bc\"}.fa-yoast:before{content:\"\\f2b1\"}.fa-cloudflare:before{content:\"\\e07d\"}.fa-ups:before{content:\"\\f7e0\"}.fa-wpexplorer:before{content:\"\\f2de\"}.fa-dyalog:before{content:\"\\f399\"}.fa-bity:before{content:\"\\f37a\"}.fa-stackpath:before{content:\"\\f842\"}.fa-buysellads:before{content:\"\\f20d\"}.fa-first-order:before{content:\"\\f2b0\"}.fa-modx:before{content:\"\\f285\"}.fa-guilded:before{content:\"\\e07e\"}.fa-vnv:before{content:\"\\f40b\"}.fa-js-square:before,.fa-square-js:before{content:\"\\f3b9\"}.fa-microsoft:before{content:\"\\f3ca\"}.fa-qq:before{content:\"\\f1d6\"}.fa-orcid:before{content:\"\\f8d2\"}.fa-java:before{content:\"\\f4e4\"}.fa-invision:before{content:\"\\f7b0\"}.fa-creative-commons-pd-alt:before{content:\"\\f4ed\"}.fa-centercode:before{content:\"\\f380\"}.fa-glide-g:before{content:\"\\f2a6\"}.fa-drupal:before{content:\"\\f1a9\"}.fa-hire-a-helper:before{content:\"\\f3b0\"}.fa-creative-commons-by:before{content:\"\\f4e7\"}.fa-unity:before{content:\"\\e049\"}.fa-whmcs:before{content:\"\\f40d\"}.fa-rocketchat:before{content:\"\\f3e8\"}.fa-vk:before{content:\"\\f189\"}.fa-untappd:before{content:\"\\f405\"}.fa-mailchimp:before{content:\"\\f59e\"}.fa-css3-alt:before{content:\"\\f38b\"}.fa-reddit-square:before,.fa-square-reddit:before{content:\"\\f1a2\"}.fa-vimeo-v:before{content:\"\\f27d\"}.fa-contao:before{content:\"\\f26d\"}.fa-square-font-awesome:before{content:\"\\e5ad\"}.fa-deskpro:before{content:\"\\f38f\"}.fa-sistrix:before{content:\"\\f3ee\"}.fa-instagram-square:before,.fa-square-instagram:before{content:\"\\e055\"}.fa-battle-net:before{content:\"\\f835\"}.fa-the-red-yeti:before{content:\"\\f69d\"}.fa-hacker-news-square:before,.fa-square-hacker-news:before{content:\"\\f3af\"}.fa-edge:before{content:\"\\f282\"}.fa-napster:before{content:\"\\f3d2\"}.fa-snapchat-square:before,.fa-square-snapchat:before{content:\"\\f2ad\"}.fa-google-plus-g:before{content:\"\\f0d5\"}.fa-artstation:before{content:\"\\f77a\"}.fa-markdown:before{content:\"\\f60f\"}.fa-sourcetree:before{content:\"\\f7d3\"}.fa-google-plus:before{content:\"\\f2b3\"}.fa-diaspora:before{content:\"\\f791\"}.fa-foursquare:before{content:\"\\f180\"}.fa-stack-overflow:before{content:\"\\f16c\"}.fa-github-alt:before{content:\"\\f113\"}.fa-phoenix-squadron:before{content:\"\\f511\"}.fa-pagelines:before{content:\"\\f18c\"}.fa-algolia:before{content:\"\\f36c\"}.fa-red-river:before{content:\"\\f3e3\"}.fa-creative-commons-sa:before{content:\"\\f4ef\"}.fa-safari:before{content:\"\\f267\"}.fa-google:before{content:\"\\f1a0\"}.fa-font-awesome-alt:before,.fa-square-font-awesome-stroke:before{content:\"\\f35c\"}.fa-atlassian:before{content:\"\\f77b\"}.fa-linkedin-in:before{content:\"\\f0e1\"}.fa-digital-ocean:before{content:\"\\f391\"}.fa-nimblr:before{content:\"\\f5a8\"}.fa-chromecast:before{content:\"\\f838\"}.fa-evernote:before{content:\"\\f839\"}.fa-hacker-news:before{content:\"\\f1d4\"}.fa-creative-commons-sampling:before{content:\"\\f4f0\"}.fa-adversal:before{content:\"\\f36a\"}.fa-creative-commons:before{content:\"\\f25e\"}.fa-watchman-monitoring:before{content:\"\\e087\"}.fa-fonticons:before{content:\"\\f280\"}.fa-weixin:before{content:\"\\f1d7\"}.fa-shirtsinbulk:before{content:\"\\f214\"}.fa-codepen:before{content:\"\\f1cb\"}.fa-git-alt:before{content:\"\\f841\"}.fa-lyft:before{content:\"\\f3c3\"}.fa-rev:before{content:\"\\f5b2\"}.fa-windows:before{content:\"\\f17a\"}.fa-wizards-of-the-coast:before{content:\"\\f730\"}.fa-square-viadeo:before,.fa-viadeo-square:before{content:\"\\f2aa\"}.fa-meetup:before{content:\"\\f2e0\"}.fa-centos:before{content:\"\\f789\"}.fa-adn:before{content:\"\\f170\"}.fa-cloudsmith:before{content:\"\\f384\"}.fa-pied-piper-alt:before{content:\"\\f1a8\"}.fa-dribbble-square:before,.fa-square-dribbble:before{content:\"\\f397\"}.fa-codiepie:before{content:\"\\f284\"}.fa-node:before{content:\"\\f419\"}.fa-mix:before{content:\"\\f3cb\"}.fa-steam:before{content:\"\\f1b6\"}.fa-cc-apple-pay:before{content:\"\\f416\"}.fa-scribd:before{content:\"\\f28a\"}.fa-openid:before{content:\"\\f19b\"}.fa-instalod:before{content:\"\\e081\"}.fa-expeditedssl:before{content:\"\\f23e\"}.fa-sellcast:before{content:\"\\f2da\"}.fa-square-twitter:before,.fa-twitter-square:before{content:\"\\f081\"}.fa-r-project:before{content:\"\\f4f7\"}.fa-delicious:before{content:\"\\f1a5\"}.fa-freebsd:before{content:\"\\f3a4\"}.fa-vuejs:before{content:\"\\f41f\"}.fa-accusoft:before{content:\"\\f369\"}.fa-ioxhost:before{content:\"\\f208\"}.fa-fonticons-fi:before{content:\"\\f3a2\"}.fa-app-store:before{content:\"\\f36f\"}.fa-cc-mastercard:before{content:\"\\f1f1\"}.fa-itunes-note:before{content:\"\\f3b5\"}.fa-golang:before{content:\"\\e40f\"}.fa-kickstarter:before{content:\"\\f3bb\"}.fa-grav:before{content:\"\\f2d6\"}.fa-weibo:before{content:\"\\f18a\"}.fa-uncharted:before{content:\"\\e084\"}.fa-firstdraft:before{content:\"\\f3a1\"}.fa-square-youtube:before,.fa-youtube-square:before{content:\"\\f431\"}.fa-wikipedia-w:before{content:\"\\f266\"}.fa-rendact:before,.fa-wpressr:before{content:\"\\f3e4\"}.fa-angellist:before{content:\"\\f209\"}.fa-galactic-republic:before{content:\"\\f50c\"}.fa-nfc-directional:before{content:\"\\e530\"}.fa-skype:before{content:\"\\f17e\"}.fa-joget:before{content:\"\\f3b7\"}.fa-fedora:before{content:\"\\f798\"}.fa-stripe-s:before{content:\"\\f42a\"}.fa-meta:before{content:\"\\e49b\"}.fa-laravel:before{content:\"\\f3bd\"}.fa-hotjar:before{content:\"\\f3b1\"}.fa-bluetooth-b:before{content:\"\\f294\"}.fa-sticker-mule:before{content:\"\\f3f7\"}.fa-creative-commons-zero:before{content:\"\\f4f3\"}.fa-hips:before{content:\"\\f452\"}.fa-behance:before{content:\"\\f1b4\"}.fa-reddit:before{content:\"\\f1a1\"}.fa-discord:before{content:\"\\f392\"}.fa-chrome:before{content:\"\\f268\"}.fa-app-store-ios:before{content:\"\\f370\"}.fa-cc-discover:before{content:\"\\f1f2\"}.fa-wpbeginner:before{content:\"\\f297\"}.fa-confluence:before{content:\"\\f78d\"}.fa-mdb:before{content:\"\\f8ca\"}.fa-dochub:before{content:\"\\f394\"}.fa-accessible-icon:before{content:\"\\f368\"}.fa-ebay:before{content:\"\\f4f4\"}.fa-amazon:before{content:\"\\f270\"}.fa-unsplash:before{content:\"\\e07c\"}.fa-yarn:before{content:\"\\f7e3\"}.fa-square-steam:before,.fa-steam-square:before{content:\"\\f1b7\"}.fa-500px:before{content:\"\\f26e\"}.fa-square-vimeo:before,.fa-vimeo-square:before{content:\"\\f194\"}.fa-asymmetrik:before{content:\"\\f372\"}.fa-font-awesome-flag:before,.fa-font-awesome-logo-full:before,.fa-font-awesome:before{content:\"\\f2b4\"}.fa-gratipay:before{content:\"\\f184\"}.fa-apple:before{content:\"\\f179\"}.fa-hive:before{content:\"\\e07f\"}.fa-gitkraken:before{content:\"\\f3a6\"}.fa-keybase:before{content:\"\\f4f5\"}.fa-apple-pay:before{content:\"\\f415\"}.fa-padlet:before{content:\"\\e4a0\"}.fa-amazon-pay:before{content:\"\\f42c\"}.fa-github-square:before,.fa-square-github:before{content:\"\\f092\"}.fa-stumbleupon:before{content:\"\\f1a4\"}.fa-fedex:before{content:\"\\f797\"}.fa-phoenix-framework:before{content:\"\\f3dc\"}.fa-shopify:before{content:\"\\e057\"}.fa-neos:before{content:\"\\f612\"}.fa-hackerrank:before{content:\"\\f5f7\"}.fa-researchgate:before{content:\"\\f4f8\"}.fa-swift:before{content:\"\\f8e1\"}.fa-angular:before{content:\"\\f420\"}.fa-speakap:before{content:\"\\f3f3\"}.fa-angrycreative:before{content:\"\\f36e\"}.fa-y-combinator:before{content:\"\\f23b\"}.fa-empire:before{content:\"\\f1d1\"}.fa-envira:before{content:\"\\f299\"}.fa-gitlab-square:before,.fa-square-gitlab:before{content:\"\\e5ae\"}.fa-studiovinari:before{content:\"\\f3f8\"}.fa-pied-piper:before{content:\"\\f2ae\"}.fa-wordpress:before{content:\"\\f19a\"}.fa-product-hunt:before{content:\"\\f288\"}.fa-firefox:before{content:\"\\f269\"}.fa-linode:before{content:\"\\f2b8\"}.fa-goodreads:before{content:\"\\f3a8\"}.fa-odnoklassniki-square:before,.fa-square-odnoklassniki:before{content:\"\\f264\"}.fa-jsfiddle:before{content:\"\\f1cc\"}.fa-sith:before{content:\"\\f512\"}.fa-themeisle:before{content:\"\\f2b2\"}.fa-page4:before{content:\"\\f3d7\"}.fa-hashnode:before{content:\"\\e499\"}.fa-react:before{content:\"\\f41b\"}.fa-cc-paypal:before{content:\"\\f1f4\"}.fa-squarespace:before{content:\"\\f5be\"}.fa-cc-stripe:before{content:\"\\f1f5\"}.fa-creative-commons-share:before{content:\"\\f4f2\"}.fa-bitcoin:before{content:\"\\f379\"}.fa-keycdn:before{content:\"\\f3ba\"}.fa-opera:before{content:\"\\f26a\"}.fa-itch-io:before{content:\"\\f83a\"}.fa-umbraco:before{content:\"\\f8e8\"}.fa-galactic-senate:before{content:\"\\f50d\"}.fa-ubuntu:before{content:\"\\f7df\"}.fa-draft2digital:before{content:\"\\f396\"}.fa-stripe:before{content:\"\\f429\"}.fa-houzz:before{content:\"\\f27c\"}.fa-gg:before{content:\"\\f260\"}.fa-dhl:before{content:\"\\f790\"}.fa-pinterest-square:before,.fa-square-pinterest:before{content:\"\\f0d3\"}.fa-xing:before{content:\"\\f168\"}.fa-blackberry:before{content:\"\\f37b\"}.fa-creative-commons-pd:before{content:\"\\f4ec\"}.fa-playstation:before{content:\"\\f3df\"}.fa-quinscape:before{content:\"\\f459\"}.fa-less:before{content:\"\\f41d\"}.fa-blogger-b:before{content:\"\\f37d\"}.fa-opencart:before{content:\"\\f23d\"}.fa-vine:before{content:\"\\f1ca\"}.fa-paypal:before{content:\"\\f1ed\"}.fa-gitlab:before{content:\"\\f296\"}.fa-typo3:before{content:\"\\f42b\"}.fa-reddit-alien:before{content:\"\\f281\"}.fa-yahoo:before{content:\"\\f19e\"}.fa-dailymotion:before{content:\"\\e052\"}.fa-affiliatetheme:before{content:\"\\f36b\"}.fa-pied-piper-pp:before{content:\"\\f1a7\"}.fa-bootstrap:before{content:\"\\f836\"}.fa-odnoklassniki:before{content:\"\\f263\"}.fa-nfc-symbol:before{content:\"\\e531\"}.fa-ethereum:before{content:\"\\f42e\"}.fa-speaker-deck:before{content:\"\\f83c\"}.fa-creative-commons-nc-eu:before{content:\"\\f4e9\"}.fa-patreon:before{content:\"\\f3d9\"}.fa-avianex:before{content:\"\\f374\"}.fa-ello:before{content:\"\\f5f1\"}.fa-gofore:before{content:\"\\f3a7\"}.fa-bimobject:before{content:\"\\f378\"}.fa-facebook-f:before{content:\"\\f39e\"}.fa-google-plus-square:before,.fa-square-google-plus:before{content:\"\\f0d4\"}.fa-mandalorian:before{content:\"\\f50f\"}.fa-first-order-alt:before{content:\"\\f50a\"}.fa-osi:before{content:\"\\f41a\"}.fa-google-wallet:before{content:\"\\f1ee\"}.fa-d-and-d-beyond:before{content:\"\\f6ca\"}.fa-periscope:before{content:\"\\f3da\"}.fa-fulcrum:before{content:\"\\f50b\"}.fa-cloudscale:before{content:\"\\f383\"}.fa-forumbee:before{content:\"\\f211\"}.fa-mizuni:before{content:\"\\f3cc\"}.fa-schlix:before{content:\"\\f3ea\"}.fa-square-xing:before,.fa-xing-square:before{content:\"\\f169\"}.fa-bandcamp:before{content:\"\\f2d5\"}.fa-wpforms:before{content:\"\\f298\"}.fa-cloudversify:before{content:\"\\f385\"}.fa-usps:before{content:\"\\f7e1\"}.fa-megaport:before{content:\"\\f5a3\"}.fa-magento:before{content:\"\\f3c4\"}.fa-spotify:before{content:\"\\f1bc\"}.fa-optin-monster:before{content:\"\\f23c\"}.fa-fly:before{content:\"\\f417\"}.fa-aviato:before{content:\"\\f421\"}.fa-itunes:before{content:\"\\f3b4\"}.fa-cuttlefish:before{content:\"\\f38c\"}.fa-blogger:before{content:\"\\f37c\"}.fa-flickr:before{content:\"\\f16e\"}.fa-viber:before{content:\"\\f409\"}.fa-soundcloud:before{content:\"\\f1be\"}.fa-digg:before{content:\"\\f1a6\"}.fa-tencent-weibo:before{content:\"\\f1d5\"}.fa-symfony:before{content:\"\\f83d\"}.fa-maxcdn:before{content:\"\\f136\"}.fa-etsy:before{content:\"\\f2d7\"}.fa-facebook-messenger:before{content:\"\\f39f\"}.fa-audible:before{content:\"\\f373\"}.fa-think-peaks:before{content:\"\\f731\"}.fa-bilibili:before{content:\"\\e3d9\"}.fa-erlang:before{content:\"\\f39d\"}.fa-cotton-bureau:before{content:\"\\f89e\"}.fa-dashcube:before{content:\"\\f210\"}.fa-42-group:before,.fa-innosoft:before{content:\"\\e080\"}.fa-stack-exchange:before{content:\"\\f18d\"}.fa-elementor:before{content:\"\\f430\"}.fa-pied-piper-square:before,.fa-square-pied-piper:before{content:\"\\e01e\"}.fa-creative-commons-nd:before{content:\"\\f4eb\"}.fa-palfed:before{content:\"\\f3d8\"}.fa-superpowers:before{content:\"\\f2dd\"}.fa-resolving:before{content:\"\\f3e7\"}.fa-xbox:before{content:\"\\f412\"}.fa-searchengin:before{content:\"\\f3eb\"}.fa-tiktok:before{content:\"\\e07b\"}.fa-facebook-square:before,.fa-square-facebook:before{content:\"\\f082\"}.fa-renren:before{content:\"\\f18b\"}.fa-linux:before{content:\"\\f17c\"}.fa-glide:before{content:\"\\f2a5\"}.fa-linkedin:before{content:\"\\f08c\"}.fa-hubspot:before{content:\"\\f3b2\"}.fa-deploydog:before{content:\"\\f38e\"}.fa-twitch:before{content:\"\\f1e8\"}.fa-ravelry:before{content:\"\\f2d9\"}.fa-mixer:before{content:\"\\e056\"}.fa-lastfm-square:before,.fa-square-lastfm:before{content:\"\\f203\"}.fa-vimeo:before{content:\"\\f40a\"}.fa-mendeley:before{content:\"\\f7b3\"}.fa-uniregistry:before{content:\"\\f404\"}.fa-figma:before{content:\"\\f799\"}.fa-creative-commons-remix:before{content:\"\\f4ee\"}.fa-cc-amazon-pay:before{content:\"\\f42d\"}.fa-dropbox:before{content:\"\\f16b\"}.fa-instagram:before{content:\"\\f16d\"}.fa-cmplid:before{content:\"\\e360\"}.fa-facebook:before{content:\"\\f09a\"}.fa-gripfire:before{content:\"\\f3ac\"}.fa-jedi-order:before{content:\"\\f50e\"}.fa-uikit:before{content:\"\\f403\"}.fa-fort-awesome-alt:before{content:\"\\f3a3\"}.fa-phabricator:before{content:\"\\f3db\"}.fa-ussunnah:before{content:\"\\f407\"}.fa-earlybirds:before{content:\"\\f39a\"}.fa-trade-federation:before{content:\"\\f513\"}.fa-autoprefixer:before{content:\"\\f41c\"}.fa-whatsapp:before{content:\"\\f232\"}.fa-slideshare:before{content:\"\\f1e7\"}.fa-google-play:before{content:\"\\f3ab\"}.fa-viadeo:before{content:\"\\f2a9\"}.fa-line:before{content:\"\\f3c0\"}.fa-google-drive:before{content:\"\\f3aa\"}.fa-servicestack:before{content:\"\\f3ec\"}.fa-simplybuilt:before{content:\"\\f215\"}.fa-bitbucket:before{content:\"\\f171\"}.fa-imdb:before{content:\"\\f2d8\"}.fa-deezer:before{content:\"\\e077\"}.fa-raspberry-pi:before{content:\"\\f7bb\"}.fa-jira:before{content:\"\\f7b1\"}.fa-docker:before{content:\"\\f395\"}.fa-screenpal:before{content:\"\\e570\"}.fa-bluetooth:before{content:\"\\f293\"}.fa-gitter:before{content:\"\\f426\"}.fa-d-and-d:before{content:\"\\f38d\"}.fa-microblog:before{content:\"\\e01a\"}.fa-cc-diners-club:before{content:\"\\f24c\"}.fa-gg-circle:before{content:\"\\f261\"}.fa-pied-piper-hat:before{content:\"\\f4e5\"}.fa-kickstarter-k:before{content:\"\\f3bc\"}.fa-yandex:before{content:\"\\f413\"}.fa-readme:before{content:\"\\f4d5\"}.fa-html5:before{content:\"\\f13b\"}.fa-sellsy:before{content:\"\\f213\"}.fa-sass:before{content:\"\\f41e\"}.fa-wirsindhandwerk:before,.fa-wsh:before{content:\"\\e2d0\"}.fa-buromobelexperte:before{content:\"\\f37f\"}.fa-salesforce:before{content:\"\\f83b\"}.fa-octopus-deploy:before{content:\"\\e082\"}.fa-medapps:before{content:\"\\f3c6\"}.fa-ns8:before{content:\"\\f3d5\"}.fa-pinterest-p:before{content:\"\\f231\"}.fa-apper:before{content:\"\\f371\"}.fa-fort-awesome:before{content:\"\\f286\"}.fa-waze:before{content:\"\\f83f\"}.fa-cc-jcb:before{content:\"\\f24b\"}.fa-snapchat-ghost:before,.fa-snapchat:before{content:\"\\f2ab\"}.fa-fantasy-flight-games:before{content:\"\\f6dc\"}.fa-rust:before{content:\"\\e07a\"}.fa-wix:before{content:\"\\f5cf\"}.fa-behance-square:before,.fa-square-behance:before{content:\"\\f1b5\"}.fa-supple:before{content:\"\\f3f9\"}.fa-rebel:before{content:\"\\f1d0\"}.fa-css3:before{content:\"\\f13c\"}.fa-staylinked:before{content:\"\\f3f5\"}.fa-kaggle:before{content:\"\\f5fa\"}.fa-space-awesome:before{content:\"\\e5ac\"}.fa-deviantart:before{content:\"\\f1bd\"}.fa-cpanel:before{content:\"\\f388\"}.fa-goodreads-g:before{content:\"\\f3a9\"}.fa-git-square:before,.fa-square-git:before{content:\"\\f1d2\"}.fa-square-tumblr:before,.fa-tumblr-square:before{content:\"\\f174\"}.fa-trello:before{content:\"\\f181\"}.fa-creative-commons-nc-jp:before{content:\"\\f4ea\"}.fa-get-pocket:before{content:\"\\f265\"}.fa-perbyte:before{content:\"\\e083\"}.fa-grunt:before{content:\"\\f3ad\"}.fa-weebly:before{content:\"\\f5cc\"}.fa-connectdevelop:before{content:\"\\f20e\"}.fa-leanpub:before{content:\"\\f212\"}.fa-black-tie:before{content:\"\\f27e\"}.fa-themeco:before{content:\"\\f5c6\"}.fa-python:before{content:\"\\f3e2\"}.fa-android:before{content:\"\\f17b\"}.fa-bots:before{content:\"\\e340\"}.fa-free-code-camp:before{content:\"\\f2c5\"}.fa-hornbill:before{content:\"\\f592\"}.fa-js:before{content:\"\\f3b8\"}.fa-ideal:before{content:\"\\e013\"}.fa-git:before{content:\"\\f1d3\"}.fa-dev:before{content:\"\\f6cc\"}.fa-sketch:before{content:\"\\f7c6\"}.fa-yandex-international:before{content:\"\\f414\"}.fa-cc-amex:before{content:\"\\f1f3\"}.fa-uber:before{content:\"\\f402\"}.fa-github:before{content:\"\\f09b\"}.fa-php:before{content:\"\\f457\"}.fa-alipay:before{content:\"\\f642\"}.fa-youtube:before{content:\"\\f167\"}.fa-skyatlas:before{content:\"\\f216\"}.fa-firefox-browser:before{content:\"\\e007\"}.fa-replyd:before{content:\"\\f3e6\"}.fa-suse:before{content:\"\\f7d6\"}.fa-jenkins:before{content:\"\\f3b6\"}.fa-twitter:before{content:\"\\f099\"}.fa-rockrms:before{content:\"\\f3e9\"}.fa-pinterest:before{content:\"\\f0d2\"}.fa-buffer:before{content:\"\\f837\"}.fa-npm:before{content:\"\\f3d4\"}.fa-yammer:before{content:\"\\f840\"}.fa-btc:before{content:\"\\f15a\"}.fa-dribbble:before{content:\"\\f17d\"}.fa-stumbleupon-circle:before{content:\"\\f1a3\"}.fa-internet-explorer:before{content:\"\\f26b\"}.fa-stubber:before{content:\"\\e5c7\"}.fa-telegram-plane:before,.fa-telegram:before{content:\"\\f2c6\"}.fa-old-republic:before{content:\"\\f510\"}.fa-odysee:before{content:\"\\e5c6\"}.fa-square-whatsapp:before,.fa-whatsapp-square:before{content:\"\\f40c\"}.fa-node-js:before{content:\"\\f3d3\"}.fa-edge-legacy:before{content:\"\\e078\"}.fa-slack-hash:before,.fa-slack:before{content:\"\\f198\"}.fa-medrt:before{content:\"\\f3c8\"}.fa-usb:before{content:\"\\f287\"}.fa-tumblr:before{content:\"\\f173\"}.fa-vaadin:before{content:\"\\f408\"}.fa-quora:before{content:\"\\f2c4\"}.fa-reacteurope:before{content:\"\\f75d\"}.fa-medium-m:before,.fa-medium:before{content:\"\\f23a\"}.fa-amilia:before{content:\"\\f36d\"}.fa-mixcloud:before{content:\"\\f289\"}.fa-flipboard:before{content:\"\\f44d\"}.fa-viacoin:before{content:\"\\f237\"}.fa-critical-role:before{content:\"\\f6c9\"}.fa-sitrox:before{content:\"\\e44a\"}.fa-discourse:before{content:\"\\f393\"}.fa-joomla:before{content:\"\\f1aa\"}.fa-mastodon:before{content:\"\\f4f6\"}.fa-airbnb:before{content:\"\\f834\"}.fa-wolf-pack-battalion:before{content:\"\\f514\"}.fa-buy-n-large:before{content:\"\\f8a6\"}.fa-gulp:before{content:\"\\f3ae\"}.fa-creative-commons-sampling-plus:before{content:\"\\f4f1\"}.fa-strava:before{content:\"\\f428\"}.fa-ember:before{content:\"\\f423\"}.fa-canadian-maple-leaf:before{content:\"\\f785\"}.fa-teamspeak:before{content:\"\\f4f9\"}.fa-pushed:before{content:\"\\f3e1\"}.fa-wordpress-simple:before{content:\"\\f411\"}.fa-nutritionix:before{content:\"\\f3d6\"}.fa-wodu:before{content:\"\\e088\"}.fa-google-pay:before{content:\"\\e079\"}.fa-intercom:before{content:\"\\f7af\"}.fa-zhihu:before{content:\"\\f63f\"}.fa-korvue:before{content:\"\\f42f\"}.fa-pix:before{content:\"\\e43a\"}.fa-steam-symbol:before{content:\"\\f3f6\"}:host,:root{--fa-font-regular:normal 400 1em/1 \"Font Awesome 6 Free\"}@font-face{font-family:\"Font Awesome 6 Free\";font-style:normal;font-weight:400;font-display:block;src:url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format(\"woff2\"),url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") format(\"truetype\")}.fa-regular,.far{font-weight:400}:host,:root{--fa-style-family-classic:\"Font Awesome 6 Free\";--fa-font-solid:normal 900 1em/1 \"Font Awesome 6 Free\"}@font-face{font-family:\"Font Awesome 6 Free\";font-style:normal;font-weight:900;font-display:block;src:url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") format(\"woff2\"),url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ") format(\"truetype\")}.fa-solid,.fas{font-weight:900}@font-face{font-family:\"Font Awesome 5 Brands\";font-display:block;font-weight:400;src:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff2\"),url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"truetype\")}@font-face{font-family:\"Font Awesome 5 Free\";font-display:block;font-weight:900;src:url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") format(\"woff2\"),url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ") format(\"truetype\")}@font-face{font-family:\"Font Awesome 5 Free\";font-display:block;font-weight:400;src:url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format(\"woff2\"),url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") format(\"truetype\")}@font-face{font-family:\"FontAwesome\";font-display:block;src:url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") format(\"woff2\"),url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ") format(\"truetype\")}@font-face{font-family:\"FontAwesome\";font-display:block;src:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff2\"),url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"truetype\")}@font-face{font-family:\"FontAwesome\";font-display:block;src:url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format(\"woff2\"),url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") format(\"truetype\");unicode-range:u+f003,u+f006,u+f014,u+f016-f017,u+f01a-f01b,u+f01d,u+f022,u+f03e,u+f044,u+f046,u+f05c-f05d,u+f06e,u+f070,u+f087-f088,u+f08a,u+f094,u+f096-f097,u+f09d,u+f0a0,u+f0a2,u+f0a4-f0a7,u+f0c5,u+f0c7,u+f0e5-f0e6,u+f0eb,u+f0f6-f0f8,u+f10c,u+f114-f115,u+f118-f11a,u+f11c-f11d,u+f133,u+f147,u+f14e,u+f150-f152,u+f185-f186,u+f18e,u+f190-f192,u+f196,u+f1c1-f1c9,u+f1d9,u+f1db,u+f1e3,u+f1ea,u+f1f7,u+f1f9,u+f20a,u+f247-f248,u+f24a,u+f24d,u+f255-f25b,u+f25d,u+f271-f274,u+f278,u+f27b,u+f28c,u+f28e,u+f29c,u+f2b5,u+f2b7,u+f2ba,u+f2bc,u+f2be,u+f2c0-f2c1,u+f2c3,u+f2d0,u+f2d2,u+f2d4,u+f2dc}@font-face{font-family:\"FontAwesome\";font-display:block;src:url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ") format(\"woff2\"),url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ") format(\"truetype\");unicode-range:u+f041,u+f047,u+f065-f066,u+f07d-f07e,u+f080,u+f08b,u+f08e,u+f090,u+f09a,u+f0ac,u+f0ae,u+f0b2,u+f0d0,u+f0d6,u+f0e4,u+f0ec,u+f10a-f10b,u+f123,u+f13e,u+f148-f149,u+f14c,u+f156,u+f15e,u+f160-f161,u+f163,u+f175-f178,u+f195,u+f1f8,u+f219,u+f27a}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/App.css":
 /*!****************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/App.css ***!
@@ -22901,7 +23106,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,200,700,900);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\r\n\r\n:root {\r\n    --bs-primary: #840900 ;\r\n    --primaryBg: #a14b76;\r\n    --primaryDark: #1f4326 ;\r\n}\r\n\r\n/*------------------------------------------------------------------------------*/\r\n\r\na,\r\na:hover {\r\n    text-decoration: none;\r\n}\r\n\r\nbody,\r\nhtml {\r\n    overflow-x: hidden;\r\n}\r\n\r\n/*--------------------------------------------------------------------------------------*/\r\n\r\n/* TEXT SETTING */\r\n/*--------------------------------------------------------------------------------------*/\r\n/* Get Font Awesome from CDN */\r\n*,\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\nh5,\r\nh6,\r\nspan,\r\na {\r\n    font-family: 'Source Sans Pro', sans-serif;\r\n}\r\n\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\nh5,\r\nh6 {\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\n\r\n.overflow-html {\r\n    overflow: hidden;\r\n}\r\n\r\n.heading {\r\n    text-align: center;\r\n    color: #454343;\r\n    font-size: 30px;\r\n    font-weight: 700;\r\n    position: relative;\r\n    margin-bottom: 70px;\r\n    text-transform: uppercase;\r\n    z-index: 999;\r\n}\r\n\r\n.sectionTitle {\r\n    font-family: Teko, sans-serif;\r\n    letter-spacing: normal;\r\n    font-weight: 600;\r\n}\r\n\r\n.white-heading {\r\n    color: #ffffff;\r\n}\r\n\r\n.heading:after {\r\n    content: ' ';\r\n    position: absolute;\r\n    top: 100%;\r\n    left: 50%;\r\n    height: 40px;\r\n    width: 180px;\r\n    border-radius: 4px;\r\n    transform: translateX(-50%);\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n}\r\n\r\n.white-heading:after {\r\n    background: url(https://i.ibb.co/d7tSD1R/heading-line-white.png);\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n}\r\n\r\n.heading span {\r\n    font-size: 18px;\r\n    display: block;\r\n    font-weight: 500;\r\n}\r\n\r\n.white-heading span {\r\n    color: #000000;\r\n}\r\n\r\n/* Gallery Styling  */\r\n\r\n.styles_row__2gmnz {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.styles_column__2r45X {\r\n    width: 32%;\r\n    padding: 8px;\r\n}\r\n\r\n.styles_lightroom__1X2qE {\r\n    position: fixed;\r\n}\r\n\r\n/* Contact Us Styling  */\r\n\r\n#contact {\r\n    background-color: var(--primaryBg);\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: -20px;\r\n}\r\n\r\n.contact-box {\r\n    width: clamp(100px, 90%, 1000px);\r\n    margin: 80px 50px;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.contact-links,\r\n.contact-form-wrapper {\r\n    width: 50%;\r\n    padding: 8% 5% 10% 5%;\r\n}\r\n\r\n\r\n.contact-links {\r\n    background-color: var(--primaryDark);\r\n    background:\r\n        radial-gradient(circle at 55% 92%, #426691 0 12%, transparent 12.2%),\r\n        radial-gradient(circle at 94% 72%, #426691 0 10%, transparent 10.2%),\r\n        radial-gradient(circle at 20% max(78%, 350px), var(--primaryDark) 0 7%, transparent 7.2%),\r\n        radial-gradient(circle at 0% 0%, var(--primaryDark) 0 40%, transparent 40.2%),\r\n        var(--primaryDark);\r\n    border-radius: 10px 0 0 10px;\r\n}\r\n\r\n.contact-form-wrapper {\r\n    background-color: #ffffff8f;\r\n    border-radius: 0 10px 10px 0;\r\n}\r\n\r\n@media only screen and (max-width: 800px) {\r\n\r\n    .contact-links,\r\n    .contact-form-wrapper {\r\n        width: 100%;\r\n    }\r\n\r\n    .contact-links {\r\n        border-radius: 10px 10px 0 0;\r\n    }\r\n\r\n    .contact-form-wrapper {\r\n        border-radius: 0 0 10px 10px;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 400px) {\r\n    .contact-box {\r\n        width: 95%;\r\n        margin: 8% 5%;\r\n    }\r\n}\r\n\r\n.contact-links h2 {\r\n    font-family: 'Arimo', sans-serif;\r\n    color: #fff;\r\n    font-size: clamp(30px, 6vw, 60px);\r\n    letter-spacing: 2px;\r\n    text-align: center;\r\n    transform: scale(.95, 1);\r\n}\r\n\r\n.links {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    padding-top: 50px;\r\n}\r\n\r\n.link {\r\n    margin: 10px;\r\n    cursor: pointer;\r\n}\r\n\r\n.link img {\r\n    width: 45px;\r\n    height: 45px;\r\n    filter:\r\n        hue-rotate(220deg) drop-shadow(2px 4px 4px #0006);\r\n    transition: 0.2s;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n            user-select: none;\r\n}\r\n\r\n.link img:hover {\r\n    transform: scale(1.1, 1.1);\r\n}\r\n\r\n.link img:active {\r\n    transform: scale(1.1, 1.1);\r\n    filter:\r\n        hue-rotate(220deg) drop-shadow(2px 4px 4px #222) sepia(0.3);\r\n}\r\n\r\n.form-item {\r\n    position: relative;\r\n}\r\n\r\nlabel,\r\ninput,\r\ntextarea {\r\n    font-family: 'Poppins', sans-serif;\r\n}\r\n\r\nlabel {\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 2%;\r\n    color: #999;\r\n    font-size: clamp(14px, 1.5vw, 18px);\r\n    pointer-events: none;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n            user-select: none;\r\n}\r\n\r\n.form-item input,\r\ntextarea {\r\n    width: 100%;\r\n    outline: 0;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    margin-bottom: 20px;\r\n    padding: 12px;\r\n    font-size: clamp(15px, 1.5vw, 18px);\r\n}\r\n\r\ninput:focus+label,\r\ninput:valid+label,\r\ntextarea:focus+label,\r\ntextarea:valid+label {\r\n    font-size: clamp(13px, 1.3vw, 16px);\r\n    color: #777;\r\n    top: -20px;\r\n    transition: all .225s ease;\r\n}\r\n\r\n.submit-btn {\r\n    background-color: #fd917e;\r\n    filter: drop-shadow(2px 2px 3px #0003);\r\n    color: #fff;\r\n    font-family: \"Poppins\", sans-serif;\r\n    font-size: clamp(16px, 1.6vw, 18px);\r\n    display: block;\r\n    padding: 12px 20px;\r\n    margin: 2px auto;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n            user-select: none;\r\n    transition: 0.2s;\r\n}\r\n\r\n.submit-btn:hover {\r\n    transform: scale(1.1, 1.1);\r\n}\r\n\r\n.submit-btn:active {\r\n    transform: scale(1.1, 1.1);\r\n    filter: sepia(0.5);\r\n}\r\n\r\n@media only screen and (max-width: 800px) {\r\n    h2 {\r\n        font-size: clamp(40px, 10vw, 60px);\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: clamp(30px, 12vw, 60px);\r\n    }\r\n\r\n    .links {\r\n        padding-top: 30px;\r\n    }\r\n\r\n    img {\r\n        width: 38px;\r\n        height: 38px;\r\n    }\r\n}\r\n\r\n/* Slick SLider  */\r\n.slick-slider {\r\n    padding: 0;\r\n}\r\n\r\n.relatedSlides {\r\n    padding: 0px 15px;\r\n}\r\n\r\n.slick-prev:before,\r\n.slick-next:before {\r\n    color: var(--bs-primary) !important;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\r\n\r\n:root {\r\n    --bs-primary: #840900 ;\r\n    --primaryBg: #a14b76;\r\n    --primaryDark: #1f4326 ;\r\n}\r\n\r\n/*------------------------------------------------------------------------------*/\r\n\r\na,\r\na:hover {\r\n    text-decoration: none;\r\n}\r\n\r\nbody,\r\nhtml {\r\n    overflow-x: hidden;\r\n}\r\n\r\n/*--------------------------------------------------------------------------------------*/\r\n\r\n/* TEXT SETTING */\r\n/*--------------------------------------------------------------------------------------*/\r\n/* Get Font Awesome from CDN */\r\n*,\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\nh5,\r\nh6,\r\nspan,\r\na {\r\n    font-family: 'Source Sans Pro', sans-serif;\r\n}\r\n\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\nh5,\r\nh6 {\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\n\r\n.overflow-html {\r\n    overflow: hidden;\r\n}\r\n\r\n.heading {\r\n    text-align: center;\r\n    color: #454343;\r\n    font-size: 30px;\r\n    font-weight: 700;\r\n    position: relative;\r\n    margin-bottom: 70px;\r\n    text-transform: uppercase;\r\n    z-index: 999;\r\n}\r\n\r\n.sectionTitle {\r\n    font-family: Teko, sans-serif;\r\n    letter-spacing: normal;\r\n    font-weight: 600;\r\n}\r\n\r\n.white-heading {\r\n    color: #ffffff;\r\n}\r\n\r\n.heading:after {\r\n    content: ' ';\r\n    position: absolute;\r\n    top: 100%;\r\n    left: 50%;\r\n    height: 40px;\r\n    width: 180px;\r\n    border-radius: 4px;\r\n    transform: translateX(-50%);\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n}\r\n\r\n.white-heading:after {\r\n    background: url(https://i.ibb.co/d7tSD1R/heading-line-white.png);\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n}\r\n\r\n.heading span {\r\n    font-size: 18px;\r\n    display: block;\r\n    font-weight: 500;\r\n}\r\n\r\n.white-heading span {\r\n    color: #000000;\r\n}\r\n\r\n/* Gallery Styling  */\r\n\r\n.styles_row__2gmnz {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.styles_column__2r45X {\r\n    width: 32%;\r\n    padding: 8px;\r\n}\r\n\r\n.styles_lightroom__1X2qE {\r\n    position: fixed;\r\n}\r\n\r\n/* Contact Us Styling  */\r\n\r\n#contact {\r\n    background-color: var(--primaryBg);\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: -20px;\r\n}\r\n\r\n.contact-box {\r\n    width: clamp(100px, 90%, 1000px);\r\n    margin: 80px 50px;\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.contact-links,\r\n.contact-form-wrapper {\r\n    width: 50%;\r\n    padding: 8% 5% 10% 5%;\r\n}\r\n\r\n\r\n.contact-links {\r\n    background-color: var(--primaryDark);\r\n    background:\r\n        radial-gradient(circle at 55% 92%, #426691 0 12%, transparent 12.2%),\r\n        radial-gradient(circle at 94% 72%, #426691 0 10%, transparent 10.2%),\r\n        radial-gradient(circle at 20% max(78%, 350px), var(--primaryDark) 0 7%, transparent 7.2%),\r\n        radial-gradient(circle at 0% 0%, var(--primaryDark) 0 40%, transparent 40.2%),\r\n        var(--primaryDark);\r\n    border-radius: 10px 0 0 10px;\r\n}\r\n\r\n.contact-form-wrapper {\r\n    background-color: #ffffff8f;\r\n    border-radius: 0 10px 10px 0;\r\n}\r\n\r\n@media only screen and (max-width: 800px) {\r\n\r\n    .contact-links,\r\n    .contact-form-wrapper {\r\n        width: 100%;\r\n    }\r\n\r\n    .contact-links {\r\n        border-radius: 10px 10px 0 0;\r\n    }\r\n\r\n    .contact-form-wrapper {\r\n        border-radius: 0 0 10px 10px;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 400px) {\r\n    .contact-box {\r\n        width: 95%;\r\n        margin: 8% 5%;\r\n    }\r\n}\r\n\r\n.contact-links h2 {\r\n    font-family: 'Arimo', sans-serif;\r\n    color: #fff;\r\n    font-size: clamp(30px, 6vw, 60px);\r\n    letter-spacing: 2px;\r\n    text-align: center;\r\n    transform: scale(.95, 1);\r\n}\r\n\r\n.links {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    padding-top: 50px;\r\n}\r\n\r\n.link {\r\n    margin: 10px;\r\n    cursor: pointer;\r\n}\r\n\r\n.link img {\r\n    width: 45px;\r\n    height: 45px;\r\n    filter:\r\n        hue-rotate(220deg) drop-shadow(2px 4px 4px #0006);\r\n    transition: 0.2s;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n            user-select: none;\r\n}\r\n\r\n.link img:hover {\r\n    transform: scale(1.1, 1.1);\r\n}\r\n\r\n.link img:active {\r\n    transform: scale(1.1, 1.1);\r\n    filter:\r\n        hue-rotate(220deg) drop-shadow(2px 4px 4px #222) sepia(0.3);\r\n}\r\n\r\n.form-item {\r\n    position: relative;\r\n}\r\n\r\nlabel,\r\ninput,\r\ntextarea {\r\n    font-family: 'Poppins', sans-serif;\r\n}\r\n\r\nlabel {\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 2%;\r\n    color: #999;\r\n    font-size: clamp(14px, 1.5vw, 18px);\r\n    pointer-events: none;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n            user-select: none;\r\n}\r\n\r\n.form-item input,\r\ntextarea {\r\n    width: 100%;\r\n    outline: 0;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    margin-bottom: 20px;\r\n    padding: 12px;\r\n    font-size: clamp(15px, 1.5vw, 18px);\r\n}\r\n\r\ninput:focus+label,\r\ninput:valid+label,\r\ntextarea:focus+label,\r\ntextarea:valid+label {\r\n    font-size: clamp(13px, 1.3vw, 16px);\r\n    color: #777;\r\n    top: -20px;\r\n    transition: all .225s ease;\r\n}\r\n\r\n.submit-btn {\r\n    background-color: #fd917e;\r\n    filter: drop-shadow(2px 2px 3px #0003);\r\n    color: #fff;\r\n    font-family: \"Poppins\", sans-serif;\r\n    font-size: clamp(16px, 1.6vw, 18px);\r\n    display: block;\r\n    padding: 12px 20px;\r\n    margin: 2px auto;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n            user-select: none;\r\n    transition: 0.2s;\r\n}\r\n\r\n.submit-btn:hover {\r\n    transform: scale(1.1, 1.1);\r\n}\r\n\r\n.submit-btn:active {\r\n    transform: scale(1.1, 1.1);\r\n    filter: sepia(0.5);\r\n}\r\n.a {\r\n    text-decoration-line: none;\r\n}\r\n\r\n@media only screen and (max-width: 800px) {\r\n    h2 {\r\n        font-size: clamp(40px, 10vw, 60px);\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: clamp(30px, 12vw, 60px);\r\n    }\r\n\r\n    .links {\r\n        padding-top: 30px;\r\n    }\r\n\r\n    img {\r\n        width: 38px;\r\n        height: 38px;\r\n    }\r\n}\r\n\r\n/* Slick SLider  */\r\n.slick-slider {\r\n    padding: 0;\r\n}\r\n\r\n.relatedSlides {\r\n    padding: 0px 15px;\r\n}\r\n\r\n.slick-prev:before,\r\n.slick-next:before {\r\n    color: var(--bs-primary) !important;\r\n}\r\n\r\n.homeWrapper{\r\n    display:block;\r\n    margin-top: 80px;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22949,7 +23154,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".about-us-section.flex-row-reverse {\r\n    background: #4b74a1;\r\n    color: white;\r\n}\r\n\r\n.about-us-section {\r\n    background: #ffffff;\r\n    color: #000000;\r\n}\r\n\r\n\r\n.about-us-info h2 {\r\n    font-size: 40pt;\r\n}\r\n\r\n.about-us-info h2:empty {\r\n    display: none;\r\n}\r\n\r\n.about-us-info p {\r\n    font-size: 14pt;\r\n}\r\n\r\n@media(max-width:767px) {\r\n    .about-us-info {\r\n        text-align: center;\r\n        padding: 20px;\r\n    }\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".about-us-section.flex-row-reverse {\r\n    background: #4b74a1;\r\n    color: white;\r\n}\r\n\r\n.about-us-section {\r\n    background: #ffffff;\r\n    color: #000000;\r\n}\r\n.about-us-info {\r\n    text-align: left;\r\n}\r\n\r\n.about-us-info h2 {\r\n    font-size: 40pt;\r\n    padding-left: 20px;\r\n}\r\n\r\n.about-us-info h2:empty {\r\n    display: none;\r\n}\r\n\r\n.about-us-info p {\r\n    font-size: 14pt;\r\n    padding-left: 10px;\r\n}\r\n\r\n@media(max-width:767px) {\r\n    .about-us-info {\r\n        text-align: center;\r\n        padding: 20px;\r\n    }\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23003,7 +23208,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".modal-img{\r\n    width: 100%;\r\n    height: 25% !important;\r\n\r\n}\r\n.modal-heading{\r\n   \r\n    text-align: center;\r\n    padding: 1%;\r\n    color: #183883!important ;\r\n    font-weight: 600;\r\n}\r\n/* .modal-button:hover{\r\n    color: #FFA500;\r\n} */", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".modal-img{\r\n    width: 100%;\r\n    height: 50% !important;\r\n\r\n}\r\n.modal-heading{\r\n   \r\n    text-align: center;\r\n    padding: 1%;\r\n    color: #183883!important ;\r\n    font-weight: 600;\r\n}\r\n/* .modal-button:hover{\r\n    color: #FFA500;\r\n} */\r\n\r\n@media screen and  (min-width: 200px)  and (max-width: 620px){\r\n    .enquiry-img{\r\n        display: none;\r\n    }\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23034,6 +23239,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".bg-card {\r\n    padding: 0px !import
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/FrontEnd/components/floatingIcons/floatingIcons.css":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/FrontEnd/components/floatingIcons/floatingIcons.css ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".fixed-social {\r\n    position: fixed;\r\n    top: 40%;\r\n    right: 0;\r\n    z-index: 999;\r\n}\r\n\r\n.fixed-social a {\r\n    width: 50px;\r\n    height: 50px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 30px;\r\n    color: #ffffff;\r\n    position: relative;\r\n    text-decoration: none;\r\n}\r\n\r\n.fixed-social a span {\r\n    /* display: none; */\r\n    position: absolute;\r\n    top: 0;\r\n    /* right: 100%; */\r\n    font-size: 14px;\r\n    padding: 15px;\r\n    height: 100%;\r\n    right: -1000%;\r\n    transition: 0.5s ease;\r\n    z-index: -1;\r\n}\r\n\r\n.fixed-facebook {\r\n    background-color: #4267B2;\r\n}\r\n.fixed-facebook span{\r\n    background-color: #4267B2;\r\n}\r\n\r\n.fixed-whatsapp {\r\n    background-color: #25D366;\r\n}\r\n.fixed-whatsapp span{\r\n    background-color: #25D366;\r\n}\r\n\r\n.fixed-instagrem {\r\n    background-color: #E1306C;\r\n}\r\n.fixed-instagrem span{\r\n    background-color: #E1306C;\r\n}\r\n\r\n.fixed-linkedin {\r\n    background-color: #1b3396;\r\n}\r\n.fixed-linkedin span{\r\n    background-color: #1b3396;\r\n}\r\n.fixed-social a:hover span{\r\n    right: 100%;\r\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/FrontEnd/components/footer/footer.css":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/FrontEnd/components/footer/footer.css ***!
@@ -23051,7 +23280,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".footer-jk {\r\n    width: 1213px;\r\n    margin: auto;\r\n    background:var(--bs-primary);\r\n    position: relative;\r\n}\r\n\r\n.footer {\r\n    z-index: 3;\r\n}\r\n\r\n@media (min-width: 992px) {\r\n    .footer-jk::before {\r\n        border-left: 70px solid transparent;\r\n        border-right: 61px solid transparent;\r\n        border-bottom: 56px solid var(--bs-primary);;\r\n        content: \"\";\r\n        position: absolute;\r\n        z-index: 1;\r\n        left: -40px;\r\n    }\r\n\r\n    .footer-jk::after {\r\n        border-left: 70px solid transparent;\r\n        border-right: 61px solid transparent;\r\n        border-bottom: 56px solid var(--bs-primary);;\r\n        content: \"\";\r\n        position: absolute;\r\n        z-index: 1;\r\n        right: -40px;\r\n        margin-top: -56px;\r\n    }\r\n}\r\n\r\n.footer-jk-sec {\r\n    height: 10px;\r\n    width: 100%;\r\n}\r\n\r\n.footer-para {\r\n    margin: auto;\r\n    text-align: center;\r\n    color: #fff;\r\n    padding: 16px 0px;\r\n}\r\n\r\n@media (min-width: 992px) and (max-width: 1024px) {\r\n    .footer-jk {\r\n        width: 70.1%;\r\n    }\r\n}\r\n\r\n@media (min-width: 1025px) and (max-width: 1440px) {\r\n    .footer-jk {\r\n        width: 1136px;\r\n    }\r\n}\r\n\r\n@media (min-width: 1841px) and (max-width: 2560px) {\r\n    .footer-jk {\r\n        width: 2254px;\r\n    }\r\n}\r\n\r\n@media (max-width: 769px) {\r\n    .footer-jk {\r\n        width: 100%;\r\n    }\r\n\r\n    .footer-jk-sec {\r\n        display: none;\r\n    }\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* .footer-jk {\r\n    width: 1213px;\r\n    margin: auto;\r\n    background:var(--bs-primary);\r\n    position: relative;\r\n}\r\n\r\n.footer {\r\n    z-index: 3;\r\n}\r\n\r\n@media (min-width: 992px) {\r\n    .footer-jk::before {\r\n        border-left: 70px solid transparent;\r\n        border-right: 61px solid transparent;\r\n        border-bottom: 56px solid var(--bs-primary);;\r\n        content: \"\";\r\n        position: absolute;\r\n        z-index: 1;\r\n        left: -40px;\r\n    }\r\n\r\n    .footer-jk::after {\r\n        border-left: 70px solid transparent;\r\n        border-right: 61px solid transparent;\r\n        border-bottom: 56px solid var(--bs-primary);;\r\n        content: \"\";\r\n        position: absolute;\r\n        z-index: 1;\r\n        right: -40px;\r\n        margin-top: -56px;\r\n    }\r\n}\r\n\r\n.footer-jk-sec {\r\n    height: 10px;\r\n    width: 100%;\r\n}\r\n\r\n.footer-para {\r\n    margin: auto;\r\n    text-align: center;\r\n    color: #fff;\r\n    padding: 16px 0px;\r\n}\r\n\r\n@media (min-width: 992px) and (max-width: 1024px) {\r\n    .footer-jk {\r\n        width: 70.1%;\r\n    }\r\n}\r\n\r\n@media (min-width: 1025px) and (max-width: 1440px) {\r\n    .footer-jk {\r\n        width: 1136px;\r\n    }\r\n}\r\n\r\n@media (min-width: 1841px) and (max-width: 2560px) {\r\n    .footer-jk {\r\n        width: 2254px;\r\n    }\r\n}\r\n\r\n@media (max-width: 769px) {\r\n    .footer-jk {\r\n        width: 100%;\r\n    }\r\n\r\n    .footer-jk-sec {\r\n        display: none;\r\n    }\r\n} */\r\n.footer-jk {\r\n    margin: auto;\r\n    background: var(--primaryDark);\r\n    position: relative;\r\n}\r\n\r\n.footer {\r\n    z-index: 3;\r\n    background: var(--bs-primary);\r\n    border-top: 1px solid #ebebeb;\r\n    margin-top: 20px;\r\n    color: #fff;\r\n}\r\n\r\n\r\n.footer-jk-sec {\r\n    height: 10px;\r\n    width: 100%;\r\n}\r\n\r\n.footer-para {\r\n    margin: auto;\r\n    text-align: center;\r\n    color: #fff;\r\n    padding: 16px 0px;\r\n}\r\n\r\n\r\n\r\n.footer-links{\r\n    list-style: none;\r\n    padding: 0;\r\n    margin: 0;\r\n}\r\n\r\n.footer-links li{\r\n    margin: 5px 0;\r\n}\r\n.footer-links li a{\r\n    color: #fff;\r\n    text-decoration: none;\r\n}\r\n\r\n.align-footer{\r\n    padding: -1px 140px !important;\r\n    text-align: center;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23075,7 +23304,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@media (min-width: 992px) {\r\n\r\n    .nav-menu {\r\n        background: var(--bs-primary);\r\n        position: relative;\r\n        bottom: -35px;\r\n        z-index: 9;\r\n        padding: 4px 60px;\r\n        left: 0px;\r\n    }\r\n\r\n    .nav-menu::before {\r\n        border-left: 70px solid transparent;\r\n        border-right: 0px solid transparent;\r\n        border-bottom: 55px solid var(--bs-primary);\r\n        content: \"\";\r\n        position: absolute;\r\n        left: -70px;\r\n        z-index: 1;\r\n        bottom: 0;\r\n    }\r\n\r\n    .nav-menu a {\r\n        color: #fff;\r\n        padding: 12px 18px !important;\r\n    }\r\n\r\n    .nav-menu a:hover,\r\n    .nav-menu a:focus {\r\n        color: #fff;\r\n        text-decoration: underline;\r\n    }\r\n    a.dropdown-item {\r\n        color: var(--bs-primary);\r\n    }\r\n    a.dropdown-item:hover,\r\n    a.dropdown-item:focus {\r\n        background-color: var(--bs-primary);\r\n        text-decoration: underline;\r\n    }\r\n}\r\n\r\n\r\n/*-------------------------------------------service page----------------------------------*/\r\n\r\n.servc-ft-img {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 40px 0px;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media (min-width: 992px) {\r\n\r\n    .nav-menu {\r\n        background: var(--bs-primary);\r\n        position: relative;\r\n        bottom: -35px;\r\n        z-index: 9;\r\n        padding: 4px 60px;\r\n        left: 0px;\r\n    }\r\n\r\n    .nav-menu::before {\r\n        border-left: 70px solid transparent;\r\n        border-right: 0px solid transparent;\r\n        border-bottom: 55px solid var(--bs-primary);\r\n        content: \"\";\r\n        position: absolute;\r\n        left: -70px;\r\n        z-index: 1;\r\n        bottom: 0;\r\n    }\r\n\r\n    .nav-menu a {\r\n        color: #fff;\r\n        padding: 12px 18px !important;\r\n    }\r\n\r\n    .nav-menu a:hover,\r\n    .nav-menu a:focus {\r\n        color: #fff;\r\n        text-decoration: underline;\r\n    }\r\n    a.dropdown-item {\r\n        color: var(--bs-primary);\r\n    }\r\n    a.dropdown-item:hover,\r\n    a.dropdown-item:focus {\r\n        background-color: var(--bs-primary);\r\n        text-decoration: underline;\r\n    }\r\n\r\n    .submenu > a {\r\n        color: var(--bs-primary);\r\n    }\r\n\r\n    .submenu:hover,\r\n    .submenu:focus {\r\n        background-color: var(--bs-primary);\r\n        text-decoration: underline;\r\n    }\r\n}\r\n\r\n\r\n/*-------------------------------------------service page----------------------------------*/\r\n\r\n.servc-ft-img {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 40px 0px;\r\n}\r\n\r\nheader{\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 99999;\r\n    box-shadow: 0 1px 5px rgb(0 0 0 / 50%);\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23123,7 +23352,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, " .pageTitle {\r\n     font-size: 60px;\r\n     text-align: center;\r\n     background: var(--primaryBg);\r\n     color: #fff;\r\n     padding-bottom: 60px;\r\n     margin-top: 0;\r\n     padding-top: 80px;\r\n     margin-bottom: 20px;\r\n }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, " .pageTitle {\r\n     font-size: 60px;\r\n     text-align: center;\r\n     background: var(--primaryBg);\r\n     color: #fff;\r\n     padding-bottom: 60px;\r\n     margin-top: 80px;\r\n     padding-top: 80px;\r\n     margin-bottom: 20px;\r\n }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23195,7 +23424,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".mb3-jk {\r\n    border: none !important;\r\n}\r\n\r\n.card-img-jk {\r\n    padding: 0px 0px 0px 75px !important;\r\n}\r\n\r\n.section-3 {\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.sec-3hdiv-jk {\r\n    padding: 0px 100px;\r\n    margin: 30px 0px;\r\n}\r\n\r\n.sec-3jk span {\r\n    background-color: #fff;\r\n    position: relative;\r\n    font-family: Teko, sans-serif;\r\n    line-height: 43px;\r\n    letter-spacing: normal;\r\n    word-spacing: 0px;\r\n    margin: 0px;\r\n    font-weight: 600;\r\n\r\n}\r\n\r\n.crd-jk {\r\n    font-size: 14px !important;\r\n}\r\n\r\n@media (min-width: 570px) and (max-width: 769px) {\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 25px !important;\r\n    }\r\n\r\n    .crd-jk {\r\n        font-size: 10px !important;\r\n    }\r\n}\r\n\r\n@media (max-width: 568px) {\r\n    .section-3 .col {\r\n        flex: none;\r\n    }\r\n\r\n    .col-md-4 {\r\n        padding: 0px 140px !important;\r\n    }\r\n\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 0px !important;\r\n    }\r\n}\r\n\r\n@media (min-width: 786px) and (max-width: 1024px) {\r\n\r\n    .card-body-md3 {\r\n        padding: 0rem 1rem !important;\r\n    }\r\n\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 40px !important;\r\n    }\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".mb3-jk {\r\n    border: none !important;\r\n}\r\n\r\n.card-img-jk {\r\n    /* padding: 0px 0px 0px 75px !important; */\r\n}\r\n\r\n.section-3 {\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.sec-3hdiv-jk {\r\n    padding: 0px 100px;\r\n    margin: 30px 0px;\r\n}\r\n\r\n.sec-3jk span {\r\n    background-color: #fff;\r\n    position: relative;\r\n    font-family: Teko, sans-serif;\r\n    line-height: 43px;\r\n    letter-spacing: normal;\r\n    word-spacing: 0px;\r\n    margin: 0px;\r\n    font-weight: 600;\r\n\r\n}\r\n\r\n.crd-jk {\r\n    font-size: 14px !important;\r\n}\r\n\r\n@media (min-width: 570px) and (max-width: 769px) {\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 25px !important;\r\n    }\r\n\r\n    .crd-jk {\r\n        font-size: 10px !important;\r\n    }\r\n}\r\n\r\n@media (max-width: 568px) {\r\n    .section-3 .col {\r\n        flex: none;\r\n    }\r\n\r\n    .colmd4 {\r\n        padding: 0px 140px !important;\r\n    }\r\n\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 0px !important;\r\n    }\r\n}\r\n\r\n@media (min-width: 786px) and (max-width: 1024px) {\r\n\r\n    .card-body-md3 {\r\n        padding: 0rem 1rem !important;\r\n    }\r\n\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 40px !important;\r\n    }\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24784,6 +25013,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/FrontEnd/assets/images/loader.svg":
+/*!********************************************************!*\
+  !*** ./resources/js/FrontEnd/assets/images/loader.svg ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/loader.svg?d17ac3a4d0d18fd9ceb77b4e8e2c73dd");
+
+/***/ }),
+
 /***/ "./resources/js/FrontEnd/assets/images/logo-tvs.png":
 /*!**********************************************************!*\
   !*** ./resources/js/FrontEnd/assets/images/logo-tvs.png ***!
@@ -24856,6 +25100,126 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/vendor/slick-carousel/slick/slick.woff?295183786cd8a138986521d9f388a286");
+
+/***/ }),
+
+/***/ "./resources/fonts/fa-brands-400.ttf":
+/*!*******************************************!*\
+  !*** ./resources/fonts/fa-brands-400.ttf ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/fa-brands-400.ttf?13e40630e5866f777de89153e8a93bdf");
+
+/***/ }),
+
+/***/ "./resources/fonts/fa-brands-400.woff2":
+/*!*********************************************!*\
+  !*** ./resources/fonts/fa-brands-400.woff2 ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/fa-brands-400.woff2?7be2266f1be21c44ecd4438c55d55320");
+
+/***/ }),
+
+/***/ "./resources/fonts/fa-regular-400.ttf":
+/*!********************************************!*\
+  !*** ./resources/fonts/fa-regular-400.ttf ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/fa-regular-400.ttf?146404900f7550a9719df3c206f9b38c");
+
+/***/ }),
+
+/***/ "./resources/fonts/fa-regular-400.woff2":
+/*!**********************************************!*\
+  !*** ./resources/fonts/fa-regular-400.woff2 ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/fa-regular-400.woff2?8bedd7cfa43a6c358cddcbf965bb5a0c");
+
+/***/ }),
+
+/***/ "./resources/fonts/fa-solid-900.ttf":
+/*!******************************************!*\
+  !*** ./resources/fonts/fa-solid-900.ttf ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/fa-solid-900.ttf?2877d54f94f30c5d563c5164dc56be39");
+
+/***/ }),
+
+/***/ "./resources/fonts/fa-solid-900.woff2":
+/*!********************************************!*\
+  !*** ./resources/fonts/fa-solid-900.woff2 ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/fa-solid-900.woff2?bdb9e23299f9d1320a8be0879fc918d1");
+
+/***/ }),
+
+/***/ "./resources/fonts/fa-v4compatibility.ttf":
+/*!************************************************!*\
+  !*** ./resources/fonts/fa-v4compatibility.ttf ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/fa-v4compatibility.ttf?6c0a7b774ffa1cf0a0597e099f672114");
+
+/***/ }),
+
+/***/ "./resources/fonts/fa-v4compatibility.woff2":
+/*!**************************************************!*\
+  !*** ./resources/fonts/fa-v4compatibility.woff2 ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/fonts/fa-v4compatibility.woff2?497d535001197a9c5b389e695116b6cc");
 
 /***/ }),
 
@@ -93233,6 +93597,36 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 /***/ }),
 
+/***/ "./resources/css/admin/font-awesome.min.css":
+/*!**************************************************!*\
+  !*** ./resources/css/admin/font-awesome.min.css ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_font_awesome_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./font-awesome.min.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/admin/font-awesome.min.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_font_awesome_min_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_font_awesome_min_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./resources/js/App.css":
 /*!******************************!*\
   !*** ./resources/js/App.css ***!
@@ -93410,6 +93804,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_feature_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/FrontEnd/components/floatingIcons/floatingIcons.css":
+/*!**************************************************************************!*\
+  !*** ./resources/js/FrontEnd/components/floatingIcons/floatingIcons.css ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_floatingIcons_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./floatingIcons.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/FrontEnd/components/floatingIcons/floatingIcons.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_floatingIcons_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_floatingIcons_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

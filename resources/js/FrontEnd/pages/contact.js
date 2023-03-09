@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Api from '../../api';
+import Api from '../services/api';
 import Swal from 'sweetalert2';
 import { red } from '@mui/material/colors';
 
@@ -19,9 +19,11 @@ class Contact extends Component {
       
             },
         }
+        this.props.loader(false);
     }
     
     render() {
+      
 
         const validation = (fieldName, fieldValue) => {
             
@@ -152,7 +154,7 @@ class Contact extends Component {
                     email: this.state.email,
                     remark: this.state.description
                 }
-                this.apiCtrl.callAxios('enquiry/create-update', data).then((res)=>{
+                this.apiCtrl.callAxios('/enquiry/create-update', data).then((res)=>{
                     if(res.success == true){
                         Swal.fire({
                             title: 'Contact Us',

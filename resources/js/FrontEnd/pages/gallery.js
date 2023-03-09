@@ -5,6 +5,7 @@ import PageTitle from '../components/pageTitle/pageTitle'
 
 class Gallery extends Component {
     render() {
+        this.props.loader(false)
         var images = [
             {
                 src: "./assets/images/04.jpg",

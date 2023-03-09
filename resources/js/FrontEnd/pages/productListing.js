@@ -5,7 +5,8 @@ import products from '../local-json/products';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Api from '../../api';
+import Api from '../services/api';
+import { Link } from 'react-router-dom';
 
 import withRouter from '../services/withRouter';
 import textModifier from '../services/textModifier';
@@ -15,13 +16,14 @@ class ProductListing extends Component {
         this.apiCtrl = new Api;
         this.state = {
             products: [],
+            categories: [],
             category: this.props.params.category ? this.props.params.category : "Products",
         }
         
     }
     componentDidMount(){
         
-        this.apiCtrl.callAxios(`product/product-service-list`, {is_service: 0, product_category: this.state.category}).then((response)=>{
+        this.apiCtrl.callAxios(`/product/product-service-list`, {is_service: 0, product_category: this.state.category}).then((response)=>{
             if(response.success == true){
                 const res = response.data;
                 let Products = [];
@@ -39,8 +41,30 @@ class ProductListing extends Component {
                         }];
                     
                 })
-            
+                this.props.loader(false)
                 this.setState({products: Products})
+            }
+        })
+               
+        this.apiCtrl.callAxios(`/product/product-category-list`, {is_service: 0, ignore_category: this.state.category}).then((response)=>{
+            if(response.success == true){
+                const res2 = response.data;
+                let categorie = [];
+                res2.map((value, index)=>{
+                   
+
+                        categorie = [...categorie, {
+                            id:value.id,
+                            title:value.category_name, 
+                            description: value.description, 
+                            productImage: value.image_name_1, 
+                            // price:value.base_price,
+                            slug: value.slug,
+                            category: value.category_name,
+                        }];
+                    
+                })
+                this.setState({categories: categorie})
             }
         })
 
@@ -48,7 +72,7 @@ class ProductListing extends Component {
     render() {
         let settings = {
             dots: true,
-            infinite: true,
+            infinite: (this.state.products.length > 4) ? true : false,
             speed: 500,
             slidesToShow: 4,
             slidesToScroll: 1,
@@ -86,12 +110,21 @@ class ProductListing extends Component {
                     </div>
                 </div>
                 <div className='container'>
-                    <h3 className='sectionTitle mb-3'>Related Products</h3>
+                    <h3 className='sectionTitle mb-3'>Related Categories</h3>
                     <div className='row'>
                         <Slider {...settings}>
-                            {this.state.products && this.state.products.map(item => (
+                            {this.state.categories && this.state.categories.map(item => (
                                 <div className='relatedSlides' key={item.id}>
-                                    <ProductCard data={item} />
+                                     <a href={item.slug ? item.slug : '#' } className="card productCard" >
+                                        <img src={item.productImage} alt="Denim Jeans" className="img-fluid" style={{width:"100%", height:"150px"}} />
+                                        <div className="card-body">
+                                            <h3>{item.title}</h3>
+                                            <p className="description">{item.description}</p>
+                                            
+                                            <p className="price">{item.price ? `₹ ${item.price}` : 'Contact For Pricing'} </p>
+                                        </div>
+                                
+                                    </a>
                                 </div>
                             ))}
                         </Slider>

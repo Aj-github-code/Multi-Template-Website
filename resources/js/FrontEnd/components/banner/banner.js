@@ -5,13 +5,13 @@ class Banner extends Component {
     render() {
         if (!this.props.data) return null;
         const slideData = this.props.data;
-        console.log(slideData);
+        // console.log(slideData);
         return (
-            <Carousel>
-                {slideData.map(item => (
-                    <Carousel.Item key={item.id+item.title}>
+            <Carousel >
+                {slideData.map((item, key) => (
+                    <Carousel.Item key={item.id+key +item.title}>
                         <img
-                            className="d-block w-100"
+                            className="d-block w-100 h-auto"
                             src={item.image ? item.image : item.url}
                             alt={item.title1 ? item.title1 : item.title}
                         />

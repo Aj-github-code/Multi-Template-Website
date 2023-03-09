@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Api from '../../api'
+import Api from '../services/api';
 import Slider from "react-slick";
 import ProductCard from '../components/productCard/productCard';
 
@@ -20,7 +20,7 @@ class Products extends Component {
 
     componentDidMount(){
         
-        this.apiCtrl.callAxios(`product/product-service-list`, {is_service: 0,  product_category: this.state.category}).then((response)=>{
+        this.apiCtrl.callAxios(`/product/product-service-list`, {is_service: 0,  product_category: this.state.category}).then((response)=>{
             if(response.success == true){
                 const res = response.data;
                 let Products = [];
@@ -40,7 +40,7 @@ class Products extends Component {
  render(){
     let settings = {
         dots: true,
-        infinite: true,
+        infinite: (this.state.products.length > 4) ? true : false,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -68,7 +68,7 @@ class Products extends Component {
     return (
         <div className='section-5'>
 
-            <div className='container-fluid'>
+            <div className='container-fluid' style={{width:'90%'}}>
                 <div className='row'>
                     <Slider {...settings}>
                         {this.state.products && this.state.products.map(item => (

@@ -2,11 +2,12 @@
 import  React, {useState} from 'react';
 import Swal from 'sweetalert2'
 import axios from 'axios';
+import { API_CONSTANTS } from './FrontEnd/assets/config/constants';
 const axiosRequestConfig = {
     headers: { 'Content-Type': 'application/json' }
   }
 
-  const API_CONSTANTS = process.env.MIX_API_URL;
+  // const API_CONSTANTS = API_CONSTANTS.BASE_URL;
 export default class Api extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +15,7 @@ export default class Api extends React.Component {
       }
 
    getBaseUrl(){
-    return API_CONSTANTS;
+    return API_CONSTANTS.BASE_URL;
   }
 
 //  tokenValid() {

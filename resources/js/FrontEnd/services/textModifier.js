@@ -1,5 +1,5 @@
 const textModifier = (text) => {
-    let  products =  text.replace(/_/g, " "); 
+    let  products =  text.replace(/_/g, " ").replace(/-/g, " "); 
     // //let products ="product"
     
     // var productType =   products

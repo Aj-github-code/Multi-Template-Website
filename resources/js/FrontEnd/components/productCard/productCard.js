@@ -10,8 +10,8 @@ class ProductCard extends Component {
 
   
         return (
-            <Link to={data.slug ? data.slug : '#' } className="card productCard" >
-                <img src={data.productImage} alt="Denim Jeans" />
+            <Link to={data.slug ? `${data.slug}` : '#' } className="card productCard" >
+                <img src={data.productImage} alt="Denim Jeans" className="img-fluid" style={{width:"100%", height:'150px'}} />
                 <div className="card-body">
                     <h3>{data.title}</h3>
                     <p className="description">{data.description}</p>

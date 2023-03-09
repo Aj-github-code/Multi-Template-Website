@@ -3,7 +3,7 @@
 }
 
 .card-img-jk {
-    padding: 0px 0px 0px 75px !important;
+    /* padding: 0px 0px 0px 75px !important; */
 }
 
 .section-3 {
@@ -46,7 +46,7 @@
         flex: none;
     }
 
-    .col-md-4 {
+    .colmd4 {
         padding: 0px 140px !important;
     }
 

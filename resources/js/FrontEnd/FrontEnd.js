@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/header/header';
@@ -13,21 +13,28 @@ import ProductListing from './pages/productListing';
 import ProductDetails from './components/productDetails/productDetails';
 import VehicleListing from './pages/vehicleListing';
 import VehicleDetails from './components/productDetails/vehicleDetails';
+import FloatingIcons from './components/floatingIcons/floatingIcons';
+import Loader from './components/loader/loader';
 
 import Api from './services/api';
+// import Api from '../api';
 
 import  {API_CONSTANTS}  from './assets/config/constants';
 
 import Toast from './assets/tools/Toast';
 import Swal from 'sweetalert2';
 
+
 function FrontEnd() {
 
-  
+  const [loading, setLoading] = useState(true);
   // localStorage.clear();
   var StoredSetup = JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`))
   const [setup, setSetup] = React.useState(StoredSetup);
   const [logos, setLogo] = React.useState('logo-tvs.png');
+  const [aboutUs, setAboutUs] = React.useState([]);
+  const [footer, setFooter] = React.useState({});
+  const [vehicles, setVehicles] = React.useState([]);
 
   const response =  {
     "status": "success",
@@ -58,11 +65,11 @@ function FrontEnd() {
   }
   
 
-  let apiCtrl = new Api;
+  const apiCtrl = new Api;
 
 
     const getSiteSetup = () => {
-      console.table( localStorage.getItem(`${API_CONSTANTS.subdomain}`));
+      // console.table('Setup response', localStorage.getItem(`${API_CONSTANTS.subdomain}`));
       
       apiCtrl.callAxios(API_CONSTANTS.setupList, []).then((response)=>{
         console.log('Response', response);
@@ -87,13 +94,14 @@ function FrontEnd() {
         localStorage.setItem(
           `${API_CONSTANTS.subdomain}`, 
             JSON.stringify({
-              storage
+              ...storage
             })
           )
-        localStorage.setItem(`${API_CONSTANTS.subdomain}`,JSON.stringify(storage) )
+          setLogo((typeof data.website.config.site_settings.logo !== 'undefined') ? data.website.config.site_settings.logo : 'logo-tvs.png');
+        // localStorage.setItem(`${API_CONSTANTS.subdomain}`,JSON.stringify(storage) )
         setSetup(JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)));
         
-        // console.log('Storage' , JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)))
+        // console.log('Storage ---' , JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)))
         
       })
     }
@@ -103,15 +111,13 @@ function FrontEnd() {
   useEffect(()=>{
     
     
-    console.log('Setup', setup)
-   
+    
     if((setup !== null) ){
-      setLogo(setup.logo);
-      console.log('Setup', setup.modules)
       if((typeof setup.modules !== 'undefined')){
         if((setup.modules.website !== null) && (setup.modules.website !== '')){
           const { color, title, logo, subtitle } = setup.modules.website.config.site_settings;
           var storage = {};
+          setLogo(logo);
           storage = JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`));
           storage = {
             ...storage, 
@@ -132,45 +138,93 @@ function FrontEnd() {
           
         } else {
 
-          getSiteSetup();
+          // getSiteSetup();
         }
       } else {
 
-        getSiteSetup();
+        // getSiteSetup();
       }
 
       
-    } else {
+    } 
+    // else {
 
-      getSiteSetup();
-    }
+    // }
+    getSiteSetup();
 
-    
-      
+    apiCtrl.callAxiosGet(`/company/view/${API_CONSTANTS.subdomain}`).then((response)=>{
+      // console.log('About US Response', response)
+      if(response.success == true){
+          const res = response.data;
+          const data = [
+              {
+                  image: res.about_company_image,
+                  title: 'About',
+                  description: res.about_company,
+                  isReverse: true
+              },   
+              {
+                  title: 'Mission',
+                  image: res.company_mission_image,
+                  description: res.company_mission,
+                  isReverse: false
+              },
+              {
+                  title: 'Vision',
+                  image:  res.company_vision_image,
+                  description: res.company_vision,
+                  isReverse: true
+              }
+             ];
+            setAboutUs(data);
+            var footerData = {
+              image: res.logo,
+              description: res.about_company
+            }
+            setFooter({...footerData})
+            //  setLogo(res.logo)
+            //  console.log('Abut us Res',data)
+             
+          // this.setState(...response.data);
+      }
+  })
+
+      // console.log('Final Setup', setup)
 
      
-    
+      getVehiclesMenu();
 
   },[])
 
+  const getVehiclesMenu = () => {
+    apiCtrl.callAxiosGet(`/vehicle/get-vehicle-make-model-type`).then((response)=>{
+        if(response.success == true){
+            const res = response.data;
+            
+            setVehicles(res)
+        }
+    })
+}
+
   return (
     <Router>
-      <Header logo={logos}/>
-      
+      <Loader loading={loading} />
+      <Header logo={logos} vehicles={vehicles} />
+      <FloatingIcons />
       <Routes>
-        <Route path='/' exact element={<Home />} />
-        <Route path='/about' element={<AboutUs />} />
-        <Route path='/service' element={<Services />} />
-        <Route path='/gallery' element={<Gallery />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/product/:category' element={<ProductListing />} />
+        <Route path='/' exact element={<Home loader={(state)=>{setLoading(state)}} />}  />
+        <Route path='/about' element={<AboutUs loader={(state)=>{setLoading(state)}} aboutUs={aboutUs} />} />
+        <Route path='/service' element={<Services loader={(state)=>{setLoading(state)}} />} />
+        <Route path='/gallery' element={<Gallery loader={(state)=>{setLoading(state)}} />} />
+        <Route path='/contact' element={<Contact loader={(state)=>{setLoading(state)}} />} />
+        <Route path='/product/:category' element={<ProductListing loader={(state)=>{setLoading(state)}} />} />
         {/* <Route path='/products' element={<ProductListing />} /> */}
-        <Route path='/product/:category/:slug' element={<ProductDetails />} />
-        <Route path='/vehicle/:category' element={<VehicleListing />} />
+        <Route path='/product/:category/:slug' element={<ProductDetails loader={(state)=>{setLoading(state)}} />} />
+        <Route path='/vehicle/:category/:type' element={<VehicleListing loader={(state)=>{setLoading(state)}} />} />
         {/* <Route path='/products' element={<ProductListing />} /> */}
-        <Route path='/vehicle/:category/:slug' element={<VehicleDetails />} />
+        <Route path='/vehicle/:category/:type/:slug' element={<VehicleDetails loader={(state)=>{setLoading(state)}} />} />
       </Routes>
-      <Footer />
+      <Footer aboutUs={footer}/>
     </Router>
   );
 }

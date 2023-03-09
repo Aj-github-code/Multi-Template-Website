@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Divider } from '@mui/material';
 import { Button } from 'react-bootstrap';
 import "./bookNow.css"
-import Api from "../../../api";
+import Api from "../../services/api";
 import Swal from "sweetalert2";
 
 const BookNow = ({image1, image2, header, type}) =>{
@@ -157,7 +157,7 @@ const BookNow = ({image1, image2, header, type}) =>{
             //     email: state.email,
             //     description: state.description
             // }
-            apiCtrl.callAxios('enquiry/create-update', state).then((res)=>{
+            apiCtrl.callAxios('/enquiry/create-update', state).then((res)=>{
                 if(res.success == true){
                     Swal.fire({
                         title: 'Contact Us',
@@ -216,14 +216,14 @@ const BookNow = ({image1, image2, header, type}) =>{
                         </div>
 
                         <div className="row">
-                            <div className="col-md-6" style={{height:"400px"}}>
+                            <div className="col-md-6 enquiry-img">
 
                                 <img  className="modal-img" src={image1} />
                                 <img className="modal-img"  src={image2}/>
                             
 
                             </div>
-                            <div className="col-md-6" style={{height:"400px"}}>
+                            <div className="col-md-6" >
 
                                 <div className="col-md-12 mb-3">
                                 <input 
@@ -317,7 +317,7 @@ const BookNow = ({image1, image2, header, type}) =>{
                     {/* </Box> */}
                 </div>
                 <div class="modal-footer float-right">
-                    <Button data-bs-dismiss="modal" className="close modal-button" data-dismiss="modal" aria-label="Close"   style={{ backgroundColor: 'red',borderColor: 'red',width:"96px",color:"#fff", fontSize:"15px", marginTop: "14px",  height: "48px"}}   size='medium'>Cancel</Button>
+                    <Button data-bs-dismiss="modal" className="close modal-button mb-3" data-dismiss="modal" aria-label="Close"   style={{ backgroundColor: 'red',borderColor: 'red',width:"96px",color:"#fff", fontSize:"15px", marginTop: "14px",  height: "48px"}}   size='medium'>Cancel</Button>
                     <Button type="button" onClick={(e)=>handleSubmit(e)} className="modal-button" style={{ backgroundColor: '#183883',width:"96px",color:"#fff", fontSize:"15px", marginTop: "14px", marginLeft: "10px", height: "48px"}}   size='medium'>Submit</Button>
                 </div>
                 </div>

@@ -1,6 +1,6 @@
 .modal-img{
     width: 100%;
-    height: 25% !important;
+    height: 50% !important;
 
 }
 .modal-heading{
@@ -13,3 +13,9 @@
 /* .modal-button:hover{
     color: #FFA500;
 } */
+
+@media screen and  (min-width: 200px)  and (max-width: 620px){
+    .enquiry-img{
+        display: none;
+    }
+}

@@ -14,7 +14,8 @@ export default class Api extends React.Component {
       }
 
    getBaseUrl(){
-    return API_CONSTANTS.BASE_URL;
+    var url =  API_CONSTANTS.BASE_URL;
+    return url;
   }
 
 //  tokenValid() {
@@ -32,7 +33,6 @@ export default class Api extends React.Component {
 
 
   login(){
-    console.log('Login')
     return new Promise((resolve,reject)=>{
       var config = {
           method: 'post',
@@ -227,12 +227,39 @@ callAxios(endPoint, reqData, auth=true){
               }
               )
               .then((response) => {
-                 console.log('Request Respomse', response);
-                 if(response.data.success){
-                  resolve({success: true, data: response.data});
-                 }else{
-                  resolve({success: false, data: response.data});
-                 }                   
+                //  console.log('Request Respomse', response);
+                //  if(response.data.success){
+                //   resolve({success: true, data: response.data});
+                //  }else{
+                //   resolve({success: false, data: response.data});
+                //  }    
+                if(response.data.status == "success") {
+                  resolve({success: true, data: response.data.data , message: response.data.message});
+                }else if(response.data.status == "error" || response.data.status == false){
+                  var $str = response.data.data;
+                  if(typeof response.data.errorcode!=='undefined' && response.data.errorcode===409){
+                    var msg = Object.entries(response.data.message);
+                    console.log("message=",msg);
+                    $str = '';
+                    msg.map((msg, key)=>{
+                      console.log("api controller ".msg);
+                      $str+=msg[1]+"<br>";
+                    })
+
+                    Swal.fire({
+                      title: "Following Error Detected",
+                      html: $str,
+                      icon: "error",
+                      showConfirmButton: false,
+                    })
+                  }else{
+
+                    resolve({success: false, message: response.data.message, data: $str});
+                  }
+                }else{
+                  // Alert.alert(''+response.data.message);
+                  resolve({success: false, data: response.data.message});
+                }                     
                 
               })
               .catch((err) => {

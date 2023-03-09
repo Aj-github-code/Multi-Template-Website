@@ -4,6 +4,7 @@
  * building robust, powerful web applications using React + Laravel.
  */
 
+require('../css/admin/font-awesome.min.css');
 require('./bootstrap');
 
 /**

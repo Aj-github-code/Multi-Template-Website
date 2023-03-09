@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Features from '../components/feature/feature';
 import PageTitle from '../components/pageTitle/pageTitle';
 import Service from '../components/service/service';
-import Api from '../../api';
+import Api from '../services/api';
 class Services extends Component {
     constructor(props) {
         super(props);
@@ -45,7 +45,7 @@ class Services extends Component {
         }
     }
     componentDidMount(){
-        this.apiCtrl.callAxios(`product/product-category-list`, {is_service: 1}).then((response)=>{
+        this.apiCtrl.callAxios(`/product/product-category-list`, {is_service: 1}).then((response)=>{
             console.log('Services', response)
             if(response.success == true){
                 const res = response.data;
@@ -56,7 +56,7 @@ class Services extends Component {
                         Services = [...Services, {title:value.category_name, description: value.description, icon: value.image_name_1}]
                  
                 })
-            
+                this.props.loader(false)
                 this.setState({services: Services})
             }
         })

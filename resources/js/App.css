@@ -287,6 +287,9 @@ textarea:valid+label {
     transform: scale(1.1, 1.1);
     filter: sepia(0.5);
 }
+.a {
+    text-decoration-line: none;
+}
 
 @media only screen and (max-width: 800px) {
     h2 {
@@ -321,4 +324,9 @@ textarea:valid+label {
 .slick-prev:before,
 .slick-next:before {
     color: var(--bs-primary) !important;
+}
+
+.homeWrapper{
+    display:block;
+    margin-top: 80px;
 }
