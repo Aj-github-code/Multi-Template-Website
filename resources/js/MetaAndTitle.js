@@ -39,11 +39,9 @@ export default function MetaAndTitle() {
           metaDescription = "Claim Details";
           break;
         default:
-          title= "Claim Insurance";
-          metaDescription= "Claim Insurance";
-         
-        
-       
+          title= "Dealer Website";
+          metaDescription= "Dealer Website";
+
       }
       
   
