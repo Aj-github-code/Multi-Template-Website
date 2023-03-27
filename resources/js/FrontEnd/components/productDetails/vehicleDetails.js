@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './productDetails.css';
 import product from '../../local-json/products.json';
 import "slick-carousel/slick/slick.css";
@@ -157,8 +157,9 @@ const ProductDetails = (props) => {
                             </div> */}
                             <div className="cart mt-4 align-items-center">
                                 {/* <button className="btn btn-secondary text-uppercase me-2 px-4">Download Brochure</button> */}
-                                <BookNowButton type={'vehicle'} header={'Book Now'} image1={detail.images} image2={detail.images} />
+                                <BookNowButton type={'vehicle'} header={'Book Now'} image1={detail.images} image2={detail.images} />&nbsp;
                                 {/* <button className="btn btn-primary text-uppercase me-2 px-4">Add to cart</button> */}
+                               <Link to={"/test-ride"}><button className="btn btn-primary text-uppercase me-2 px-4">Test Ride</button></Link> 
                             </div>
                         </div>
                     </div>

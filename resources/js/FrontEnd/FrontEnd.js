@@ -23,6 +23,7 @@ import  {API_CONSTANTS}  from './assets/config/constants';
 
 import Toast from './assets/tools/Toast';
 import Swal from 'sweetalert2';
+import TestRide from './pages/TestRide';
 
 
 function FrontEnd() {
@@ -290,6 +291,7 @@ function FrontEnd() {
         <Route path='/vehicle/:category/:type' element={<VehicleListing loader={(state)=>{setLoading(state)}} />} />
         {/* <Route path='/products' element={<ProductListing />} /> */}
         <Route path='/vehicle/:category/:type/:slug' element={<VehicleDetails loader={(state)=>{setLoading(state)}} />} />
+        <Route path="/test-ride" element={<TestRide loader={(state)=>{setLoading(state)}}/>}/>
       </Routes>
       <Footer aboutUs={footer}/>
     </Router>

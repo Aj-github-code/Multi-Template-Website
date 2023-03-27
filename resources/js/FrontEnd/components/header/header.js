@@ -117,7 +117,8 @@ class Header extends Component {
                                 </NavDropdown> */}
 
                                 {/* <Nav.Link href="/vehicle"></Nav.Link> */}
-                                {/* <Nav.Link href="/gallery">Gallery</Nav.Link> */}
+                                <Nav.Link href="/gallery">Gallery</Nav.Link>
+                                <Nav.Link href="/test-ride">Test Ride</Nav.Link>
                                 <Nav.Link href="/contact">Contact Us</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
