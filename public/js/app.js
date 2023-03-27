@@ -12925,10 +12925,10 @@ function FrontEnd() {
   var apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_16__["default"]();
   var getSiteSetup = function getSiteSetup() {
     // console.table('Setup response', localStorage.getItem(`${API_CONSTANTS.subdomain}`));
-
-    apiCtrl.callAxios(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.setupList, []).then(function (response) {
-      console.log('Response', response);
+    if (window.sessionStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain, "_company"))) {
+      console.log('Company Data', window.sessionStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain, "_company")));
       var data = {};
+      var response = JSON.parse(window.sessionStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain, "_company")));
       response.data.map(function (value, key) {
         data[value.module_name.toLowerCase()] = {
           id: value.id,
@@ -12948,9 +12948,35 @@ function FrontEnd() {
       setLogo(typeof data.website.config.site_settings.logo !== 'undefined' ? data.website.config.site_settings.logo : 'logo-tvs.png');
       // localStorage.setItem(`${API_CONSTANTS.subdomain}`,JSON.stringify(storage) )
       setSetup(JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain))));
+      return true;
+    } else {
+      apiCtrl.callAxios(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.setupList, []).then(function (response) {
+        console.log('Response', response);
+        var data = {};
+        window.sessionStorage.setItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain, "_company"), JSON.stringify(_objectSpread({}, response)));
+        response.data.map(function (value, key) {
+          data[value.module_name.toLowerCase()] = {
+            id: value.id,
+            module_name: value.module_name,
+            config: JSON.parse(value.config),
+            is_active: value.is_active
+          };
+        });
+        // Toast({text:response.message+'!', type:'success'})
 
-      // console.log('Storage ---' , JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)))
-    });
+        var storage = {};
+        storage = JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain)));
+        storage = _objectSpread(_objectSpread({}, storage), {}, {
+          modules: data
+        });
+        localStorage.setItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain), JSON.stringify(_objectSpread({}, storage)));
+        setLogo(typeof data.website.config.site_settings.logo !== 'undefined' ? data.website.config.site_settings.logo : 'logo-tvs.png');
+        // localStorage.setItem(`${API_CONSTANTS.subdomain}`,JSON.stringify(storage) )
+        setSetup(JSON.parse(localStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain))));
+
+        // console.log('Storage ---' , JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)))
+      });
+    }
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -12987,38 +13013,68 @@ function FrontEnd() {
 
     // }
     getSiteSetup();
-    apiCtrl.callAxiosGet("/company/view/".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain)).then(function (response) {
-      // console.log('About US Response', response)
-      if (response.success == true) {
-        var res = response.data;
-        var data = [{
-          image: res.about_company_image,
-          title: 'About',
-          description: res.about_company,
-          isReverse: true
-        }, {
-          title: 'Mission',
-          image: res.company_mission_image,
-          description: res.company_mission,
-          isReverse: false
-        }, {
-          title: 'Vision',
-          image: res.company_vision_image,
-          description: res.company_vision,
-          isReverse: true
-        }];
-        setAboutUs(data);
-        var footerData = {
-          image: res.logo,
-          description: res.about_company
-        };
-        setFooter(_objectSpread({}, footerData));
-        //  setLogo(res.logo)
-        //  console.log('Abut us Res',data)
+    var res;
+    if (window.sessionStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain, "_company_data"))) {
+      res = JSON.parse(window.sessionStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain, "_company_data")));
+      var data = [{
+        image: res.about_company_image,
+        title: 'About',
+        description: res.about_company,
+        isReverse: true
+      }, {
+        title: 'Mission',
+        image: res.company_mission_image,
+        description: res.company_mission,
+        isReverse: false
+      }, {
+        title: 'Vision',
+        image: res.company_vision_image,
+        description: res.company_vision,
+        isReverse: true
+      }];
+      setAboutUs(data);
+      var footerData = {
+        image: res.logo,
+        description: res.about_company
+      };
+      setFooter(_objectSpread({}, footerData));
+    } else {
+      apiCtrl.callAxiosGet("/company/view/".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain)).then(function (response) {
+        // console.log('About US Response', response)
+        if (response.success == true) {
+          var _res = response.data;
+          window.sessionStorage.setItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain, "_company_data"), JSON.stringify(_objectSpread({}, _res)));
+          var _data = [{
+            image: _res.about_company_image,
+            title: 'About',
+            description: _res.about_company,
+            isReverse: true
+          }, {
+            title: 'Mission',
+            image: _res.company_mission_image,
+            description: _res.company_mission,
+            isReverse: false
+          }, {
+            title: 'Vision',
+            image: _res.company_vision_image,
+            description: _res.company_vision,
+            isReverse: true
+          }];
+          setAboutUs(_data);
+          var footerData = {
+            image: _res.logo,
+            description: _res.about_company
+          };
+          setFooter(_objectSpread({}, footerData));
+          //  setLogo(res.logo)
+          //  console.log('Abut us Res',data)
 
-        // this.setState(...response.data);
-      }
-    });
+          // this.setState(...response.data);
+        }
+      });
+    }
+
+    console.log('About us', res);
 
     // console.log('Final Setup', setup)
 
@@ -13074,7 +13130,8 @@ function FrontEnd() {
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_contact__WEBPACK_IMPORTED_MODULE_9__["default"], {
           loader: function loader(state) {
             setLoading(state);
-          }
+          },
+          aboutUs: JSON.parse(window.sessionStorage.getItem("".concat(_assets_config_constants__WEBPACK_IMPORTED_MODULE_17__.API_CONSTANTS.subdomain, "_company_data")))
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
         path: "/product/:category",
@@ -14331,7 +14388,7 @@ var Header = /*#__PURE__*/function (_Component) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Brand, {
               href: "/",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-                src: this.props.logo !== '' ? Url + '/public/upload/setup/' + this.props.logo : _assets_images_logo_tvs_png__WEBPACK_IMPORTED_MODULE_2__["default"],
+                src: _assets_images_logo_tvs_png__WEBPACK_IMPORTED_MODULE_2__["default"],
                 className: "logo img-fluid",
                 alt: "TVS Bike"
               })
@@ -14389,7 +14446,10 @@ var Header = /*#__PURE__*/function (_Component) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
                 src: this.props.logo !== '' ? Url + '/public/upload/setup/' + this.props.logo : _assets_images_logo_tvs_png__WEBPACK_IMPORTED_MODULE_2__["default"],
                 className: "img-fluid",
-                alt: "TVS Bike"
+                alt: "TVS Bike",
+                style: {
+                  paddingLeft: '25px'
+                }
               })
             })]
           })
@@ -15784,7 +15844,7 @@ var Contact = /*#__PURE__*/function (_Component) {
                   className: "details",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
                     children: "Address: "
-                  }), "198 West 21th Street, Suite 721 New York NY 10016"]
+                  }), this.props.aboutUs !== null && this.props.aboutUs.company_address]
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
@@ -15793,7 +15853,7 @@ var Contact = /*#__PURE__*/function (_Component) {
                   className: "details",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
                     children: "Phone: "
-                  }), "+ 1235 2355 98"]
+                  }), "+91 ", this.props.aboutUs !== null && this.props.aboutUs.contact_1]
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
@@ -15802,7 +15862,7 @@ var Contact = /*#__PURE__*/function (_Component) {
                   className: "details",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
                     children: "Email: "
-                  }), "info@yoursite.com"]
+                  }), this.props.aboutUs !== null && this.props.aboutUs.primary_email]
                 })]
               })]
             })]
@@ -25029,7 +25089,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/loader.svg?6807cf565d7dd6fe5c29d5411a2caba0");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/loader.svg?d17ac3a4d0d18fd9ceb77b4e8e2c73dd");
 
 /***/ }),
 

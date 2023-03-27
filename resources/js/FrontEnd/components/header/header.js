@@ -76,9 +76,7 @@ class Header extends Component {
                 <Navbar bg="white" expand="lg">
                     <Container>
                         <Navbar.Brand href="/">
-                            <img src={this.props.logo !== '' ?
-                                Url + '/public/upload/setup/' + this.props.logo
-                                : logo} className="logo img-fluid" alt="TVS Bike" />
+                            <img src={ logo} className="logo img-fluid" alt="TVS Bike" />
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
@@ -126,7 +124,7 @@ class Header extends Component {
                         <a href="/" className="right-logo">
                             <img src={this.props.logo !== '' ?
                                 Url + '/public/upload/setup/' + this.props.logo
-                                : logo} className="img-fluid" alt="TVS Bike" />
+                                : logo} className="img-fluid" alt="TVS Bike" style={{paddingLeft:'25px'}} />
                         </a>
                     </Container>
                 </Navbar>

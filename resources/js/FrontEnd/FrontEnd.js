@@ -70,10 +70,10 @@ function FrontEnd() {
 
     const getSiteSetup = () => {
       // console.table('Setup response', localStorage.getItem(`${API_CONSTANTS.subdomain}`));
-      
-      apiCtrl.callAxios(API_CONSTANTS.setupList, []).then((response)=>{
-        console.log('Response', response);
+      if(window.sessionStorage.getItem(`${API_CONSTANTS.subdomain}_company`)){
+        console.log('Company Data', window.sessionStorage.getItem(`${API_CONSTANTS.subdomain}_company`))
         var data = {};
+        var response = JSON.parse(window.sessionStorage.getItem(`${API_CONSTANTS.subdomain}_company`));
         response.data.map((value, key)=>{
           data[value.module_name.toLowerCase()] = {
             id: value.id,
@@ -100,10 +100,43 @@ function FrontEnd() {
           setLogo((typeof data.website.config.site_settings.logo !== 'undefined') ? data.website.config.site_settings.logo : 'logo-tvs.png');
         // localStorage.setItem(`${API_CONSTANTS.subdomain}`,JSON.stringify(storage) )
         setSetup(JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)));
-        
-        // console.log('Storage ---' , JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)))
-        
-      })
+        return true;
+      } else {
+          apiCtrl.callAxios(API_CONSTANTS.setupList, []).then((response)=>{
+          console.log('Response', response);
+          var data = {};
+          window.sessionStorage.setItem(`${API_CONSTANTS.subdomain}_company`,  JSON.stringify({...response}))
+          response.data.map((value, key)=>{
+            data[value.module_name.toLowerCase()] = {
+              id: value.id,
+              module_name: value.module_name,
+              config: JSON.parse(value.config),
+              is_active: value.is_active,
+            }
+            
+          })
+          // Toast({text:response.message+'!', type:'success'})
+      
+          var storage = {};
+          storage = JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`));
+          storage = {
+            ...storage, 
+            modules:data
+            }
+          localStorage.setItem(
+            `${API_CONSTANTS.subdomain}`, 
+              JSON.stringify({
+                ...storage
+              })
+            )
+            setLogo((typeof data.website.config.site_settings.logo !== 'undefined') ? data.website.config.site_settings.logo : 'logo-tvs.png');
+          // localStorage.setItem(`${API_CONSTANTS.subdomain}`,JSON.stringify(storage) )
+          setSetup(JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)));
+          
+          // console.log('Storage ---' , JSON.parse(localStorage.getItem(`${API_CONSTANTS.subdomain}`)))
+          
+        })
+      }
     }
 
 
@@ -151,43 +184,77 @@ function FrontEnd() {
 
     // }
     getSiteSetup();
-
-    apiCtrl.callAxiosGet(`/company/view/${API_CONSTANTS.subdomain}`).then((response)=>{
-      // console.log('About US Response', response)
-      if(response.success == true){
-          const res = response.data;
-          const data = [
-              {
-                  image: res.about_company_image,
-                  title: 'About',
-                  description: res.about_company,
-                  isReverse: true
-              },   
-              {
-                  title: 'Mission',
-                  image: res.company_mission_image,
-                  description: res.company_mission,
-                  isReverse: false
-              },
-              {
-                  title: 'Vision',
-                  image:  res.company_vision_image,
-                  description: res.company_vision,
-                  isReverse: true
-              }
-             ];
-            setAboutUs(data);
-            var footerData = {
-              image: res.logo,
-              description: res.about_company
-            }
-            setFooter({...footerData})
-            //  setLogo(res.logo)
-            //  console.log('Abut us Res',data)
-             
-          // this.setState(...response.data);
+    var res;
+    if(window.sessionStorage.getItem(`${API_CONSTANTS.subdomain}_company_data`)){
+       res = JSON.parse(window.sessionStorage.getItem(`${API_CONSTANTS.subdomain}_company_data`))
+      const data = [
+        {
+            image: res.about_company_image,
+            title: 'About',
+            description: res.about_company,
+            isReverse: true
+        },   
+        {
+            title: 'Mission',
+            image: res.company_mission_image,
+            description: res.company_mission,
+            isReverse: false
+        },
+        {
+            title: 'Vision',
+            image:  res.company_vision_image,
+            description: res.company_vision,
+            isReverse: true
+        }
+      ];
+      setAboutUs(data);
+      var footerData = {
+        image: res.logo,
+        description: res.about_company
       }
-  })
+      setFooter({...footerData})
+    } else {
+      apiCtrl.callAxiosGet(`/company/view/${API_CONSTANTS.subdomain}`).then((response)=>{
+          // console.log('About US Response', response)
+        if(response.success == true){
+            const res = response.data;
+            window.sessionStorage.setItem(`${API_CONSTANTS.subdomain}_company_data`, JSON.stringify({...res}))
+            const data = [
+                {
+                    image: res.about_company_image,
+                    title: 'About',
+                    description: res.about_company,
+                    isReverse: true
+                },   
+                {
+                    title: 'Mission',
+                    image: res.company_mission_image,
+                    description: res.company_mission,
+                    isReverse: false
+                },
+                {
+                    title: 'Vision',
+                    image:  res.company_vision_image,
+                    description: res.company_vision,
+                    isReverse: true
+                }
+              ];
+              setAboutUs(data);
+              var footerData = {
+                image: res.logo,
+                description: res.about_company
+              }
+              setFooter({...footerData})
+              //  setLogo(res.logo)
+              //  console.log('Abut us Res',data)
+              
+            // this.setState(...response.data);
+        }
+      })
+
+    }
+
+    console.log('About us',res)
 
       // console.log('Final Setup', setup)
 
@@ -216,7 +283,7 @@ function FrontEnd() {
         <Route path='/about' element={<AboutUs loader={(state)=>{setLoading(state)}} aboutUs={aboutUs} />} />
         <Route path='/service' element={<Services loader={(state)=>{setLoading(state)}} />} />
         <Route path='/gallery' element={<Gallery loader={(state)=>{setLoading(state)}} />} />
-        <Route path='/contact' element={<Contact loader={(state)=>{setLoading(state)}} />} />
+        <Route path='/contact' element={<Contact loader={(state)=>{setLoading(state)}} aboutUs={JSON.parse(window.sessionStorage.getItem(`${API_CONSTANTS.subdomain}_company_data`))}  />} />
         <Route path='/product/:category' element={<ProductListing loader={(state)=>{setLoading(state)}} />} />
         {/* <Route path='/products' element={<ProductListing />} /> */}
         <Route path='/product/:category/:slug' element={<ProductDetails loader={(state)=>{setLoading(state)}} />} />

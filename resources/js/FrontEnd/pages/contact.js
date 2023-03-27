@@ -206,21 +206,21 @@ class Contact extends Component {
                                 <span class="fa fa-map-marker"></span>
                                 <div className='details'>
                                     <strong>Address: </strong>
-                                    198 West 21th Street, Suite 721 New York NY 10016
+                                    {(this.props.aboutUs !== null ) && this.props.aboutUs.company_address}
                                 </div>
                             </li>
                             <li>
                                 <span class="fa fa-phone"></span>
                                 <div className='details'>
                                     <strong>Phone: </strong>
-                                    + 1235 2355 98
+                                    +91 {(this.props.aboutUs !== null ) && this.props.aboutUs.contact_1}
                                 </div>
                             </li>
                             <li>
                                 <span class="fa fa-paper-plane"></span>
                                 <div className='details'>
                                     <strong>Email: </strong>
-                                    info@yoursite.com
+                                    { (this.props.aboutUs !== null ) && this.props.aboutUs.primary_email}
                                 </div>
                             </li>
                         </ul>
