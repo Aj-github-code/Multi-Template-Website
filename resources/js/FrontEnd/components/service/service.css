@@ -53,6 +53,9 @@
     .card-img-jk {
         padding: 0px 0px 0px 0px !important;
     }
+    .sec-3hdiv-jk{
+        padding: 0px 34px;
+    }
 }
 
 @media (min-width: 786px) and (max-width: 1024px) {
