@@ -5,7 +5,7 @@
         position: relative;
         bottom: -35px;
         z-index: 9;
-        padding: 4px 60px;
+        padding: 4px 0px;
         left: 0px;
         --bs-navbar-active-color: #ffffff;
     }
