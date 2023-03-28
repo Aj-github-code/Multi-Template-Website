@@ -24,6 +24,7 @@ import  {API_CONSTANTS}  from './assets/config/constants';
 import Toast from './assets/tools/Toast';
 import Swal from 'sweetalert2';
 import TestRide from './pages/TestRide';
+import ServiceBooking from './pages/ServiceBooking';
 
 
 function FrontEnd() {
@@ -282,7 +283,7 @@ function FrontEnd() {
       <Routes>
         <Route path='/' exact element={<Home loader={(state)=>{setLoading(state)}} />}  />
         <Route path='/about' element={<AboutUs loader={(state)=>{setLoading(state)}} aboutUs={aboutUs} />} />
-        <Route path='/service' element={<Services loader={(state)=>{setLoading(state)}} />} />
+        {/* <Route path='/service' element={<Services loader={(state)=>{setLoading(state)}} />} /> */}
         <Route path='/gallery' element={<Gallery loader={(state)=>{setLoading(state)}} />} />
         <Route path='/contact' element={<Contact loader={(state)=>{setLoading(state)}} aboutUs={JSON.parse(window.sessionStorage.getItem(`${API_CONSTANTS.subdomain}_company_data`))}  />} />
         <Route path='/product/:category' element={<ProductListing loader={(state)=>{setLoading(state)}} />} />
@@ -292,6 +293,7 @@ function FrontEnd() {
         {/* <Route path='/products' element={<ProductListing />} /> */}
         <Route path='/vehicle/:category/:type/:slug' element={<VehicleDetails loader={(state)=>{setLoading(state)}} />} />
         <Route path="/test-ride" element={<TestRide loader={(state)=>{setLoading(state)}}/>}/>
+        <Route path='/service' element={<ServiceBooking loader={(state)=>{setLoading(state)}}/>}/>
       </Routes>
       <Footer aboutUs={footer}/>
     </Router>
