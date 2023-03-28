@@ -20,19 +20,21 @@ class Gallery extends Component {
 
       componentDidMount(){
         this.apiCtrl.callAxios("/gallery/list").then(res=>{
-           
-            var data = [];
-            console.log('gallery',  Object.entries(res.data).length)
-            if(Object.entries(res.data).length > 0){
-                Object.entries(res.data).map(([ind, val])=>{
-                    val.map((value, index)=>{
+           if(res.success == true){
+                var data = [];
+                console.log('gallery',  Object.entries(res.data).length)
+                if(Object.entries(res.data).length > 0){
+                    Object.entries(res.data).map(([ind, val])=>{
+                        val.map((value, index)=>{
 
-                        data = [...data, {src:value.images, desc:ind, sub:ind}]
+                            data = [...data, {src:value.images, desc:ind, sub:ind}]
+                        })
                     })
-                })
-              
-                console.log('gallery',data)
-            } else {
+                
+                    console.log('gallery',data)
+                }
+           }
+             else {
                 var data = [
                     {
                         src: "./assets/images/04.jpg",

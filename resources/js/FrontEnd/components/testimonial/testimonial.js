@@ -7,8 +7,9 @@ class Testimonials extends Component {
         if (!this.props.data) return null;
         const data = this.props.data;
         return (
-            <section className="section-6">
-                <section className="testimonial text-center">
+              
+            <section className="section-6 nomargin">
+                <section className="testimonial text-center nomargin">
                     <div className="container">
                         <div className="heading white-heading">
                             Testimonial

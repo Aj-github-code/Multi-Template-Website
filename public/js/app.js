@@ -15080,7 +15080,13 @@ var InfoText = /*#__PURE__*/function (_Component) {
             children: data.title
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
             className: "sec-5jk-p",
-            children: data.description
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("small", {
+              style: {
+                fontFamily: 'sans-serif',
+                fontSize: '14px'
+              },
+              children: data.description
+            })
           })]
         })
       });
@@ -15576,7 +15582,8 @@ var ProductDetails = function ProductDetails(props) {
       vehicle_status: category
     }).then(function (response) {
       if (response.success == true) {
-        var res = response.data;
+        var res = response.data.aaData;
+        //  console.log("res=====>",res)
         var Vehicles = [];
         res.map(function (value, index) {
           Vehicles = [].concat(_toConsumableArray(Vehicles), [{
@@ -15590,6 +15597,7 @@ var ProductDetails = function ProductDetails(props) {
         });
         setProducts(Vehicles);
       }
+      props.loader(false);
     });
 
     // apiCtrl.callAxios(`/product/product-service-list`, {is_service: 0, product_category: 'Accessories'}).then((response)=>{
@@ -15879,7 +15887,7 @@ var Service = /*#__PURE__*/function (_Component) {
       var services = this.props.data;
       // console.log(services);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-        className: "section-3",
+        className: "section-3 res-service",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "sec-3hdiv-jk",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
@@ -15990,9 +15998,9 @@ var Testimonials = /*#__PURE__*/function (_Component) {
       if (!this.props.data) return null;
       var data = this.props.data;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-        className: "section-6",
+        className: "section-6 nomargin",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-          className: "testimonial text-center",
+          className: "testimonial text-center nomargin",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "container",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -16613,22 +16621,24 @@ var Gallery = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
       this.apiCtrl.callAxios("/gallery/list").then(function (res) {
-        var data = [];
-        console.log('gallery', Object.entries(res.data).length);
-        if (Object.entries(res.data).length > 0) {
-          Object.entries(res.data).map(function (_ref) {
-            var _ref2 = _slicedToArray(_ref, 2),
-              ind = _ref2[0],
-              val = _ref2[1];
-            val.map(function (value, index) {
-              data = [].concat(_toConsumableArray(data), [{
-                src: value.images,
-                desc: ind,
-                sub: ind
-              }]);
+        if (res.success == true) {
+          var data = [];
+          console.log('gallery', Object.entries(res.data).length);
+          if (Object.entries(res.data).length > 0) {
+            Object.entries(res.data).map(function (_ref) {
+              var _ref2 = _slicedToArray(_ref, 2),
+                ind = _ref2[0],
+                val = _ref2[1];
+              val.map(function (value, index) {
+                data = [].concat(_toConsumableArray(data), [{
+                  src: value.images,
+                  desc: ind,
+                  sub: ind
+                }]);
+              });
             });
-          });
-          console.log('gallery', data);
+            console.log('gallery', data);
+          }
         } else {
           var data = [{
             src: "./assets/images/04.jpg",
@@ -17471,8 +17481,9 @@ var VehicleListing = /*#__PURE__*/function (_Component) {
         vehile_type: this.state.type
       }).then(function (response) {
         if (response.success == true) {
-          var res = response.data;
+          var res = response.data.aaData;
           var Vehicles = [];
+          console.log('Res', res);
           res.map(function (value, index) {
             Vehicles = [].concat(_toConsumableArray(Vehicles), [{
               id: value.id,
@@ -17484,11 +17495,11 @@ var VehicleListing = /*#__PURE__*/function (_Component) {
               type: _this2.state.type
             }]);
           });
-          _this2.props.loader(false);
           _this2.setState({
             vehicles: Vehicles
           });
         }
+        _this2.props.loader(false);
       });
     }
   }, {
@@ -23867,7 +23878,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "section{\r\n    display: flex;\r\n    margin-top: 140px;\r\n    padding: 48px;\r\n}\r\n\r\n.modal-img{\r\n    width: 100%;\r\n    height: 50% !important;\r\n\r\n}\r\n.modal-heading{\r\n   \r\n    text-align: center;\r\n    padding: 1%;\r\n    color: #183883!important ;\r\n    font-weight: 600;\r\n}\r\np{\r\n    font-family: 'open_sansregular';\r\n    overflow-x: hidden;\r\n    font-size: 18px;\r\n    color: #333;\r\n\r\n}\r\n .section-subtitle {\r\n    margin-top: 15px;\r\n    color: #333;\r\n    font-size: 14px;\r\n    font-weight: 400;\r\n}\r\n .section-title {\r\n    font-size: 42px;\r\n    margin-top: 0;\r\n    text-transform: uppercase;\r\n    font-weight: 700;\r\n    color: #333;\r\n    position: relative;\r\n}\r\nspan{\r\n    font-family: 'open_sansregular';\r\n    overflow-x: hidden;\r\n    font-size: 18px;\r\n    color: #333;\r\n}\r\n/* .modal-button:hover{\r\n    color: #FFA500;\r\n} */\r\n\r\n@media screen and  (min-width: 200px)  and (max-width: 620px){\r\n    .enquiry-img{\r\n        display: none;\r\n    }\r\n}\r\n.lines{\r\n    margin: auto;\r\n    width: 70px;\r\n    position: relative;\r\n    border-top: 2px solid #183883;\r\n    margin-top: 15px;\r\n}\r\n\r\n.section-header{\r\n    padding: 41px;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "section{\r\n    display: flex;\r\n    margin-top: 140px;\r\n    padding: 48px;\r\n}\r\n\r\n.modal-img{\r\n    width: 100%;\r\n    height: 50% !important;\r\n\r\n}\r\n.modal-heading{\r\n   \r\n    text-align: center;\r\n    padding: 1%;\r\n    color: #183883!important ;\r\n    font-weight: 600;\r\n}\r\np{\r\n    font-family: 'open_sansregular';\r\n    overflow-x: hidden;\r\n    font-size: 18px;\r\n    color: #333;\r\n\r\n}\r\n .section-subtitle {\r\n    margin-top: 15px;\r\n    color: #333;\r\n    font-size: 14px;\r\n    font-weight: 400;\r\n}\r\n .section-title {\r\n    font-size: 42px;\r\n    margin-top: 0;\r\n    text-transform: uppercase;\r\n    font-weight: 700;\r\n    color: #333;\r\n    position: relative;\r\n}\r\nspan{\r\n    font-family: 'open_sansregular';\r\n    overflow-x: hidden;\r\n    font-size: 18px;\r\n    color: #333;\r\n}\r\n/* .modal-button:hover{\r\n    color: #FFA500;\r\n} */\r\n\r\n@media screen and  (min-width: 200px)  and (max-width: 620px){\r\n    .enquiry-img{\r\n        display: none;\r\n    }\r\n}\r\n.lines{\r\n    margin: auto;\r\n    width: 70px;\r\n    position: relative;\r\n    border-top: 2px solid #183883;\r\n    margin-top: 15px;\r\n}\r\n\r\n.section-header{\r\n    padding: 41px;\r\n}\r\n\r\n.styles_lightroomcontent__1SCaZ{\r\n    margin-top:12%;\r\n}\r\n\r\n.aboutPage{\r\n    margin-top: 80px;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23969,7 +23980,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".bg-card {\r\n    padding: 0px !important;\r\n}\r\n\r\n.bg-card .card {\r\n    --bs-card-inner-border-radius: 0px;\r\n}\r\n\r\n.txt-jk {\r\n    border: none !important;\r\n}\r\n\r\n.cd-img-jk {\r\n    border-radius: unset !important;\r\n}\r\n\r\n.overlay-jk {\r\n    text-align: center;\r\n    padding: 150px 20px !important;\r\n}\r\n\r\n.bg-card:nth-child(1n) .overlay-jk {\r\n    background: #ceac61d1;\r\n}\r\n\r\n.bg-card:nth-child(2n) .overlay-jk {\r\n    background: #2d5685e3;\r\n}\r\n\r\n.bg-card:nth-child(3n) .overlay-jk {\r\n    background: #31a3c6d9;\r\n}\r\n\r\n@media (min-width: 569px) and (max-width: 769px) {\r\n    .overlay-jk {\r\n        text-align: center;\r\n        padding: 50px 20px !important;\r\n    }\r\n\r\n    .card-p-jk {\r\n        font-size: 12px;\r\n    }\r\n\r\n}\r\n\r\n@media (max-width: 568px) {\r\n    .bg-card {\r\n        flex: auto !important;\r\n    }\r\n\r\n    .overlay-jk {\r\n        text-align: center;\r\n        padding: 115px 20px !important;\r\n    }\r\n}\r\n\r\n@media (min-width: 786px) and (max-width: 1024px) {\r\n    .overlay-jk {\r\n        text-align: center;\r\n        padding: 71px 20px !important;\r\n    }\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".bg-card {\r\n    padding: 0px !important;\r\n}\r\n\r\n.bg-card .card {\r\n    --bs-card-inner-border-radius: 0px;\r\n}\r\n\r\n.txt-jk {\r\n    border: none !important;\r\n}\r\n\r\n.cd-img-jk {\r\n    border-radius: unset !important;\r\n}\r\n\r\n.overlay-jk {\r\n    text-align: center;\r\n    padding: 150px 20px !important;\r\n}\r\n\r\n.bg-card:nth-child(1n) .overlay-jk {\r\n    background: #ceac61d1;\r\n}\r\n\r\n.bg-card:nth-child(2n) .overlay-jk {\r\n    background: #2d5685e3;\r\n}\r\n\r\n.bg-card:nth-child(3n) .overlay-jk {\r\n    background: #31a3c6d9;\r\n}\r\n\r\n@media (min-width: 569px) and (max-width: 769px) {\r\n    .overlay-jk {\r\n        text-align: center;\r\n        padding: 50px 20px !important;\r\n    }\r\n\r\n    .card-p-jk {\r\n        font-size: 12px;\r\n    }\r\n\r\n}\r\n\r\n@media (max-width: 568px) {\r\n    .bg-card {\r\n        flex: auto !important;\r\n    }\r\n\r\n    .overlay-jk {\r\n        text-align: center;\r\n        padding: 32px 20px !important;\r\n    }\r\n}\r\n\r\n@media (min-width: 786px) and (max-width: 1024px) {\r\n    .overlay-jk {\r\n        text-align: center;\r\n        padding: 71px 20px !important;\r\n    }\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24161,7 +24172,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".mb3-jk {\r\n    border: none !important;\r\n}\r\n\r\n.card-img-jk {\r\n    /* padding: 0px 0px 0px 75px !important; */\r\n}\r\n\r\n.section-3 {\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.sec-3hdiv-jk {\r\n    padding: 0px 100px;\r\n    margin: 30px 0px;\r\n}\r\n\r\n.sec-3jk span {\r\n    background-color: #fff;\r\n    position: relative;\r\n    font-family: Teko, sans-serif;\r\n    line-height: 43px;\r\n    letter-spacing: normal;\r\n    word-spacing: 0px;\r\n    margin: 0px;\r\n    font-weight: 600;\r\n\r\n}\r\n\r\n.crd-jk {\r\n    font-size: 14px !important;\r\n}\r\n\r\n@media (min-width: 570px) and (max-width: 769px) {\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 25px !important;\r\n    }\r\n\r\n    .crd-jk {\r\n        font-size: 10px !important;\r\n    }\r\n}\r\n\r\n@media (max-width: 568px) {\r\n    .section-3 .col {\r\n        flex: none;\r\n    }\r\n\r\n    .colmd4 {\r\n        padding: 0px 140px !important;\r\n    }\r\n\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 0px !important;\r\n    }\r\n}\r\n\r\n@media (min-width: 786px) and (max-width: 1024px) {\r\n\r\n    .card-body-md3 {\r\n        padding: 0rem 1rem !important;\r\n    }\r\n\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 40px !important;\r\n    }\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".mb3-jk {\r\n    border: none !important;\r\n}\r\n\r\n.card-img-jk {\r\n    /* padding: 0px 0px 0px 75px !important; */\r\n}\r\n\r\n.section-3 {\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.sec-3hdiv-jk {\r\n    padding: 0px 100px;\r\n    margin: 30px 0px;\r\n}\r\n\r\n.sec-3jk span {\r\n    background-color: #fff;\r\n    position: relative;\r\n    font-family: Teko, sans-serif;\r\n    line-height: 43px;\r\n    letter-spacing: normal;\r\n    word-spacing: 0px;\r\n    margin: 0px;\r\n    font-weight: 600;\r\n\r\n}\r\n\r\n.crd-jk {\r\n    font-size: 14px !important;\r\n}\r\n\r\n@media (min-width: 570px) and (max-width: 769px) {\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 25px !important;\r\n    }\r\n\r\n    .crd-jk {\r\n        font-size: 10px !important;\r\n    }\r\n}\r\n\r\n@media (max-width: 568px) {\r\n    .section-3 .col {\r\n        flex: none;\r\n    }\r\n\r\n    .colmd4 {\r\n        padding: 0px 140px !important;\r\n    }\r\n\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 0px !important;\r\n    }\r\n}\r\n\r\n@media (min-width: 786px) and (max-width: 1024px) {\r\n\r\n    .card-body-md3 {\r\n        padding: 0rem 1rem !important;\r\n    }\r\n\r\n    .card-img-jk {\r\n        padding: 0px 0px 0px 40px !important;\r\n    }\r\n}\r\n\r\n.res-service{\r\n    display: flex;\r\n    flex-direction: column;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24185,7 +24196,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".testimonial {\r\n    min-height: 375px;\r\n    position: relative;\r\n    background: url(https://i.ibb.co/PTJDkgb/testimonials.jpg);\r\n    padding-top: 50px;\r\n    padding-bottom: 50px;\r\n    background-position: center;\r\n    background-size: cover;\r\n    margin-bottom: -30px;\r\n}\r\n\r\n\r\n.testimonial4_header {\r\n    top: 0;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 550px;\r\n    display: block;\r\n    margin: 30px auto;\r\n    text-align: center;\r\n    position: relative;\r\n}\r\n\r\n.testimonial4_header h4 {\r\n    color: #ffffff;\r\n    font-size: 30px;\r\n    font-weight: 600;\r\n    position: relative;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n}\r\n\r\n.testimonial4_slide {\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    width: 70%;\r\n    margin: auto;\r\n    padding: 20px;\r\n    position: relative;\r\n    text-align: center;\r\n}\r\n\r\n.testimonial4_slide img {\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    width: 136px;\r\n    height: 136px;\r\n    margin: auto;\r\n    display: block;\r\n    color: #f2f2f2;\r\n    font-size: 18px;\r\n    line-height: 46px;\r\n    text-align: center;\r\n    position: relative;\r\n    border-radius: 50%;\r\n    box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);\r\n    -moz-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);\r\n    -o-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);\r\n    -webkit-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);\r\n}\r\n\r\n.testimonial4_slide p {\r\n    color: #ffffff;\r\n    font-size: 20px;\r\n    line-height: 1.4;\r\n    margin: 40px 0 20px 0;\r\n}\r\n\r\n.testimonial4_slide h4 {\r\n    color: #ffffff;\r\n    font-size: 22px;\r\n}\r\n\r\n.testimonial .carousel {\r\n    padding-bottom: 50px;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".testimonial {\r\n    min-height: 375px;\r\n    position: relative;\r\n    background: url(https://i.ibb.co/PTJDkgb/testimonials.jpg);\r\n    padding-top: 50px;\r\n    padding-bottom: 50px;\r\n    background-position: center;\r\n    background-size: cover;\r\n    margin-bottom: -30px;\r\n}\r\n\r\n\r\n.testimonial4_header {\r\n    top: 0;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 550px;\r\n    display: block;\r\n    margin: 30px auto;\r\n    text-align: center;\r\n    position: relative;\r\n}\r\n\r\n.testimonial4_header h4 {\r\n    color: #ffffff;\r\n    font-size: 30px;\r\n    font-weight: 600;\r\n    position: relative;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n}\r\n\r\n.testimonial4_slide {\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    width: 70%;\r\n    margin: auto;\r\n    padding: 20px;\r\n    position: relative;\r\n    text-align: center;\r\n}\r\n\r\n.testimonial4_slide img {\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    width: 136px;\r\n    height: 136px;\r\n    margin: auto;\r\n    display: block;\r\n    color: #f2f2f2;\r\n    font-size: 18px;\r\n    line-height: 46px;\r\n    text-align: center;\r\n    position: relative;\r\n    border-radius: 50%;\r\n    box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);\r\n    -moz-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);\r\n    -o-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);\r\n    -webkit-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);\r\n}\r\n\r\n.testimonial4_slide p {\r\n    color: #ffffff;\r\n    font-size: 20px;\r\n    line-height: 1.4;\r\n    margin: 40px 0 20px 0;\r\n}\r\n\r\n.testimonial4_slide h4 {\r\n    color: #ffffff;\r\n    font-size: 22px;\r\n}\r\n\r\n.testimonial .carousel {\r\n    padding-bottom: 50px;\r\n}\r\n\r\n.nomargin{\r\n    margin-top:10px;\r\n}\r\n\r\n.section-6{\r\n    padding: 26px;\r\n\r\n    \r\n}\r\n.description-product{\r\n       font-family: sans-serif;\r\n       font-size:14px; \r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -9,7 +9,7 @@ class InfoText extends Component {
             <section className="section-5">
                 <div className="sec-5jk">
                     <h1 className="sec-5jk-h1">{data.title}</h1>
-                    <p className="sec-5jk-p">{data.description}</p>
+                    <p className="sec-5jk-p"><small style={{fontFamily:'sans-serif', fontSize:'14px'}}>{data.description}</small></p>
                 </div>
             </section>
         );

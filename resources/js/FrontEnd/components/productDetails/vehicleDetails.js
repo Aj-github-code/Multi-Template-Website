@@ -37,7 +37,8 @@ const ProductDetails = (props) => {
         
         apiCtrl.callAxios(`/vehicle/list`, {vehicle_status: category}).then((response)=>{
              if(response.success == true){
-                 const res = response.data;
+                 const res = response.data.aaData;
+                //  console.log("res=====>",res)
                  let Vehicles = [];
                  res.map((value, index)=>{
                     
@@ -54,7 +55,9 @@ const ProductDetails = (props) => {
                  })
              
                  setProducts(Vehicles)
+
              }
+             props.loader(false)
          })
         
         // apiCtrl.callAxios(`/product/product-service-list`, {is_service: 0, product_category: 'Accessories'}).then((response)=>{

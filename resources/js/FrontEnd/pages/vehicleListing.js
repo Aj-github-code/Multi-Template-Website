@@ -25,8 +25,9 @@ class VehicleListing extends Component {
         
         this.apiCtrl.callAxios(`/vehicle/list`, {vehicle_status: this.state.category, vehile_type: this.state.type}).then((response)=>{
             if(response.success == true){
-                const res = response.data;
+                const res = response.data.aaData;
                 let Vehicles = [];
+                console.log('Res', res)
                 res.map((value, index)=>{
                    
 
@@ -41,9 +42,9 @@ class VehicleListing extends Component {
                         }];
                     
                 })
-                this.props.loader(false)
                 this.setState({vehicles: Vehicles})
             }
+            this.props.loader(false)
         })
 
     }

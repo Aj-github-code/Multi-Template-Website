@@ -65,3 +65,8 @@
         padding: 0px 0px 0px 40px !important;
     }
 }
+
+.res-service{
+    display: flex;
+    flex-direction: column;
+}

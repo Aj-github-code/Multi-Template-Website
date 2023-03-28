@@ -7,7 +7,7 @@ class Service extends Component {
         const services = this.props.data;
         // console.log(services);
         return (
-            <section className="section-3">
+            <section className="section-3 res-service">
                 <div className="sec-3hdiv-jk">
                     <h1 className="sec-3jk"><span>OUR SERVICES</span></h1>
                     <p className="sec-3jk-p">Your one stop for all your Two wheelers needs</p>
