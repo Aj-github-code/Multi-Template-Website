@@ -9,6 +9,11 @@ const ServiceBook =()=>{
     const [state,setState]=useState({})
     const [term,setTerm]=useState(true)
     const [errors,setErrors]=useState({})
+    const today = new Date();
+    var year = today.toLocaleString("default", { year: "numeric" });
+    var month = today.toLocaleString("default", { month: "2-digit" });
+    var day = today.toLocaleString("default", { day: "2-digit" });
+    var formattedDate = year + "-" + month + "-" + day;
     const apiCtrl= new Api
 
     
@@ -20,7 +25,7 @@ const ServiceBook =()=>{
         email:{required:true,min:6, type:'email'}, 
         branch:{required:true},
         service:{required:true},
-        vehicle_model:{required:true,min:3,max:20 ,type:'Numeric'},
+        vehicle_model:{required:true,min:3,max:20 ,type:'AlphaNumeric'},
         vehicle_number:{required:true,min:1,max:20 ,type:'AlphaNumeric'},
         kilometer:{required:true,min:1,max:20 ,type:'Numeric'},
         date:{required:true},
@@ -54,7 +59,15 @@ const ServiceBook =()=>{
         setErrors(old=>({...old,...error})) 
     })
 
- 
+    if(Object.entries(error).length > 0){
+        Object.entries(error).map(([index, value])=>{
+            if(value !== ''){
+                console.log(value, 'Length', index)
+
+                isValid = false;
+            }
+        })
+    }
     
     if(!isValid){
         return false;
@@ -245,7 +258,7 @@ const ServiceBook =()=>{
         <div className="col-md-6 mt-4" >
             <div className="row ">
                 <div className="col-md-12 mb-3">
-                    <select class="form-select" aria-label="Default select example"
+                    {/* <select class="form-select" aria-label="Default select example"
                       onChange={(e)=>setState(old=>({...old,branch:e.target.value}))} 
                       value={state.branch?state.branch:''}
                      
@@ -254,13 +267,21 @@ const ServiceBook =()=>{
                         <option value="pune">Pune</option>
                         <option value="mumbai">Mumabi</option>
                         <option value="surat">Surat</option>
-                       {/* <datalist id="data">
-                            {branch.map((item, key) =>
-                                <option key={key} value={item.label} />
-                            )}
-                        </datalist> */}
-                    </select>
+                    </select> */}
+                    <input 
+                        type="text" 
+                        name="branch"
+                        class="form-control" 
+                        onChange={handleChange}
+                        value={state.branch?state.branch:''}
+                        placeholder="Branch" 
+                        list="branch-list"/>
                     <span style={{color: 'red',position:"initial"}} >{errors.branch?errors.branch:""}</span>
+                    <datalist id="branch-list">  
+                        <option value="Pune"/>
+                        <option value="Mumabi"/>
+                        <option value="Surat"/>
+                    </datalist>
                 </div>
                 <div className="col-md-12 mb-3">
                 <input 
@@ -276,11 +297,11 @@ const ServiceBook =()=>{
                 </div>
                 <div className="col-md-12 mb-3">
                 <input 
-                    type="text" 
+                    type="number" 
                     name="contact"
                     class="form-control" 
                     onChange={handleChange}
-                   
+              
                     placeholder="Contact" 
                     id="exampleInputName"/>
                          <span style={{color: 'red',position:"initial"}} >{errors.contact?errors.contact:""}</span>
@@ -324,7 +345,7 @@ const ServiceBook =()=>{
                 </div>
                 <div className="col-md-12 mb-3">
                 <input 
-                    type="text" 
+                    type="number" 
                     name="kilometer"
                     class="form-control" 
                     onChange={handleChange}
@@ -362,8 +383,8 @@ const ServiceBook =()=>{
                     name="date"
                     class="form-control" 
                     onChange={handleChange}
-                   
-                    placeholder="Kilometer" 
+                    min={formattedDate}
+                    placeholder="YYYY/MM/DD" 
                     id="exampleInputName"/>
                          <span style={{color: 'red',position:"initial"}} >{errors.date?errors.date:""}</span>
               
@@ -375,7 +396,7 @@ const ServiceBook =()=>{
                     class="form-control" 
                     onChange={handleChange}
                    
-                    placeholder="Kilometer" 
+                    placeholder="00:00" 
                     id="exampleInputName"/>
                     <span style={{color: 'red',position:"initial"}} >{errors.time?errors.time:""}</span>
               

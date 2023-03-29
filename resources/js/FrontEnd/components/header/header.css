@@ -5,7 +5,7 @@
         position: relative;
         bottom: -35px;
         z-index: 9;
-        padding: 4px 0px;
+        padding: 4px 10px;
         left: 0px;
         --bs-navbar-active-color: #ffffff;
     }
@@ -76,6 +76,8 @@
         background-color: var(--bs-primary);
         text-decoration: underline;
     }
+
+   
 }
 
 .navbar-nav .nav-link.active,
@@ -106,7 +108,25 @@ header {
         padding: 0px 10px;
     }
 
+    /* .right-logo {
+        display: none;
+    } */
+}
+
+@media(max-width:992px) {
     .right-logo {
         display: none;
     }
+}
+
+section#contact {
+    margin-top: 80px !important;
+}
+
+.view-more-button{
+    background: var(--bs-primary);
+    border-radius: 23px;
+    padding: 8px;
+    width: 130px;
+    color: white;
 }

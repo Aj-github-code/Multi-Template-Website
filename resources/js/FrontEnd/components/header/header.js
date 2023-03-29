@@ -5,6 +5,7 @@ import './header.css';
 import logo from '../../assets/images/logo-tvs.png';
 import Api from "../../services/api";
 import { API_CONSTANTS } from "../../assets/config/constants";
+import textModifier from "../../services/textModifier"
 
 class Header extends Component {
 
@@ -37,6 +38,16 @@ class Header extends Component {
                         }
                     ]
                 }
+            ],
+            products: [
+                {
+                    category_name: 'RSA',
+                    slug: 'rsa'
+                },
+                {
+                    category_name: 'Accessories',
+                    slug: 'accessories'
+                }
             ]
         };
     }
@@ -46,6 +57,12 @@ class Header extends Component {
             if (this.props.vehicles !== [] && this.props.vehicles !== {}) {
 
                 this.setState({ vehicles: this.props.vehicles })
+            }
+
+        }
+        if (prevProps.products !== this.props.products) {
+            if (this.props.products !== [] && this.props.products !== {}) {
+                this.setState({ products: this.props.products })
             }
         }
     }
@@ -84,11 +101,25 @@ class Header extends Component {
                                 <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="/about">About</Nav.Link>
                                 <Nav.Link href="/service">Service</Nav.Link>
-                                <NavDropdown title="Product" id="basic-nav-dropdown">
+                                {/* <NavDropdown title="Product" id="basic-nav-dropdown">
                                     <NavDropdown.Item href="/product/Accessories">Accessories</NavDropdown.Item>
                                     <NavDropdown.Item href="/product/Oil & Lubricants">
                                         Oil & Lubricants
                                     </NavDropdown.Item>
+                                </NavDropdown> */}
+                                <NavDropdown title="Products" id="basic-nav-dropdown" >
+                                    {
+                                        this.state.products.map((value, index) => {
+                        
+                                            return (
+                                                <NavDropdown.Item href={`/product/${value.slug}`} >
+                                                    {textModifier(value.category_name.toUpperCase())}
+                                                </NavDropdown.Item>
+                                            )
+                                                      
+                                            
+                                        })
+                                    }
                                 </NavDropdown>
                                 <NavDropdown title="Vehicles" id="basic-nav-dropdown" >
                                     {

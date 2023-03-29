@@ -18,12 +18,20 @@ class VehicleListing extends Component {
             vehicles: [],
             category: this.props.params.category ? this.props.params.category : "used",
             type: this.props.params.type ? this.props.params.type : "new",
+            page: 0,
+            pageLength: 8,
+            total_records: 0,
         }
         
     }
-    componentDidMount(){
-        
-        this.apiCtrl.callAxios(`/vehicle/list`, {vehicle_status: this.state.category, vehile_type: this.state.type}).then((response)=>{
+
+    vehicleList(){
+        this.apiCtrl.callAxios(`/vehicle/list`, {
+            vehicle_status: this.state.category, 
+            vehile_type: this.state.type,
+            length: this.state.pageLength, 
+            start: (this.state.page * this.state.pageLength), 
+        }).then((response)=>{
             if(response.success == true){
                 const res = response.data.aaData;
                 let Vehicles = [];
@@ -42,12 +50,18 @@ class VehicleListing extends Component {
                         }];
                     
                 })
-                this.setState({vehicles: Vehicles})
+                this.setState(old=>({vehicles: [...old.vehicles, ...Vehicles], page: (1+this.state.page), total_records:  response.data.iTotalRecords}))
+
+                // this.setState(ol{vehicles: Vehicles})
             }
             this.props.loader(false)
         })
-
     }
+
+    componentDidMount(){
+        this.vehicleList();
+    }
+
     render() {
         let settings = {
             dots: true,
@@ -88,6 +102,13 @@ class VehicleListing extends Component {
                             </div>
                         ))}
                     </div>
+                    {(this.state.vehicles.length === ((this.state.page) * this.state.pageLength)) &&
+                        <div className="row mb-4">
+                            <div className="col-md-12 text-center">
+                                <button className="view-more-button" onClick={()=>{ this.props.loader(true),this.vehicleList()}} >View More ({this.state.total_records})</button>
+                            </div>
+                        </div>
+                    }
                 </div>
                 <div className='container'>
                     <h3 className='sectionTitle mb-3'>Related Vehicles</h3>

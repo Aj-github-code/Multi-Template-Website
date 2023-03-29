@@ -103,10 +103,10 @@ class Home extends Component {
             this.props.loader(false)
 
         })
-        this.apiCtrl.callAxios('/testimonial/list','').then((response)=>{
+        this.apiCtrl.callAxios('/testimonial/list',{length:10}).then((response)=>{
             
             if(response.success == true){
-                this.setState({testimonials: response.data});
+                this.setState({testimonials: response.data.aaData});
             }
         })
         this.apiCtrl.callAxios(`/product/product-category-list`, {is_service: 1}).then((response)=>{

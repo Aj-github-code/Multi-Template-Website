@@ -37,6 +37,7 @@ function FrontEnd() {
   const [aboutUs, setAboutUs] = React.useState([]);
   const [footer, setFooter] = React.useState({});
   const [vehicles, setVehicles] = React.useState([]);
+  const [product, setProduct] = React.useState([]);
 
   const response =  {
     "status": "success",
@@ -256,12 +257,10 @@ function FrontEnd() {
 
     }
 
-    console.log('About us',res)
-
-      // console.log('Final Setup', setup)
-
-     
+    // console.log('About us',res)
+      // console.log('Final Setup', setup)    
       getVehiclesMenu();
+      getProductCategory();
 
   },[])
 
@@ -275,10 +274,19 @@ function FrontEnd() {
     })
 }
 
+const getProductCategory = () => {
+  apiCtrl.callAxios(`/product/product-category-list`, {is_service: '1'}).then((response)=>{
+    if(response.success == true){
+      const res = response.data;
+            
+      setProduct(res)
+    }
+  })
+}
   return (
     <Router>
       <Loader loading={loading} />
-      <Header logo={logos} vehicles={vehicles} />
+      <Header logo={logos} vehicles={vehicles} products={product} />
       <FloatingIcons />
       <Routes>
         <Route path='/' exact element={<Home loader={(state)=>{setLoading(state)}} />}  />

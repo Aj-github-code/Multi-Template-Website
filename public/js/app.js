@@ -12902,6 +12902,10 @@ function FrontEnd() {
     _React$useState10 = _slicedToArray(_React$useState9, 2),
     vehicles = _React$useState10[0],
     setVehicles = _React$useState10[1];
+  var _React$useState11 = react__WEBPACK_IMPORTED_MODULE_0___default().useState([]),
+    _React$useState12 = _slicedToArray(_React$useState11, 2),
+    product = _React$useState12[0],
+    setProduct = _React$useState12[1];
   var response = {
     "status": "success",
     "data": [{
@@ -13078,11 +13082,10 @@ function FrontEnd() {
       });
     }
 
-    console.log('About us', res);
-
-    // console.log('Final Setup', setup)
-
+    // console.log('About us',res)
+    // console.log('Final Setup', setup)    
     getVehiclesMenu();
+    getProductCategory();
   }, []);
   var getVehiclesMenu = function getVehiclesMenu() {
     apiCtrl.callAxiosGet("/vehicle/get-vehicle-make-model-type").then(function (response) {
@@ -13092,12 +13095,23 @@ function FrontEnd() {
       }
     });
   };
+  var getProductCategory = function getProductCategory() {
+    apiCtrl.callAxios("/product/product-category-list", {
+      is_service: '1'
+    }).then(function (response) {
+      if (response.success == true) {
+        var res = response.data;
+        setProduct(res);
+      }
+    });
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_23__.BrowserRouter, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_components_loader_loader__WEBPACK_IMPORTED_MODULE_15__["default"], {
       loading: loading
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_components_header_header__WEBPACK_IMPORTED_MODULE_3__["default"], {
       logo: logos,
-      vehicles: vehicles
+      vehicles: vehicles,
+      products: product
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_components_floatingIcons_floatingIcons__WEBPACK_IMPORTED_MODULE_14__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_24__.Routes, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_24__.Route, {
         path: "/",
@@ -13320,6 +13334,17 @@ var ServiceBook = function ServiceBook() {
     _useState6 = _slicedToArray(_useState5, 2),
     errors = _useState6[0],
     setErrors = _useState6[1];
+  var today = new Date();
+  var year = today.toLocaleString("default", {
+    year: "numeric"
+  });
+  var month = today.toLocaleString("default", {
+    month: "2-digit"
+  });
+  var day = today.toLocaleString("default", {
+    day: "2-digit"
+  });
+  var formattedDate = year + "-" + month + "-" + day;
   var apiCtrl = new _services_api__WEBPACK_IMPORTED_MODULE_3__["default"]();
   var validation = {
     name: {
@@ -13349,7 +13374,7 @@ var ServiceBook = function ServiceBook() {
       required: true,
       min: 3,
       max: 20,
-      type: 'Numeric'
+      type: 'AlphaNumeric'
     },
     vehicle_number: {
       required: true,
@@ -13395,6 +13420,17 @@ var ServiceBook = function ServiceBook() {
         return _objectSpread(_objectSpread({}, old), error);
       });
     });
+    if (Object.entries(error).length > 0) {
+      Object.entries(error).map(function (_ref3) {
+        var _ref4 = _slicedToArray(_ref3, 2),
+          index = _ref4[0],
+          value = _ref4[1];
+        if (value !== '') {
+          console.log(value, 'Length', index);
+          isValid = false;
+        }
+      });
+    }
     if (!isValid) {
       return false;
     }
@@ -13459,10 +13495,10 @@ var ServiceBook = function ServiceBook() {
     var isValid = true;
     var isMax = 1000;
     if (typeof validation[fieldName] !== "undefined") {
-      Object.entries(validation[fieldName]).map(function (_ref3) {
-        var _ref4 = _slicedToArray(_ref3, 2),
-          key = _ref4[0],
-          value = _ref4[1];
+      Object.entries(validation[fieldName]).map(function (_ref5) {
+        var _ref6 = _slicedToArray(_ref5, 2),
+          key = _ref6[0],
+          value = _ref6[1];
         var temp = fieldName.replace(/_/g, " ");
         var names = temp.toLowerCase().split(' ').map(function (word) {
           return word.charAt(0).toUpperCase() + word.slice(1);
@@ -13562,36 +13598,29 @@ var ServiceBook = function ServiceBook() {
               className: "row ",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "col-md-12 mb-3",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
-                  "class": "form-select",
-                  "aria-label": "Default select example",
-                  onChange: function onChange(e) {
-                    return setState(function (old) {
-                      return _objectSpread(_objectSpread({}, old), {}, {
-                        branch: e.target.value
-                      });
-                    });
-                  },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                  type: "text",
+                  name: "branch",
+                  "class": "form-control",
+                  onChange: handleChange,
                   value: state.branch ? state.branch : '',
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                    selected: true,
-                    children: "Select Branch"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                    value: "pune",
-                    children: "Pune"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                    value: "mumbai",
-                    children: "Mumabi"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                    value: "surat",
-                    children: "Surat"
-                  })]
+                  placeholder: "Branch",
+                  list: "branch-list"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                   style: {
                     color: 'red',
                     position: "initial"
                   },
                   children: errors.branch ? errors.branch : ""
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("datalist", {
+                  id: "branch-list",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "Pune"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "Mumabi"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "Surat"
+                  })]
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "col-md-12 mb-3",
@@ -13612,7 +13641,7 @@ var ServiceBook = function ServiceBook() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "col-md-12 mb-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                  type: "text",
+                  type: "number",
                   name: "contact",
                   "class": "form-control",
                   onChange: handleChange,
@@ -13676,7 +13705,7 @@ var ServiceBook = function ServiceBook() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "col-md-12 mb-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                  type: "text",
+                  type: "number",
                   name: "kilometer",
                   "class": "form-control",
                   onChange: handleChange,
@@ -13731,7 +13760,8 @@ var ServiceBook = function ServiceBook() {
                   name: "date",
                   "class": "form-control",
                   onChange: handleChange,
-                  placeholder: "Kilometer",
+                  min: formattedDate,
+                  placeholder: "YYYY/MM/DD",
                   id: "exampleInputName"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                   style: {
@@ -13747,7 +13777,7 @@ var ServiceBook = function ServiceBook() {
                   name: "time",
                   "class": "form-control",
                   onChange: handleChange,
-                  placeholder: "Kilometer",
+                  placeholder: "00:00",
                   id: "exampleInputName"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                   style: {
@@ -15357,15 +15387,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Navbar.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Nav.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/NavDropdown.js");
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Navbar.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Nav.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/NavDropdown.js");
 /* harmony import */ var _header_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header.css */ "./resources/js/FrontEnd/components/header/header.css");
 /* harmony import */ var _assets_images_logo_tvs_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/images/logo-tvs.png */ "./resources/js/FrontEnd/assets/images/logo-tvs.png");
 /* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/api */ "./resources/js/FrontEnd/services/api.js");
 /* harmony import */ var _assets_config_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/config/constants */ "./resources/js/FrontEnd/assets/config/constants.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _services_textModifier__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/textModifier */ "./resources/js/FrontEnd/services/textModifier.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -15379,6 +15410,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -15412,6 +15444,13 @@ var Header = /*#__PURE__*/function (_Component) {
         }, {
           vehicle_type: 'Scooter'
         }]
+      }],
+      products: [{
+        category_name: 'RSA',
+        slug: 'rsa'
+      }, {
+        category_name: 'Accessories',
+        slug: 'accessories'
       }]
     };
     return _this;
@@ -15423,6 +15462,13 @@ var Header = /*#__PURE__*/function (_Component) {
         if (this.props.vehicles !== [] && this.props.vehicles !== {}) {
           this.setState({
             vehicles: this.props.vehicles
+          });
+        }
+      }
+      if (prevProps.products !== this.props.products) {
+        if (this.props.products !== [] && this.props.products !== {}) {
+          this.setState({
+            products: this.props.products
           });
         }
       }
@@ -15446,76 +15492,75 @@ var Header = /*#__PURE__*/function (_Component) {
     value: function render() {
       var Url = _assets_config_constants__WEBPACK_IMPORTED_MODULE_4__.API_CONSTANTS.URL;
       console.log('vehicles', this.props.vehicles, this.state.vehicles);
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("header", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("header", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"], {
           bg: "white",
           expand: "lg",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Brand, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_8__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Brand, {
               href: "/",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
                 src: _assets_images_logo_tvs_png__WEBPACK_IMPORTED_MODULE_2__["default"],
                 className: "logo img-fluid",
                 alt: "TVS Bike"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Toggle, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Toggle, {
               "aria-controls": "basic-navbar-nav"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"].Collapse, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Collapse, {
               id: "basic-navbar-nav",
               className: "justify-content-end",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
                 className: "nav-menu",
                 activeKey: location.pathname,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"].Link, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Link, {
                   href: "/",
                   children: "Home"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"].Link, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Link, {
                   href: "/about",
                   children: "About"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"].Link, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Link, {
                   href: "/service",
                   children: "Service"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                  title: "Product",
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__["default"], {
+                  title: "Products",
                   id: "basic-nav-dropdown",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Item, {
-                    href: "/product/Accessories",
-                    children: "Accessories"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Item, {
-                    href: "/product/Oil & Lubricants",
-                    children: "Oil & Lubricants"
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                  children: this.state.products.map(function (value, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__["default"].Item, {
+                      href: "/product/".concat(value.slug),
+                      children: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_5__["default"])(value.category_name.toUpperCase())
+                    });
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__["default"], {
                   title: "Vehicles",
                   id: "basic-nav-dropdown",
                   children: this.state.vehicles.map(function (value, index) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__["default"], {
                       title: "".concat(value.vehicle_status.toUpperCase()),
                       className: "text-primary submenu",
                       id: "basic-nav-dropdown",
                       children: value.types.map(function (val, ind) {
-                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Item, {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__["default"].Item, {
                           href: "/vehicle/".concat(value.vehicle_status, "/").concat(val.vehicle_type),
                           children: val.vehicle_type.toUpperCase()
                         });
                       })
                     });
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"].Link, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Link, {
                   href: "/gallery",
                   children: "Gallery"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"].Link, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Link, {
                   href: "/test-ride",
                   children: "Test Ride"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["default"].Link, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Link, {
                   href: "/contact",
                   children: "Contact Us"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
               href: "/",
               className: "right-logo",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
                 src: this.props.logo !== '' ? Url + '/public/upload/setup/' + this.props.logo : _assets_images_logo_tvs_png__WEBPACK_IMPORTED_MODULE_2__["default"],
                 className: "img-fluid",
                 alt: "TVS Bike",
@@ -17374,10 +17419,12 @@ var Home = /*#__PURE__*/function (_Component) {
         }
         _this2.props.loader(false);
       });
-      this.apiCtrl.callAxios('/testimonial/list', '').then(function (response) {
+      this.apiCtrl.callAxios('/testimonial/list', {
+        length: 10
+      }).then(function (response) {
         if (response.success == true) {
           _this2.setState({
-            testimonials: response.data
+            testimonials: response.data.aaData
           });
         }
       });
@@ -17498,17 +17545,21 @@ var ProductListing = /*#__PURE__*/function (_Component) {
     _this.state = {
       products: [],
       categories: [],
-      category: _this.props.params.category ? _this.props.params.category : "Products"
+      category: _this.props.params.category ? _this.props.params.category : "Products",
+      page: 0,
+      pageLength: 8
     };
     return _this;
   }
   _createClass(ProductListing, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "productServiceList",
+    value: function productServiceList() {
       var _this2 = this;
       this.apiCtrl.callAxios("/product/product-service-list", {
         is_service: 0,
-        product_category: this.state.category
+        length: this.state.pageLength,
+        start: this.state.page * this.state.pageLength,
+        slug: this.state.category
       }).then(function (response) {
         if (response.success == true) {
           var res = response.data;
@@ -17525,11 +17576,20 @@ var ProductListing = /*#__PURE__*/function (_Component) {
             }]);
           });
           _this2.props.loader(false);
-          _this2.setState({
-            products: Products
+          _this2.setState(function (old) {
+            return {
+              products: [].concat(_toConsumableArray(old.products), _toConsumableArray(Products)),
+              page: 1 + _this2.state.page
+            };
           });
         }
       });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this3 = this;
+      this.productServiceList();
       this.apiCtrl.callAxios("/product/product-category-list", {
         is_service: 0,
         ignore_category: this.state.category
@@ -17548,7 +17608,7 @@ var ProductListing = /*#__PURE__*/function (_Component) {
               category: value.category_name
             }]);
           });
-          _this2.setState({
+          _this3.setState({
             categories: categorie
           });
         }
@@ -17557,6 +17617,7 @@ var ProductListing = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this4 = this;
       var settings = {
         dots: true,
         infinite: this.state.products.length > 4 ? true : false,
@@ -17584,9 +17645,9 @@ var ProductListing = /*#__PURE__*/function (_Component) {
         className: "productListing",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_pageTitle_pageTitle__WEBPACK_IMPORTED_MODULE_1__["default"], {
           data: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_9__["default"])("".concat(this.state.category))
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             className: "row",
             children: this.state.products && this.state.products.map(function (item) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -17596,7 +17657,19 @@ var ProductListing = /*#__PURE__*/function (_Component) {
                 })
               }, item.id);
             })
-          })
+          }), this.state.products.length === this.state.page * this.state.pageLength && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+            className: "row mb-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              className: "col-md-12 text-center",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                className: "view-more-button",
+                onClick: function onClick() {
+                  _this4.productServiceList();
+                },
+                children: "View More"
+              })
+            })
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "container",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
@@ -18005,17 +18078,22 @@ var VehicleListing = /*#__PURE__*/function (_Component) {
     _this.state = {
       vehicles: [],
       category: _this.props.params.category ? _this.props.params.category : "used",
-      type: _this.props.params.type ? _this.props.params.type : "new"
+      type: _this.props.params.type ? _this.props.params.type : "new",
+      page: 0,
+      pageLength: 8,
+      total_records: 0
     };
     return _this;
   }
   _createClass(VehicleListing, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "vehicleList",
+    value: function vehicleList() {
       var _this2 = this;
       this.apiCtrl.callAxios("/vehicle/list", {
         vehicle_status: this.state.category,
-        vehile_type: this.state.type
+        vehile_type: this.state.type,
+        length: this.state.pageLength,
+        start: this.state.page * this.state.pageLength
       }).then(function (response) {
         if (response.success == true) {
           var res = response.data.aaData;
@@ -18032,16 +18110,29 @@ var VehicleListing = /*#__PURE__*/function (_Component) {
               type: _this2.state.type
             }]);
           });
-          _this2.setState({
-            vehicles: Vehicles
+          _this2.setState(function (old) {
+            return {
+              vehicles: [].concat(_toConsumableArray(old.vehicles), _toConsumableArray(Vehicles)),
+              page: 1 + _this2.state.page,
+              total_records: response.data.iTotalRecords
+            };
           });
+
+          // this.setState(ol{vehicles: Vehicles})
         }
+
         _this2.props.loader(false);
       });
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.vehicleList();
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
       var settings = {
         dots: true,
         infinite: true,
@@ -18069,9 +18160,9 @@ var VehicleListing = /*#__PURE__*/function (_Component) {
         className: "productListing",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_pageTitle_pageTitle__WEBPACK_IMPORTED_MODULE_1__["default"], {
           data: (0,_services_textModifier__WEBPACK_IMPORTED_MODULE_9__["default"])("".concat(this.state.category, " ").concat(this.state.type))
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             className: "row",
             children: this.state.vehicles && this.state.vehicles.map(function (item) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -18081,7 +18172,19 @@ var VehicleListing = /*#__PURE__*/function (_Component) {
                 })
               }, item.id);
             })
-          })
+          }), this.state.vehicles.length === this.state.page * this.state.pageLength && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+            className: "row mb-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              className: "col-md-12 text-center",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
+                className: "view-more-button",
+                onClick: function onClick() {
+                  _this3.props.loader(true), _this3.vehicleList();
+                },
+                children: ["View More (", this.state.total_records, ")"]
+              })
+            })
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "container",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
@@ -24613,7 +24716,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@media (min-width: 992px) {\r\n\r\n    .nav-menu {\r\n        background: var(--bs-primary);\r\n        position: relative;\r\n        bottom: -35px;\r\n        z-index: 9;\r\n        padding: 4px 0px;\r\n        left: 0px;\r\n        --bs-navbar-active-color: #ffffff;\r\n    }\r\n\r\n    .nav-menu .dropdown-menu {\r\n        border-radius: 0;\r\n        padding: 0;\r\n    }\r\n\r\n    .nav-menu .submenu a {\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-between;\r\n        color: var(--bs-primary);\r\n    }\r\n\r\n    .nav-menu .submenu .show {\r\n        color: var(--bs-primary);\r\n    }\r\n\r\n    .nav-menu .submenu:hover>a {\r\n        color: #fff !important;\r\n    }\r\n\r\n    .nav-menu .submenu .dropdown-menu {\r\n        left: 100%;\r\n        top: 0;\r\n    }\r\n\r\n    .nav-menu::before {\r\n        border-left: 70px solid transparent;\r\n        border-right: 0px solid transparent;\r\n        border-bottom: 55px solid var(--bs-primary);\r\n        content: \"\";\r\n        position: absolute;\r\n        left: -70px;\r\n        z-index: 1;\r\n        bottom: 0;\r\n    }\r\n\r\n    .nav-menu a {\r\n        color: #fff;\r\n        padding: 12px 18px !important;\r\n    }\r\n\r\n    .nav-menu a:hover,\r\n    .nav-menu a:focus {\r\n        color: #fff;\r\n        text-decoration: underline;\r\n    }\r\n\r\n    a.dropdown-item {\r\n        color: var(--bs-primary);\r\n    }\r\n\r\n    a.dropdown-item:hover,\r\n    a.dropdown-item:focus {\r\n        background-color: var(--bs-primary);\r\n        text-decoration: underline;\r\n    }\r\n\r\n    .submenu>a {\r\n        color: var(--bs-primary);\r\n    }\r\n\r\n    .submenu:hover,\r\n    .submenu:focus {\r\n        background-color: var(--bs-primary);\r\n        text-decoration: underline;\r\n    }\r\n}\r\n\r\n.navbar-nav .nav-link.active,\r\n.navbar-nav .show>.nav-link {\r\n    background-color: #ffffff;\r\n    color: var(--bs-primary);\r\n}\r\n\r\n/*-------------------------------------------service page----------------------------------*/\r\n\r\n.servc-ft-img {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 40px 0px;\r\n}\r\n\r\nheader {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 99999;\r\n    box-shadow: 0 1px 5px rgb(0 0 0 / 50%);\r\n}\r\n\r\n@media(max-width:767px) {\r\n    .nav-menu .submenu {\r\n        padding: 0px 10px;\r\n    }\r\n\r\n    .right-logo {\r\n        display: none;\r\n    }\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media (min-width: 992px) {\r\n\r\n    .nav-menu {\r\n        background: var(--bs-primary);\r\n        position: relative;\r\n        bottom: -35px;\r\n        z-index: 9;\r\n        padding: 4px 10px;\r\n        left: 0px;\r\n        --bs-navbar-active-color: #ffffff;\r\n    }\r\n\r\n    .nav-menu .dropdown-menu {\r\n        border-radius: 0;\r\n        padding: 0;\r\n    }\r\n\r\n    .nav-menu .submenu a {\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-between;\r\n        color: var(--bs-primary);\r\n    }\r\n\r\n    .nav-menu .submenu .show {\r\n        color: var(--bs-primary);\r\n    }\r\n\r\n    .nav-menu .submenu:hover>a {\r\n        color: #fff !important;\r\n    }\r\n\r\n    .nav-menu .submenu .dropdown-menu {\r\n        left: 100%;\r\n        top: 0;\r\n    }\r\n\r\n    .nav-menu::before {\r\n        border-left: 70px solid transparent;\r\n        border-right: 0px solid transparent;\r\n        border-bottom: 55px solid var(--bs-primary);\r\n        content: \"\";\r\n        position: absolute;\r\n        left: -70px;\r\n        z-index: 1;\r\n        bottom: 0;\r\n    }\r\n\r\n    .nav-menu a {\r\n        color: #fff;\r\n        padding: 12px 18px !important;\r\n    }\r\n\r\n    .nav-menu a:hover,\r\n    .nav-menu a:focus {\r\n        color: #fff;\r\n        text-decoration: underline;\r\n    }\r\n\r\n    a.dropdown-item {\r\n        color: var(--bs-primary);\r\n    }\r\n\r\n    a.dropdown-item:hover,\r\n    a.dropdown-item:focus {\r\n        background-color: var(--bs-primary);\r\n        text-decoration: underline;\r\n    }\r\n\r\n    .submenu>a {\r\n        color: var(--bs-primary);\r\n    }\r\n\r\n    .submenu:hover,\r\n    .submenu:focus {\r\n        background-color: var(--bs-primary);\r\n        text-decoration: underline;\r\n    }\r\n\r\n   \r\n}\r\n\r\n.navbar-nav .nav-link.active,\r\n.navbar-nav .show>.nav-link {\r\n    background-color: #ffffff;\r\n    color: var(--bs-primary);\r\n}\r\n\r\n/*-------------------------------------------service page----------------------------------*/\r\n\r\n.servc-ft-img {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 40px 0px;\r\n}\r\n\r\nheader {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 99999;\r\n    box-shadow: 0 1px 5px rgb(0 0 0 / 50%);\r\n}\r\n\r\n@media(max-width:767px) {\r\n    .nav-menu .submenu {\r\n        padding: 0px 10px;\r\n    }\r\n\r\n    /* .right-logo {\r\n        display: none;\r\n    } */\r\n}\r\n\r\n@media(max-width:992px) {\r\n    .right-logo {\r\n        display: none;\r\n    }\r\n}\r\n\r\nsection#contact {\r\n    margin-top: 80px !important;\r\n}\r\n\r\n.view-more-button{\r\n    background: var(--bs-primary);\r\n    border-radius: 23px;\r\n    padding: 8px;\r\n    width: 130px;\r\n    color: white;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -26333,7 +26436,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/loader.svg?6807cf565d7dd6fe5c29d5411a2caba0");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/loader.svg?d17ac3a4d0d18fd9ceb77b4e8e2c73dd");
 
 /***/ }),
 

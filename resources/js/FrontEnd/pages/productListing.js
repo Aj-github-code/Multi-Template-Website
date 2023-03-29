@@ -18,12 +18,21 @@ class ProductListing extends Component {
             products: [],
             categories: [],
             category: this.props.params.category ? this.props.params.category : "Products",
+            page: 0,
+            pageLength: 8,
         }
         
     }
-    componentDidMount(){
-        
-        this.apiCtrl.callAxios(`/product/product-service-list`, {is_service: 0, product_category: this.state.category}).then((response)=>{
+
+
+    productServiceList(){
+        this.apiCtrl.callAxios(`/product/product-service-list`, 
+            {
+                is_service: 0, 
+                length: this.state.pageLength, 
+                start: (this.state.page * this.state.pageLength), 
+                slug: this.state.category
+            }).then((response)=>{
             if(response.success == true){
                 const res = response.data;
                 let Products = [];
@@ -42,9 +51,14 @@ class ProductListing extends Component {
                     
                 })
                 this.props.loader(false)
-                this.setState({products: Products})
+                this.setState(old=>({products: [...old.products, ...Products], page: (1+this.state.page)}))
             }
         })
+    }
+    componentDidMount(){
+            
+      
+        this.productServiceList();
                
         this.apiCtrl.callAxios(`/product/product-category-list`, {is_service: 0, ignore_category: this.state.category}).then((response)=>{
             if(response.success == true){
@@ -97,6 +111,7 @@ class ProductListing extends Component {
                 }
             ]
         };
+
         return (
             <div className='productListing'>
                 <PageTitle data={textModifier(`${this.state.category}`)} />
@@ -108,6 +123,13 @@ class ProductListing extends Component {
                             </div>
                         ))}
                     </div>
+                    {(this.state.products.length === ((this.state.page) * this.state.pageLength)) &&
+                        <div className="row mb-4">
+                            <div className="col-md-12 text-center">
+                                <button className="view-more-button" onClick={()=>{this.productServiceList()}} >View More</button>
+                            </div>
+                        </div>
+                    }
                 </div>
                 <div className='container'>
                     <h3 className='sectionTitle mb-3'>Related Categories</h3>
@@ -129,6 +151,7 @@ class ProductListing extends Component {
                             ))}
                         </Slider>
                     </div>
+                    
                 </div>
             </div>
         );
