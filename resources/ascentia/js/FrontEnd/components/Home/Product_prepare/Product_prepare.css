@@ -1,0 +1,42 @@
+.mainclass {
+    background-color: #f7f7f7;
+    margin-top: -1%;
+}
+.image-container {
+    height: 10%;
+    width: 100%;
+    padding-bottom: 5%;
+}
+.image {
+    height: auto;
+    width: 25%;
+
+}
+.paragraph {
+    width: 49%;
+    margin-left: 25%;
+}
+
+@media screen and (min-width:769px) and (max-width: 992px) {
+    .paragraph {
+        width: 95%;
+        margin-left: 3%;
+    }
+}
+@media screen and (min-width:577px) and (max-width: 768px) {
+    .paragraph {
+    width: 90%;
+    margin-left: 5%;
+    }
+}
+@media screen and (min-width:270px) and (max-width: 576px) {
+    .paragraph {
+        width: 95%;
+        margin-left: 3%;
+    }
+    .image-container {
+        height: 10%;
+        width: 100%;
+        padding-bottom: 10%;
+    }
+}

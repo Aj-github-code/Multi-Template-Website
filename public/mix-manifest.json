@@ -1,4 +1,8 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/dealer/js/app.js": "/dealer/js/app.js",
+    "/posp/js/app.js": "/posp/js/app.js",
+    "/ascentia/js/app.js": "/ascentia/js/app.js",
+    "/ascentia/css/app.css": "/ascentia/css/app.css",
+    "/dealer/css/app.css": "/dealer/css/app.css",
+    "/posp/css/app.css": "/posp/css/app.css"
 }

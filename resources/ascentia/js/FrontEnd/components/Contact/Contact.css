@@ -1,0 +1,232 @@
+/* html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+} */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.places-container {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 300px;
+  padding-bottom: 5%;
+
+}
+
+.map-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.combobox-input {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.contactpage {
+  position: relative;
+
+}
+
+
+.contactpage .contact_detail {
+  position: absolute;
+  bottom: 0;
+  z-index: 999;
+  background: #ffffff;
+  width: 100%;
+  padding: 60px 10% 30px 10%;
+  border-radius: 35% 35% 0 0;
+}
+
+.contactpage .contact_image {
+  margin-left: 65%;
+  margin-top: -10%;
+  width: 20%;
+}
+
+.contacticon {
+  margin-left: 15%;
+  margin-top: -2%;
+}
+
+@media screen and (min-width:1025px) and (max-width: 1280px) {
+  .contactpage {
+    position: absolute;
+    border-radius: 150px 150px 0px 0px;
+    margin-top: -15%;
+    background-color: white;
+    width: 101%;
+    height: 24%;
+    margin-left: -1%;
+  }
+
+  .contactpage .contact_detail {
+    margin-left: 8%;
+    margin-top: 1%;
+  }
+
+  .contactpage .contact_image {
+    margin-left: 65%;
+    margin-top: -10%;
+    width: 30%;
+  }
+
+  .contacticon {
+    margin-left: 25%;
+    margin-top: -2%;
+  }
+}
+
+@media screen and (min-width:993px) and (max-width: 1024px) {
+  .contactpage {
+    position: absolute;
+    border-radius: 150px 150px 0px 0px;
+    margin-top: -15%;
+    background-color: white;
+    width: 101%;
+    height: 26%;
+    margin-left: -1%;
+  }
+
+  .contactpage .contact_detail {
+    margin-left: 8%;
+    margin-top: 1%;
+  }
+
+  .contactpage .contact_image {
+    margin-left: 65%;
+    margin-top: -14%;
+    width: 30%;
+  }
+
+  .contacticon {
+    margin-left: 25%;
+    margin-top: -3%;
+  }
+}
+
+@media screen and (min-width:769px) and (max-width: 992px) {
+  .contactpage {
+    position: absolute;
+    border-radius: 150px 150px 0px 0px;
+    margin-top: -18%;
+    background-color: white;
+    width: 101%;
+    height: 12%;
+    margin-left: -1%;
+  }
+
+  .contactpage .contact_detail {
+    margin-left: 10%;
+    margin-top: 3%;
+  }
+
+  .contactpage .contact_image {
+    margin-left: 71%;
+    margin-top: -15%;
+    width: 30%;
+  }
+
+  .contacticon {
+    margin-left: 25%;
+    margin-top: -4%;
+  }
+}
+
+@media screen and (min-width:577px) and (max-width: 768px) {
+  .contactpage {
+    position: absolute;
+    border-radius: 150px 150px 0px 0px;
+    margin-top: -21%;
+    background-color: white;
+    width: 101%;
+    height: 16%;
+    margin-left: -1%;
+  }
+
+  .contactpage .contact_detail {
+    margin-left: 8%;
+    margin-top: 4%;
+  }
+
+  .contactpage .contact_image {
+    margin-left: 60%;
+    margin-top: -12%;
+    width: 35%;
+  }
+
+  .contacticon {
+    margin-left: 25%;
+    margin-top: -4%;
+  }
+}
+
+@media screen and (min-width:270px) and (max-width: 576px) {
+  .contactpage {
+    position: absolute;
+    border-radius: 90px 90px 0px 0px;
+    margin-top: -62%;
+    background-color: white;
+    width: 101%;
+    height: 35%;
+    margin-left: -1%;
+  }
+
+  .contactpage .contact_detail {
+    margin-left: 14%;
+    margin-top: 5%;
+  }
+
+  .contactpage .contact_image {
+    margin-left: 50%;
+    margin-top: -35%;
+    width: 50%;
+  }
+
+  .contacticon {
+    margin-left: 0%;
+    margin-top: 1%;
+  }
+}
+
+/* @media screen and (max-width: 820px) {
+  .contactpage {
+      position: absolute;
+      border-radius: 150px 150px 0px 0px;
+      margin-top: -15%;
+      background-color: white;
+      width: 101%;
+      height: 12%;
+      margin-left: -1%;
+  }
+  
+  .contactpage .contact_detail {
+     margin-left: 8%; 
+     margin-top: 1%;
+  }
+  
+  .contactpage .contact_image {
+      margin-left: 65%;
+      margin-top: -10%;
+      width: 20%;
+  } 
+  .contacticon {
+      margin-left: 25%;
+      margin-top: -4%;
+  }
+}
+ */
